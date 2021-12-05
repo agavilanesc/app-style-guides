@@ -1,0 +1,147 @@
+<div class="row">
+    <section class="col-md-10">
+        <div class="button-demo mt-4">
+            <div class="button-demo__container">
+                <p>
+                    Para dar estilo al botón, agregamos el elemento <code>button</code> y añadimos el atributo <code>mat-button</code> y la clase <code>.button</code>.
+                </p>
+                <pre class="language-html code-toolbar"><code class="language-html">&lt;button mat-button class="button"&gt;Button&lt;/button&gt;</code></pre>
+                <p>
+                    <button mat-button class="button color-accent">Button</button>
+                </p>
+                <hr *ngIf="indexDocument" [attr.id]="indexDocument[0].element_id">
+                <h2 class="color-first light-title">Alineado y espaciado</h2>
+                <p>
+                    Si queremos añadir alineaciones y separaciones, utilizamos las clases de margin, padding y align de <b>Bootstrap</b>.
+                </p>
+                <p>
+                    Para añadir separaciones podemos utilizar la clase <code>.mr-</code> con la medida de separación [ 0-5 ] para generar un márgen a la derecha.<br>
+                    Del mismo modo, si queremos separaciones para los demás lados, utilizamos <code>.ml-</code>, <code>.mt-</code>, <code>.mb-</code>, etc.<br>
+                    Para mayor referencia, consulte la guía de espaciados en la <a href="https://getbootstrap.com/docs/4.5/utilities/spacing/">documentación oficial de Bootstrap.</a>
+                </p>
+                <pre class="language-html code-toolbar"><code class="language-html">&lt;button mat-button class="button mr-2"&gt;Two spaces&lt;/button&gt;
+&lt;button mat-button class="button mr-3"&gt;Three spaces&lt;/button&gt;
+&lt;button mat-button class="button mr-4"&gt;Four spaces&lt;/button&gt;
+&lt;button mat-button class="button mr-5"&gt;Five spaces&lt;/button&gt;</code></pre>
+                <p>
+                    <button mat-button class="button color-accent mb-2 mr-2 my-md-0">Two spaces</button>
+                    <button mat-button class="button color-accent mb-2 mr-3 my-md-0">Three spaces</button>
+                    <button mat-button class="button color-accent mb-2 mr-4 my-md-0">Four spaces</button>
+                    <button mat-button class="button color-accent mb-2 mr-5 my-md-0">Five spaces</button>
+                </p>
+                <p>
+                    También para las alineaciones utilizamos la clase <code>.justify-content-</code> con sus valores [ start, center, end, between, around  ] para horizontal y <code>.align-self-</code> [ start, center, end ] para vertical.<br>
+                    Hay que tener en cuenta que en este caso debemos utilizar un elemento contenedor con la clase <code>.d-flex</code>.
+                    Para mayor referencia, consulte la guía de alineado en la <a href="https://getbootstrap.com/docs/4.5/utilities/flex/">documentación oficial de Bootstrap.</a>
+                </p>
+                <pre class="language-html code-toolbar"><code class="language-html">&lt;p class="d-flex justify-content-around p-3"&gt;
+    &lt;button mat-button class="button color-accent align-self-start"&gt;Button start&lt;/button&gt;
+    &lt;button mat-button class="button color-accent align-self-center"&gt;Button center&lt;/button&gt;
+    &lt;button mat-button class="button color-accent align-self-end"&gt;Button end&lt;/button&gt;
+&lt;/p&gt;</code></pre>
+                <p class="button-container d-flex justify-content-around p-3">
+                    <button mat-button class="button align-self-start">Button start</button>
+                    <button mat-button class="button align-self-center">Button center</button>
+                    <button mat-button class="button align-self-end">Button end</button>
+                </p>
+                <hr *ngIf="indexDocument" [attr.id]="indexDocument[1].element_id">
+                <h2 class="color-first light-title">Botones de colores</h2>
+                <p>
+                    Use las clases <code>.color-first</code> <code>.color-accent</code> <code>.color-dark</code> <code>.color-light</code> <code>.color-cancel</code> 
+                    <code>.color-success</code> <code>.color-danger</code> para obtener botones con los colores coorporativos. <br>
+                    Por defecto el color es <span class="bold color-second">celeste</span>
+                </p>
+                <pre class="language-html code-toolbar"><code class="language-html">&lt;button mat-button class="button"&gt;Color default&lt;/button&gt;
+&lt;button mat-button class="button color-first"&gt;Color third&lt;/button&gt;
+&lt;button mat-button class="button color-accent"&gt;Color accent&lt;/button&gt;
+&lt;button mat-button class="button color-dark"&gt;Color dark&lt;/button&gt;
+&lt;button mat-button class="button color-light"&gt;Color light&lt;/button&gt;
+&lt;button mat-button class="button color-cancel"&gt;Color cancel&lt;/button&gt;
+&lt;button mat-button class="button color-success"&gt;Color success&lt;/button&gt;
+&lt;button mat-button class="button color-danger"&gt;Color danger&lt;/button&gt;</code></pre>
+                <p>
+                    <button mat-button class="button mb-2 mr-2 my-md-0">Color default</button>
+                    <button mat-button class="button color-first mb-2 mr-2 my-md-0">Color third</button>
+                    <button mat-button class="button color-accent mb-2 mr-2 my-md-0">Color accent</button>
+                    <button mat-button class="button color-dark mb-2 mr-2 my-md-0">Color dark</button>
+                    <button mat-button class="button color-light mb-2 mr-2 my-md-0">Color light</button>
+                    <button mat-button class="button color-cancel mb-2 mr-2 my-md-0">Color cancel</button>
+                    <button mat-button class="button color-success mb-2 mr-2 my-md-0">Color success</button>
+                    <button mat-button class="button color-danger mb-2 mr-2 my-md-0">Color danger</button>
+                </p>
+                <hr *ngIf="indexDocument" [attr.id]="indexDocument[2].element_id">
+                <h2 class="color-first light-title">Botones transparentes</h2>
+                <p>
+                    Los botones transparentes solo tiene color en el borde y en el texto. Para utilizarlos, añada la clase <code>.ghost</code>.
+                </p>
+                <pre class="language-html code-toolbar"><code class="language-html">&lt;button mat-button class="button ghost"&gt;Button ghost&lt;/button&gt;</code></pre>
+                <p>
+                    <button mat-button class="button ghost">Button ghost</button>
+                </p>
+                <p>
+                    Puede añadir colores utilizando las clases anteriormente descritas <code>.color-first</code> <code>.color-accent</code> <code>.color-dark</code> <code>.color-light</code> <code>.color-cancel</code> 
+                    <code>.color-success</code> <code>.color-danger</code>
+                </p>
+                <pre class="language-html code-toolbar"><code class="language-html">&lt;button mat-button class="button ghost"&gt;Ghost Default&lt;/button&gt;
+&lt;button mat-button class="button ghost color-first"&gt;Ghost third&lt;/button&gt;
+&lt;button mat-button class="button ghost color-accent"&gt;Ghost accent&lt;/button&gt;
+&lt;button mat-button class="button ghost color-dark"&gt;Ghost dark&lt;/button&gt;
+&lt;button mat-button class="button ghost color-light"&gt;Ghost light&lt;/button&gt;
+&lt;button mat-button class="button ghost color-cancel"&gt;Ghost cancel&lt;/button&gt;
+&lt;button mat-button class="button ghost color-success"&gt;Ghost success&lt;/button&gt;
+&lt;button mat-button class="button ghost color-danger"&gt;Ghost danger&lt;/button&gt;</code></pre>
+                <p>
+                    <button mat-button class="button ghost mb-2 mr-2 my-md-0">Ghost Default</button>
+                    <button mat-button class="button ghost color-first mb-2 mr-2 my-md-0">Ghost third</button>
+                    <button mat-button class="button ghost color-accent mb-2 mr-2 my-md-0">Ghost accent</button>
+                    <button mat-button class="button ghost color-dark mb-2 mr-2 my-md-0">Ghost dark</button>
+                    <button mat-button class="button ghost color-light mb-2 mr-2 my-md-0">Ghost light</button>
+                    <button mat-button class="button ghost color-cancel mb-2 mr-2 my-md-0">Ghost cancel</button>
+                    <button mat-button class="button ghost color-success mb-2 mr-2 my-md-0">Ghost success</button>
+                    <button mat-button class="button ghost color-danger mb-2 mr-2 my-md-0">Ghost danger</button>
+                </p>
+                <hr *ngIf="indexDocument" [attr.id]="indexDocument[3].element_id">
+                <h2 class="color-first light-title">Tamaños</h2>
+                <p>
+                    Puede añadir las clases <code>.biggest</code> <code>.bigger</code> <code>.big</code> <code>.small</code> <code>.smaller</code> <code>.nano</code> 
+                    para utilizar diferentes tamaños de botón.<br>
+                    Si no añade ninguna clase, por defecto utiliza el tamaño normal.
+                </p>
+                <pre class="language-html code-toolbar"><code class="language-html">&lt;button mat-button class="button biggest"&gt;Biggest&lt;/button&gt;
+&lt;button mat-button class="button bigger"&gt;Bigger&lt;/button&gt;
+&lt;button mat-button class="button big"&gt;Big&lt;/button&gt;
+&lt;button mat-button class="button"&gt;Normal&lt;/button&gt;
+&lt;button mat-button class="button small"&gt;Small&lt;/button&gt;
+&lt;button mat-button class="button smaller"&gt;Smaller&lt;/button&gt;
+&lt;button mat-button class="button nano"&gt;Nano&lt;/button&gt;</code></pre>
+                <p>
+                    <button mat-button class="button color-accent biggest mb-2 mr-2 my-md-0">Biggest</button>
+                    <button mat-button class="button color-accent bigger mb-2 mr-2 my-md-0">Bigger</button>
+                    <button mat-button class="button color-accent big mb-2 mr-2 my-md-0">Big</button>
+                    <button mat-button class="button color-accent mb-2 mr-2 my-md-0">Normal</button>
+                    <button mat-button class="button color-accent small mb-2 mr-2 my-md-0">Small</button>
+                    <button mat-button class="button color-accent smaller mb-2 mr-2 my-md-0">Smaller</button>
+                    <button mat-button class="button color-accent nano mb-2 mr-2 my-md-0">Nano</button>
+                </p>
+                <p>
+                    Si desea que el botón ocupe todo el ancho disponible, añada la clase <code>.full</code>
+                </p>
+                <pre class="language-html code-toolbar"><code class="language-html">&lt;button mat-button class="button full"&gt;Full&lt;/button&gt;</code></pre>
+                <p>
+                    <button mat-button class="button color-accent full mb-2 mr-2 my-md-0">Full</button>
+                </p>
+                <hr *ngIf="indexDocument" [attr.id]="indexDocument[4].element_id">
+                <h2 class="color-first light-title">Botón desactivado</h2>
+                <p>
+                    Añada el atributo <code>disabled</code> para obtener un botón desactivado.
+                </p>
+                <pre class="language-html code-toolbar"><code class="language-html">&lt;button mat-button class="button" disabled&gt;Button Disabled&lt;/button&gt;</code></pre>
+                <p>
+                    <button mat-button class="button" disabled>Button Disabled</button>
+                </p>
+            </div>
+        </div>
+    </section>
+    <app-index-document class="col-md-2 mt-4" [indexDocument]="indexDocument">
+    </app-index-document>
+</div>

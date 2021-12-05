@@ -1,0 +1,74 @@
+.field-container {
+    position: relative;
+
+    &:hover .field-input:disabled ~ .show-edit-input,
+    &:hover .field-textarea:disabled ~ .show-edit-textarea,
+    &:hover .field-select.mat-select-disabled + .show-edit-select,
+    &.field-tag:hover .mat-chip-disabled + .show-edit-tag {display: flex;}
+}
+
+.field-input,
+.field-textarea  { @include input; }
+
+.field-textarea  { --input-height: 6em; }
+
+.mat-icon {
+
+    &.show-password,
+    &.show-datepicker,
+    &.show-edit-input,
+    &.show-edit-textarea,
+    &.show-edit-select,
+    &.show-edit-tag { @include show-icon; }
+
+    &.show-edit-textarea { height: calc(100% - .35em); }
+
+    &.show-edit-input,
+    &.show-edit-textarea,
+    &.show-edit-select,
+    &.show-edit-tag { display: none; }
+
+    &.show-edit-select {
+        border: none;
+        background-color: var(--color-body);
+    }
+    &.show-password,
+    &.show-datepicker { border-color: var(--color-border); }    
+    &.show-datepicker { padding: .1em; }
+}
+.mat-datepicker-content {
+    background-color: #DFE2E7;
+
+    .mat-calendar-body-selected { background-color: var(--color-border); }
+}
+
+.field-actions {
+    :root {
+        --input-field-height: 2em;
+    }
+
+    position: absolute;
+    bottom: -2.1em;
+    right: 0;
+    background-color: var(--color-body);
+    width: 4.2em;
+    height: 2em;
+    padding: 1px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid var(--color-light);
+    border-radius: 3px;
+    z-index: var(--z-tooltip);
+
+    .show-edit-textarea + & { bottom: -1.8em; }
+
+    mat-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 4px;
+        height: 1.8em;
+        width: 1.5em;
+    }
+}

@@ -1,0 +1,30 @@
+.dashboard-demo {
+    --main-height   : auto;
+
+    background-color : var(--color-body);
+    width            : 100%;
+    height           : var(--main-height);
+
+    &__container { 
+        padding: 1em;
+        background-color : var(--color-body-alt); 
+    }
+}
+.alert-note {
+    padding: 1em;
+    background-color: var(--color-body);
+    border-radius: 5px;
+
+    & mat-icon {
+        width: 1rem;
+        height: 1rem;
+        color: var(--color-second);
+        margin-right: .5em;
+        line-height: 1.5rem;
+    }
+
+    & span { 
+        color: var(--color-danger); 
+        font-weight: bold;
+    }
+}

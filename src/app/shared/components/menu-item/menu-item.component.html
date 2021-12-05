@@ -1,0 +1,23 @@
+<mat-menu #childMenu="matMenu" [overlapTrigger]="false">
+    <span *ngFor="let item of items">
+      <span *ngIf="item.children && item.children.length > 0">
+        <button mat-menu-item 
+                [matMenuTriggerFor]="menu.childMenu"
+                class="main-menu-item" 
+                [disabled]="item.disabled">
+          <mat-icon *ngIf="item.icon" svgIcon="{{item.icon}}"></mat-icon>        
+          <span>{{item.title}}</span>
+        </button>
+        <app-menu-item #menu [items]="item.children"></app-menu-item>
+      </span>
+      <span *ngIf="!item.children || item.children.length === 0">
+        <button mat-menu-item 
+                class="main-menu-item" 
+                [routerLink]="item.url"
+                [disabled]="item.disabled">
+          <mat-icon *ngIf="item.icon" svgIcon="{{item.icon}}"></mat-icon>        
+          <span>{{item.title}}</span>
+        </button>
+      </span>
+    </span>
+</mat-menu>

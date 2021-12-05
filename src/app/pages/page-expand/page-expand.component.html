@@ -1,0 +1,226 @@
+<div class="row">
+    <section class="col-md-10">
+        <div class="expand-demo mt-4">
+            <div class="tab-demo__container">
+                <p>
+                    Use el componente Panel de Expansión para agrupar contenido.
+                </p>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="mb-2">
+                            <mat-accordion>
+                                <mat-expansion-panel 
+                                    class="expand-panel"
+                                    (opened)="panelOpenState = true"
+                                    (closed)="panelOpenState = false">
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title class="normal color-first bold">
+                                            Datos Personales
+                                        </mat-panel-title>
+                                        <!-- <mat-panel-description>
+                                            Currently I am {{panelOpenState ? 'open' : 'closed'}}
+                                        </mat-panel-description> -->
+                                    </mat-expansion-panel-header>
+                                    <p>Contenido visible cuando el panel de expansión está abierto.</p>
+                                </mat-expansion-panel>
+                            </mat-accordion>
+                        </div>
+                        <div class="mb-2">
+                            <mat-accordion>
+                                <mat-expansion-panel 
+                                    class="expand-panel"
+                                    (opened)="panelOpenState = true"
+                                    (closed)="panelOpenState = false">
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title class="normal color-first bold">
+                                            Información Académica
+                                        </mat-panel-title>
+                                        <!-- <mat-panel-description>
+                                            Currently I am {{panelOpenState ? 'open' : 'closed'}}
+                                        </mat-panel-description> -->
+                                    </mat-expansion-panel-header>
+                                    <p>Contenido visible cuando el panel de expansión está abierto.</p>
+                                </mat-expansion-panel>
+                            </mat-accordion>
+                        </div>
+                        <div class="mb-2">
+                            <mat-accordion>
+                                <mat-expansion-panel 
+                                    class="expand-panel"
+                                    (opened)="panelOpenState = true"
+                                    (closed)="panelOpenState = false">
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title class="normal color-first bold">
+                                            Experiencia Profesional
+                                        </mat-panel-title>
+                                        <!-- <mat-panel-description>
+                                            Currently I am {{panelOpenState ? 'open' : 'closed'}}
+                                        </mat-panel-description> -->
+                                    </mat-expansion-panel-header>
+                                    <p>Contenido visible cuando el panel de expansión está abierto.</p>
+                                </mat-expansion-panel>
+                            </mat-accordion>
+                        </div>
+                    </div>
+                </div>
+                <pre class="language-html scroll scroll--dark"><code class="language-html">&lt;div class="row"&gt;
+    &lt;div class="col-md-12"&gt;
+        &lt;div class="mb-2"&gt;
+            &lt;mat-accordion&gt;
+                &lt;mat-expansion-panel 
+                    class="expand-panel"
+                    (opened)="panelOpenState = true"
+                    (closed)="panelOpenState = false"&gt;
+                    &lt;mat-expansion-panel-header&gt;
+                        &lt;mat-panel-title class="normal color-first bold"&gt;
+                            Datos Personales
+                        &lt;/mat-panel-title&gt;
+                    &lt;/mat-expansion-panel-header&gt;
+                    &lt;p&gt;Contenido visible cuando el panel de expansión está abierto.&lt;/p&gt;
+                &lt;/mat-expansion-panel&gt;
+            &lt;/mat-accordion&gt;
+        &lt;/div&gt;
+        &lt;div class="mb-2"&gt;
+            &lt;mat-accordion&gt;
+                &lt;mat-expansion-panel 
+                    class="expand-panel"
+                    (opened)="panelOpenState = true"
+                    (closed)="panelOpenState = false"&gt;
+                    &lt;mat-expansion-panel-header&gt;
+                        &lt;mat-panel-title class="normal color-first bold"&gt;
+                            Información Académica
+                        &lt;/mat-panel-title&gt;
+                    &lt;/mat-expansion-panel-header&gt;
+                    &lt;p&gt;Contenido visible cuando el panel de expansión está abierto.&lt;/p&gt;
+                &lt;/mat-expansion-panel&gt;
+            &lt;/mat-accordion&gt;
+        &lt;/div&gt;
+        &lt;div class="mb-2"&gt;
+            &lt;mat-accordion&gt;
+                &lt;mat-expansion-panel 
+                    class="expand-panel"
+                    (opened)="panelOpenState = true"
+                    (closed)="panelOpenState = false"&gt;
+                    &lt;mat-expansion-panel-header&gt;
+                        &lt;mat-panel-title class="normal color-first bold"&gt;
+                            Experiencia Profesional
+                        &lt;/mat-panel-title&gt;
+                    &lt;/mat-expansion-panel-header&gt;
+                    &lt;p&gt;Contenido visible cuando el panel de expansión está abierto.&lt;/p&gt;
+                &lt;/mat-expansion-panel&gt;
+            &lt;/mat-accordion&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                <hr *ngIf="indexDocument" [attr.id]="indexDocument[0].element_id">
+                <h2 class="color-first light-title">Panel de Expansión Agrupado</h2>
+                <p>
+                    Utilice el Panel de Expansión Agrupado si desea que un solo panel se expanda y los demás paneles se contraigan automáticamente.
+                </p>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="mb-2">
+                            <mat-accordion>
+                                <mat-expansion-panel 
+                                    class="expand-panel"
+                                    (opened)="panelOpenState = true"
+                                    (closed)="panelOpenState = false">
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title class="normal color-first bold">
+                                            Datos Personales
+                                        </mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    <p>Contenido visible cuando el panel de expansión está abierto.</p>
+                                </mat-expansion-panel>
+                                <mat-expansion-panel 
+                                    class="expand-panel"
+                                    (opened)="panelOpenState = true"
+                                    (closed)="panelOpenState = false">
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title class="normal color-first bold">
+                                            Información Académica
+                                        </mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    <p>Contenido visible cuando el panel de expansión está abierto.</p>
+                                </mat-expansion-panel>
+                                <mat-expansion-panel 
+                                    class="expand-panel"
+                                    (opened)="panelOpenState = true"
+                                    (closed)="panelOpenState = false">
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title class="normal color-first bold">
+                                            Experiencia Profesional
+                                        </mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    <p>Contenido visible cuando el panel de expansión está abierto.</p>
+                                </mat-expansion-panel>
+                            </mat-accordion>
+                        </div>
+                    </div>
+                </div>
+                <pre class="language-html scroll scroll--dark"><code class="language-html">&lt;div class="row"&gt;
+    &lt;div class="col-md-12"&gt;
+        &lt;div class="mb-2"&gt;
+            &lt;mat-accordion&gt;
+                &lt;mat-expansion-panel 
+                    class="expand-panel"
+                    (opened)="panelOpenState = true"
+                    (closed)="panelOpenState = false"&gt;
+                    &lt;mat-expansion-panel-header&gt;
+                        &lt;mat-panel-title class="normal color-first bold"&gt;
+                            Datos Personales
+                        &lt;/mat-panel-title&gt;
+                    &lt;/mat-expansion-panel-header&gt;
+                    &lt;p&gt;Contenido visible cuando el panel de expansión está abierto.&lt;/p&gt;
+                &lt;/mat-expansion-panel&gt;
+            &lt;/mat-accordion&gt;
+            &lt;mat-accordion&gt;
+                &lt;mat-expansion-panel 
+                    class="expand-panel"
+                    (opened)="panelOpenState = true"
+                    (closed)="panelOpenState = false"&gt;
+                    &lt;mat-expansion-panel-header&gt;
+                        &lt;mat-panel-title class="normal color-first bold"&gt;
+                            Información Académica
+                        &lt;/mat-panel-title&gt;
+                    &lt;/mat-expansion-panel-header&gt;
+                    &lt;p&gt;Contenido visible cuando el panel de expansión está abierto.&lt;/p&gt;
+                &lt;/mat-expansion-panel&gt;
+            &lt;/mat-accordion&gt;
+            &lt;mat-accordion&gt;
+                &lt;mat-expansion-panel 
+                    class="expand-panel"
+                    (opened)="panelOpenState = true"
+                    (closed)="panelOpenState = false"&gt;
+                    &lt;mat-expansion-panel-header&gt;
+                        &lt;mat-panel-title class="normal color-first bold"&gt;
+                            Experiencia Profesional
+                        &lt;/mat-panel-title&gt;
+                    &lt;/mat-expansion-panel-header&gt;
+                    &lt;p&gt;Contenido visible cuando el panel de expansión está abierto.&lt;/p&gt;
+                &lt;/mat-expansion-panel&gt;
+            &lt;/mat-accordion&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                <h3 class="color-first light-title">Archivo page-expand.ts</h3>
+                <pre class="language-JavaScript scroll scroll--dark"><code class="language-JavaScript">import &#123; Component, OnInit &#125; from '@angular/core';
+
+@Component(&#123;
+    selector: 'app-page-expand',
+    templateUrl: './page-expand.component.html',
+    styleUrls: ['./page-expand.component.scss']
+&#125;)
+export class PageExpandComponent implements OnInit &#123;
+    panelOpenState = false;
+
+    constructor() &#123; &#125;
+
+    ngOnInit(): void &#123; &#125;
+&#125;</code></pre>
+            </div>
+        </div>
+    </section>
+    <app-index-document class="col-md-2 mt-4" [indexDocument]="indexDocument">
+    </app-index-document>
+</div>

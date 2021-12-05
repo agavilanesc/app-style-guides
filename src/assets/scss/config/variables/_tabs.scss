@@ -1,0 +1,9 @@
+$color-tab : hsl(220, 16, 96);
+$color-tab-border-active : var(--color-first);
+
+:root {
+    --color-tab-hover  : #{saturate($color-tab, 30%)};
+    --color-tab-active : #{saturate($color-tab, 50%)};
+    --color-tab-border-bottom : #{darken(saturate($color-tab, 50%), 15%)};
+    --color-tab-border-active : #{$color-tab-border-active};
+}

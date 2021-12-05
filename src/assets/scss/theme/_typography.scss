@@ -1,0 +1,115 @@
+// variables CSS para typography
+:root {
+    // Font families
+    --heading-font : #{$heading-font};
+    --body-font    : #{$body-font};
+
+    $base  : 16px;
+    $ratio : 1.2;
+    
+    $title3  : $base * $ratio;
+    $title2  : $title3 * $ratio;
+    $title1  : $title2 * $ratio;
+    $bigger-title  : $title1 * $ratio;
+    $small   : $base / $ratio;
+    $smaller : $small / $ratio;
+    $nano    : $smaller / $ratio;
+    
+
+    // Font sizes
+    --bigger-font-size    :  #{$title1};
+    --h1-font-size        :  #{$title2};
+    --h2-font-size        :  #{$title3};
+    --h3-font-size        :  #{$base};
+    --normal-font-size    :  #{$small};
+    --small-font-size     :  #{$smaller};
+    --smaller-font-size   :  #{$nano};
+    --nano-font-size      :  #{$nano};
+    --heading-line-height : 1.3;
+    --body-line-height    : 1.6;
+
+    // Font sizes a partir del breakpoint lg (64em ~ 1024px)
+    @include from(lg) { 
+        --bigger-font-size    :  #{$bigger-title};
+        --h1-font-size        :  #{$title1};
+        --h2-font-size        :  #{$title2};
+        --h3-font-size        :  #{$title3};
+        --normal-font-size    :  #{$base};
+        --small-font-size     :  #{$small};
+        --smaller-font-size   :  #{$smaller};
+        --nano-font-size      :  #{$nano};
+    }
+}
+
+// Estilos para los títulos
+.bigger-title { @include bigger-title }
+h1, .title1 { @include title1 }
+h2, .title2 { @include title2 }
+h3, .title3 { @include title3 }
+h4, .title4 { @include title4 }
+h5, .title5 { @include title5 }
+h6, .title6 { @include title6 }
+
+// Estilos para el contenido
+.biggest { @include biggest }
+.bigger  { @include bigger  }
+.big     { @include big     }
+.normal  { @include normal  }
+.small   { @include small   }
+.smaller { @include smaller }
+.nano    { @include nano    }
+
+// Clases para los font-family
+.heading-font { @include heading-font(true) }
+.body-font    { @include body-font }
+.light-title  { font-weight : 400 !important; }
+.light-text   { font-weight : 300 !important; }
+.bold         { font-weight : 700 !important; }
+.italic       { font-style  : italic !important; }
+  
+// Estilo por defecto para los textos
+body {
+    @include normal;
+    color : var(--color-text);
+}
+  
+// Blockquote
+blockquote {
+    @include big;
+    font-style     : italic;
+    letter-spacing : .01em;
+    margin-left    : 2rem;
+    position       : relative;
+    opacity        : .9;
+  
+    @include from(lg) {
+      margin-left : 4rem;
+    }
+  
+    &::before {
+      content        : "\201C";
+      font-family    : Georgia, serif;
+      font-size      : 3em;
+      position       : absolute;
+      top            : .5em;
+      left           : -.6em;
+      line-height    : 0;
+      letter-spacing : -0.5em;
+    }
+}
+  
+// Links
+a {
+    color : var(--color-third);
+  
+    main & {
+        text-decoration : none;
+
+        &:hover { text-decoration : underline; }
+    }
+}
+  
+::selection {
+    background-color : var(--color-accent-alt);
+    color : white;
+}

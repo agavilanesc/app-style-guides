@@ -1,0 +1,20 @@
+@use "sass:map";
+
+$dashboard-height : 70vh;
+
+$dashboard-item-dropzone-width  : 100%;
+$dashboard-item-dropzone-height : calc(#{map.get($widget-sizes, "hmin")} + #{map.get($widget-padding-headers, "x")} + #{$widget-header-icon});
+
+$dashboard-item-margin-x      : 1.5em;
+$dashboard-item-margin-y      : 1.5em;
+$dashboard-item-margin-top    : 1.5em;
+$dashboard-item-margin-left   : 1.5em;
+$dashboard-item-margin-right  : 1.5em;
+$dashboard-item-margin-bottom : 1.5em;
+
+$dashboard-item-dropzone-padding-x      : 1em;
+$dashboard-item-dropzone-padding-y      : 1em;
+$dashboard-item-dropzone-padding-top    : 1em;
+$dashboard-item-dropzone-padding-left   : 1em;
+$dashboard-item-dropzone-padding-right  : 1em;
+$dashboard-item-dropzone-padding-bottom : 1em;

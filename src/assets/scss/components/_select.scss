@@ -1,0 +1,12 @@
+.field-select { @include select; }
+.mat-option { 
+    line-height: 2.3em !important;
+    height: 2.3em !important;
+    
+    &:hover,
+    &.mat-active,
+    &.mat-selected { 
+        background-color: var(--color-second) !important; 
+        color: var(--color-body-alt) !important;
+    }
+}

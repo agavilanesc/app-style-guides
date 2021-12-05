@@ -1,0 +1,54 @@
+@mixin scroll {
+    --thumb-color       : #{darken($color-light, 5)};
+    --thumb-color-hover : #{darken($color-light, 15)};
+    --track-color       : #{lighten($color-light, 5)};
+    --scroll-size       : 10px;
+    --scroll-radius     : calc(var(--scroll-size) / 2);
+    --display           : block;
+  
+    &::-webkit-scrollbar {
+        display : var(--display);
+        width   : var(--scroll-size);
+        height  : var(--scroll-size);
+  
+        &-thumb {
+            background    : var(--thumb-color );
+            border-radius : var(--scroll-radius);
+
+            &:hover,
+            &:active { background : var(--thumb-color-hover); }
+
+        }
+
+        &-track {
+            background    : var(--track-color);
+            border-radius : var(--scroll-radius);
+        }
+    }
+}
+  
+.scroll {
+    @include scroll;
+  
+    &--dark {
+        --thumb-color       : #{darken($color-dark, 10)};
+        --track-color       : #{darken($color-dark, 20)};
+        --thumb-color-hover : #{lighten($color-dark, 5)};
+    }
+  
+    &--dark-alt {
+        --thumb-color       : #{darken($color-dark-alt, 10)};
+        --track-color       : #{darken($color-dark-alt, 20)};
+        --thumb-color-hover : #{lighten($color-dark-alt, 5)};
+    }
+  
+    &.no-background { --track-color : transparent; }
+  
+    &.hidden { --display : none; }
+    
+    &.hover { 
+        --display : none;
+
+        &:hover { --display : block; }
+    }
+}

@@ -1,0 +1,107 @@
+@mixin button {
+    --color-button: var(--color);
+    --color-button-alt: var(--color-alt);
+
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: var(--color-button);
+    color: white;
+    cursor: pointer;
+    font-size: var(--normal-font-size);
+    text-decoration: none;
+    line-height: var(--body-line-height);
+    border-radius: 0.15rem;
+    transition: transform 0.05s;
+    border: 1px solid var(--color-button);
+    text-align: center;
+    user-select: none;
+    outline: none;
+
+    &:hover {
+        background-color: var(--color-button-alt);
+        text-decoration: inherit;
+    }
+
+    &:active {
+        transform: scale(0.99);
+    }
+}
+
+@mixin button-light {
+    --color-button: var(--color-light);
+    --color-button-alt: var(--color-light-alt);
+
+    color: var(--color-text);
+}
+
+@mixin button-cancel {
+    --color-button: var(--color-cancel);
+    --color-button-alt: var(--color-cancel);
+
+    color: var(--color-text);
+}
+
+@mixin button-success {
+    --color-button: transparent;
+    --color-button-alt: var(--color-success-alt);
+
+    color: var(--color-success);
+
+    &:hover {
+        --color-button: var(--color-success);
+    }
+}
+
+@mixin button-danger {
+    --color-button: transparent;
+    --color-button-alt: var(--color-danger-alt);
+    
+    color: var(--color-danger);
+
+    &:hover {
+        --color-button: var(--color-danger);
+    }
+}
+
+@mixin button-ghost {
+    color: var(--color);
+    background: none;
+
+    &:hover {
+        background: var(--color);
+        color: #fff;
+    }
+
+    &.color-light {
+        --color: var(--color-light);
+        color: var(--color);
+
+        &:hover {
+            color: inherit;
+        }
+    }
+}
+
+@mixin button-ghost-success { --color-button: var(--color-success); }
+@mixin button-ghost-danger  { --color-button: var(--color-danger);  }
+
+
+//tamaños
+@mixin button-full {
+    margin-right: 0;
+    margin-left: 0;
+    width: 100%;
+}
+
+@mixin button-small   { padding: 0.3rem 0.7rem; }
+
+@mixin button-smaller { 
+    padding   : 0.2rem 0.7rem; 
+    font-size : var(--small-font-size) !important
+}
+
+@mixin button-nano { 
+    padding   : 0 0.25rem;
+    font-size : var(--small-font-size) !important;
+    min-width : 0;
+}

@@ -1,0 +1,23 @@
+.forms-demo {
+    --main-height   : auto;
+
+    background-color : var(--color-body);
+    width            : 100%;
+    height           : var(--main-height);
+
+    &__container { 
+        padding: 1em;
+        background-color : var(--color-body-alt); 
+    }
+}
+.tab-body {
+    background-color: white;
+    padding: 1em;
+    border-radius: 3px;
+}
+
+.language-javascript {
+    --main-height : 700px;
+
+    height: var(--main-height);
+}

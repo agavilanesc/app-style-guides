@@ -1,0 +1,33 @@
+:root {
+    --color     : var(--color-second);
+    --color-alt : var(--color-second-alt);
+}
+
+//predeterminado
+.mat-button.button { @include button; }
+
+//colores
+.button.color-light   { @include button-light;   }
+.button.color-cancel  { @include button-cancel;  }
+.button.color-success { @include button-success; }
+.button.color-danger  { @include button-danger;  }
+.button.ghost         { @include button-ghost;   }
+.ghost.color-success  { @include button-ghost-success; } 
+.ghost.color-danger   { @include button-ghost-danger;  } 
+
+//tamaños:
+.button.full    { @include button-full;    }
+.button.small   { @include button-small;   }
+.button.smaller { @include button-smaller; }
+.button.nano    { @include button-nano;    }
+
+//estados
+.button[disabled],
+.button[disabled]:hover {
+    --color-button: var(--color-grey);
+    --color-button-alt: var(--color-grey);
+
+    cursor     : default;
+
+    &:active { transform: none; }
+}

@@ -1,0 +1,23 @@
+<div [class]="card.class.class_type">
+    <div [class]="card.class.class_color" [attr.data-header-animation]="card.class.class_animated">
+        <!-- <div class="ct-chart" id="dailySalesChart"></div> -->
+        <div class="ct-chart d-flex justify-content-between" [id]="card.chart_id">
+            <h1 class="title3 white" *ngIf="card.code_left">{{card.code_left}}</h1>
+            <h2 class="title3 white" *ngIf="card.code_right">{{card.code_right}}</h2>
+        </div>
+        <h2 class="normal white" *ngIf="card.header_title">{{card.header_title}}</h2>
+        <p class="small white" *ngIf="card.header_subtitle">{{card.header_subtitle}}</p>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">{{card.body_title}}</h4>
+        <p class="card-notify-container card-category small">
+            <span class="text-success"><mat-icon svgIcon="arrow_upward"></mat-icon>55% </span> {{card.body_paragraph}}
+            <span class="card-notify"><mat-icon svgIcon="chat-square-text"></mat-icon></span>
+        </p>
+    </div>
+    <div class="card-footer">
+        <div class="stats">
+            <mat-icon svgIcon="access_time" class="mat-icon-smaller"></mat-icon> {{card.last_updated}}
+        </div>
+    </div>
+</div>

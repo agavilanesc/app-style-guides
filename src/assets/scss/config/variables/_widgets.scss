@@ -1,0 +1,95 @@
+$widget-header-icon : 16px;
+
+:root { --widget-header-icon : #{$widget-header-icon}; }
+
+
+
+/**
+* SIZES
+*/
+$widget-sizes: (
+    width  : 100%,
+    height : 30vh,
+    wmin   : 100%,
+    wmax   : 100%,
+    hmin   : 30vh,
+    hmed   : 60vh,
+    hmax   : 90vh,
+);
+
+@each $size, $value in $widget-sizes {
+    :root { --widget-#{$size} : #{nth($value, 1)}; }
+}
+
+
+
+/**
+* BORDERS
+*/
+$widget-border-radius: (
+    none  : 0,
+    small : 2px,
+    base  : 3px,
+    large : 6px,
+); 
+
+@each $radius, $value in $widget-border-radius {
+    :root { --widget-border-radius-#{$radius} : #{nth($value, 1)}; }
+}
+
+
+
+/**
+* PADDING HEADERS
+*/
+$widget-padding-headers: (
+    none   : 0,
+    top    : .1rem,
+    bottom : .1rem,
+    left   : .5rem,
+    right  : .5rem,
+    x      : .5rem,
+    y      : .1rem,    
+); 
+
+@each $padding, $value in $widget-padding-headers {
+    :root { --widget-padding-header-#{$padding} : #{nth($value, 1)}; }
+}
+
+
+
+/**
+* PADDING BODY
+*/
+$widget-padding-body: (
+    none   : 0,
+    top    : 1rem,
+    bottom : 1rem,
+    left   : 1.25rem,
+    right  : 1.25rem,
+    x      : 1.25rem,
+    y      : 1rem,    
+);
+
+@each $padding, $value in $widget-padding-body {
+    :root { --widget-padding-body-#{$padding} : #{nth($value, 1)}; }
+}
+
+
+
+/**
+* MARGINS
+*/
+$widget-margins: (
+    none   : 0,
+    top    : 1.5em,
+    bottom : 1.5em,
+    left   : 1em,
+    right  : 1em,
+    x      : 1em,
+    y      : 1.5em,    
+);
+
+@each $margin, $value in $widget-margins {
+    :root { --widget-margin-#{$margin} : #{nth($value, 1)}; }
+}

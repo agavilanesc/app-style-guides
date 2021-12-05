@@ -1,0 +1,25 @@
+<div class="modal-widget-add">
+    <header class="modal-widget-add__header">
+        <h2 class="modal-widget-add__title">{{widgetAddDialog.title}}</h2>
+        <mat-icon svgIcon="close" class="modal-widget-add__close color-text" (click)="cancel()"></mat-icon>
+    </header>
+    <section class="modal-widget-add__content">
+        <h3 class="title4">{{widgetAddDialog.message}}</h3>
+        <div>
+            <mat-icon svgIcon="dashboard-left-panel">
+                <label for="add-widget-left-radio" class="modal-widget-add__check" [ngClass]="{ 'modal-widget-add__check--checked' : widgetAddDialog.isLeftPanel }">
+                    <input type="radio" id="add-widget-left-radio" name="add-widget-radio" (change)="widgetAddDialog.isLeftPanel = !widgetAddDialog.isLeftPanel">
+                </label>
+            </mat-icon>
+            <mat-icon svgIcon="dashboard-right-panel">
+                <label for="add-widget-right-radio" class="modal-widget-add__check" [ngClass]="{ 'modal-widget-add__check--checked' : !widgetAddDialog.isLeftPanel }">
+                    <input type="radio" id="add-widget-right-radio" name="add-widget-radio" (change)="widgetAddDialog.isLeftPanel = !widgetAddDialog.isLeftPanel">
+                </label>
+            </mat-icon>
+        </div>
+    </section>
+    <footer class="modal-widget-add__actions">
+        <button mat-button class="button color-third smaller mr-2" (click)="ok()">Aceptar</button>
+        <button mat-button class="button color-cancel smaller" (click)="cancel()">Cancelar</button>
+    </footer>
+</div>

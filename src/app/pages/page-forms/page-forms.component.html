@@ -1,0 +1,570 @@
+<div class="row">
+    <section class="col-md-10">
+        <div class="forms-demo mt-4 container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <section class="forms-demo__container">
+                        <h2 class="color-first light-title">Campos de Entrada</h2>
+                        <p>Controles de formularios comunes, campos de entrada basados ​​en texto.<br>
+                            Incluye soporte para todo tipo de elementos HTML5:<br> 
+                            <code>text</code> <code>password</code> <code>datetime</code> <code>number</code> <code>email</code> <code>url</code> <code>search</code> <code>tel</code> <code>color</code>
+                        </p>
+                        <mat-tab-group class="tab" animationDuration="0ms">
+                            <mat-tab label="Vista Previa">
+                                <div class="tab-body">
+                                    <form [formGroup]="formInput">
+                                        <label class="bold">Input Básico</label>
+                                        <input type="text" class="field-input mb-4" placeholder="Ingrese un texto aquí" formControlName="inputBasic">
+    
+                                        <label class="bold">Tipo Password</label>
+                                        <fieldset class="field-container mb-4">
+                                            <input [type]="hidePassword ? 'password' : 'text'" class="field-input" placeholder="Ingrese su contraseña" formControlName="inputPassword">
+                                            <mat-icon 
+                                                svgIcon="{{hidePassword ? 'eye-fill' : 'eye-slash-fill'}}" 
+                                                class="show-password" 
+                                                (click)="hidePassword = !hidePassword"
+                                                title="{{hidePassword ? 'Mostrar Password' : 'Ocultar Password'}}">
+                                            </mat-icon>
+                                        </fieldset>
+                                        
+                                        <label class="bold">Auto Guardado</label>
+                                        <fieldset class="field-container mb-4">
+                                            <div (click)="editInput(inputActions)">
+                                                <input type="text" class="field-input" placeholder="Ingrese un texto aquí" formControlName="inputAutoSaved">
+                                                <mat-icon svgIcon="edit" class="show-edit-input" title="Editar"></mat-icon>
+                                            </div>
+                                            <div #inputActions class="field-actions hidden">
+                                                <button mat-button (click)="saveInput(inputActions)" class="button nano color-light" title="Guardar"><mat-icon svgIcon="save"></mat-icon></button>
+                                                <button mat-button (click)="cancelInput(inputActions)" class="button nano color-light" title="Deshacer"><mat-icon svgIcon="undo"></mat-icon></button>                        
+                                            </div>
+                                        </fieldset> 
+
+                                        <label class="bold">Tipo Date</label>
+                                        <fieldset class="field-container mb-4">
+                                            <input [matDatepicker]="picker" class="field-input" placeholder="mm/dd/aaaa" formControlName="inputDatetime">
+                                            <mat-icon svgIcon="calendar" class="show-datepicker" (click)="picker.open()" title="Mostrar calendario"></mat-icon>
+                                            <mat-datepicker #picker></mat-datepicker>
+                                        </fieldset>
+                                        
+                                        <label class="bold">Tipo Date Auto Guardado</label>
+                                        <fieldset class="field-container mb-4">
+                                            <div (click)="editDateTime(dateTimeActions)">
+                                                <input [matDatepicker]="picker2" class="field-input" placeholder="mm/dd/aaaa" formControlName="inputDatetimeAutoSaved">
+                                                <mat-icon svgIcon="calendar" class="show-datepicker" (click)="picker2.open()" title="Mostrar calendario"></mat-icon>
+                                                <mat-datepicker #picker2></mat-datepicker>
+                                                <mat-icon svgIcon="edit"class="show-edit-input" title="Editar"></mat-icon>
+                                            </div>
+                                            <div #dateTimeActions class="field-actions hidden">
+                                                <button mat-button (click)="saveDateTime(dateTimeActions)" class="button nano color-light" title="Guardar"><mat-icon svgIcon="save"></mat-icon></button>
+                                                <button mat-button (click)="cancelDateTime(dateTimeActions)" class="button nano color-light" title="Deshacer"><mat-icon svgIcon="undo"></mat-icon></button>                        
+                                            </div>
+                                        </fieldset>
+                                        
+                                        <label class="bold">Text Area Básico</label>                                        
+                                        <textarea class="field-textarea mb-4 scroll" 
+                                                  placeholder="Ingrese un texto aquí" 
+                                                  formControlName="inputBasic">
+                                        </textarea>
+
+                                        <label class="bold">Text Area Auto Guardado</label>
+                                        <fieldset class="field-container mb-4">
+                                            <div (click)="editTextarea(textareaActions)">
+                                                <textarea class="field-textarea scroll" 
+                                                      placeholder="Ingrese un texto aquí" 
+                                                      formControlName="textareaAutoSaved">
+                                                </textarea>
+                                                <mat-icon svgIcon="edit" class="show-edit-textarea" title="Editar"></mat-icon>
+                                            </div>
+                                            <div #textareaActions class="field-actions hidden">
+                                                <button mat-button (click)="saveTextarea(textareaActions)" class="button nano color-light" title="Guardar"><mat-icon svgIcon="save"></mat-icon></button>
+                                                <button mat-button (click)="cancelTextarea(textareaActions)" class="button nano color-light" title="Deshacer"><mat-icon svgIcon="undo"></mat-icon></button>                        
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                                </div> 
+                                {{getContentLoaded(1)}}                                                              
+                            </mat-tab>
+                            <mat-tab label="Código">
+                                <mat-accordion>
+                                    <mat-expansion-panel 
+                                        expanded
+                                        class="expand-panel"
+                                        (opened)="panelOpenState = true"
+                                        (closed)="panelOpenState = false">
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title class="normal color-first bold">Input Básico</mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <pre class="language-html scroll scroll--dark"><code class="language-html">&lt;form [formGroup]="formInput"&gt;
+    &lt;label class="bold"&gt;Input Básico&lt;/label&gt;
+    &lt;input type="text" 
+           class="field-input mb-4" 
+           placeholder="Ingrese un texto aquí" 
+           formControlName="inputBasic"&gt;
+&lt;/form&gt;</code></pre>
+                                    </mat-expansion-panel>
+                                    <mat-expansion-panel class="expand-panel">
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title class="normal color-first bold">Tipo Password</mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <pre class="language-html scroll scroll--dark"><code class="language-html">&lt;form [formGroup]="formInput"&gt;
+    &lt;label class="bold"&gt;Tipo Password&lt;/label&gt;
+    &lt;fieldset class="field-container mb-4"&gt;
+        &lt;input [type]="hidePassword ? 'password' : 'text'" class="field-input" placeholder="Ingrese su contraseña" formControlName="inputPassword"&gt;
+        &lt;mat-icon 
+            svgIcon="{{hidePassword ? 'eye-fill' : 'eye-slash-fill'}}" 
+            class="show-password" 
+            (click)="hidePassword = !hidePassword"
+            title="{{hidePassword ? 'Mostrar Password' : 'Ocultar Password'}}"&gt;
+        &lt;/mat-icon&gt;
+    &lt;/fieldset&gt;
+&lt;/form&gt;</code></pre>
+                                    </mat-expansion-panel>
+                                    <mat-expansion-panel class="expand-panel">
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title class="normal color-first bold">Auto Guardado</mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <pre class="language-html scroll scroll--dark"><code class="language-html">&lt;form [formGroup]="formInput"&gt;
+    &lt;label class="bold"&gt;Auto Guardado&lt;/label&gt;
+    &lt;fieldset class="field-container mb-4"&gt;
+        &lt;div (click)="editInput(inputActions)"&gt;
+            &lt;input type="text" class="field-input" placeholder="Ingrese un texto aquí" formControlName="inputAutoSaved"&gt;
+            &lt;mat-icon svgIcon="edit" class="show-edit-input" title="Editar"&gt;&lt;/mat-icon&gt;
+        &lt;/div&gt;
+        &lt;div #inputActions class="field-actions hidden"&gt;
+            &lt;button mat-button (click)="saveInput(inputActions)" class="button nano color-light" title="Guardar"&gt;&lt;mat-icon svgIcon="save"&gt;&lt;/mat-icon&gt;&lt;/button&gt;
+            &lt;button mat-button (click)="cancelInput(inputActions)" class="button nano color-light" title="Deshacer"&gt;&lt;mat-icon svgIcon="undo"&gt;&lt;/mat-icon&gt;&lt;/button&gt;                        
+        &lt;/div&gt;
+    &lt;/fieldset&gt; 
+&lt;/form&gt;</code></pre>
+                                    </mat-expansion-panel>
+                                    <mat-expansion-panel class="expand-panel">
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title class="normal color-first bold">Tipo Date</mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <pre class="language-html scroll scroll--dark"><code class="language-html">&lt;form [formGroup]="formInput"&gt;
+    &lt;label class="bold"&gt;Tipo Date&lt;/label&gt;
+    &lt;fieldset class="field-container mb-4"&gt;
+        &lt;input [matDatepicker]="picker" class="field-input" placeholder="mm/dd/aaaa" formControlName="inputDatetime"&gt;
+        &lt;mat-icon svgIcon="calendar" class="show-datepicker" (click)="picker.open()" title="Mostrar calendario"&gt;&lt;/mat-icon&gt;
+        &lt;mat-datepicker #picker&gt;&lt;/mat-datepicker&gt;
+    &lt;/fieldset&gt;
+&lt;/form&gt;</code></pre>
+                                    </mat-expansion-panel>
+                                    <mat-expansion-panel class="expand-panel">
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title class="normal color-first bold">Tipo Date Auto Guardado</mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <pre class="language-html scroll scroll--dark"><code class="language-html">&lt;form [formGroup]="formInput"&gt;
+    &lt;label class="bold"&gt;Tipo Date Auto Guardado&lt;/label&gt;
+    &lt;fieldset class="field-container mb-4"&gt;
+        &lt;div (click)="editDateTime(dateTimeActions)"&gt;
+            &lt;input [matDatepicker]="picker2" class="field-input" placeholder="mm/dd/aaaa" formControlName="inputDatetimeAutoSaved"&gt;
+            &lt;mat-icon svgIcon="calendar" class="show-datepicker" (click)="picker2.open()" title="Mostrar calendario"&gt;&lt;/mat-icon&gt;
+            &lt;mat-datepicker #picker2&gt;&lt;/mat-datepicker&gt;
+            &lt;mat-icon svgIcon="edit"class="show-edit-input" title="Editar"&gt;&lt;/mat-icon&gt;
+        &lt;/div&gt;
+        &lt;div #dateTimeActions class="field-actions hidden"&gt;
+            &lt;button mat-button (click)="saveDateTime(dateTimeActions)" class="button nano color-light" title="Guardar"&gt;&lt;mat-icon svgIcon="save"&gt;&lt;/mat-icon&gt;&lt;/button&gt;
+            &lt;button mat-button (click)="cancelDateTime(dateTimeActions)" class="button nano color-light" title="Deshacer"&gt;&lt;mat-icon svgIcon="undo"&gt;&lt;/mat-icon&gt;&lt;/button&gt;                        
+        &lt;/div&gt;
+    &lt;/fieldset&gt;
+&lt;/form&gt;</code></pre>
+                                    </mat-expansion-panel>
+                                    <mat-expansion-panel class="expand-panel scroll">
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title class="normal color-first bold">Archivo component.ts</mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <pre class="language-JavaScript scroll scroll--dark"><code class="language-JavaScript">import &#123; Component, OnInit &#125; from '@angular/core';
+import &#123; FormGroup, FormControl &#125; from '@angular/forms';
+
+interface Form &#123;
+    inputBasic: string;
+    inputPassword: string;
+    inputAutoSaved: string;
+    inputDatetime: string;
+    inputDatetimeAutoSaved: string;
+&#125;
+
+@Component(&#123;
+    selector: 'app-page-forms',
+    templateUrl: './page-forms.component.html',
+    styleUrls: ['./page-forms.component.scss']
+&#125;)
+export class PageFormsComponent implements OnInit &#123;
+    hidePassword: boolean = true;
+
+    form: Form = &#123;
+        inputBasic: "",
+        inputPassword: "secret",
+        inputAutoSaved: "Texto guardado",
+        inputDatetime: "",
+        inputDatetimeAutoSaved: "",
+    &#125;
+    formInput: FormGroup = new FormGroup(&#123;
+        inputBasic : new FormControl(this.form.inputBasic),
+        inputPassword : new FormControl(this.form.inputPassword),
+        inputAutoSaved : new FormControl(&#123;value: this.form.inputAutoSaved, disabled: true&#125;),
+        inputDatetime : new FormControl(this.form.inputDatetime),
+        inputDatetimeAutoSaved : new FormControl(&#123;value: this.form.inputDatetimeAutoSaved, disabled: true&#125;),
+    &#125;);
+
+    constructor() &#123; &#125;
+
+    ngOnInit(): void &#123; &#125;
+
+    editInput(actions: HTMLDivElement) &#123;
+        this.formInput.controls.inputAutoSaved.enable();
+        this.showActions(actions);
+    &#125;
+    saveInput(actions: HTMLDivElement) &#123;
+        this.form.inputAutoSaved = this.formInput.controls.inputAutoSaved.value;
+        this.formInput.controls.inputAutoSaved.disable();
+        this.hideActions(actions);
+    &#125;
+    cancelInput(actions: HTMLDivElement) &#123;
+        this.formInput.controls.inputAutoSaved.setValue(this.form.inputAutoSaved);
+        this.formInput.controls.inputAutoSaved.disable();
+        this.hideActions(actions);
+    &#125;
+    editDateTime(actions: HTMLDivElement) &#123;
+        this.formInput.controls.inputDatetimeAutoSaved.enable();
+        this.showActions(actions);
+    &#125;
+    saveDateTime(actions: HTMLDivElement) &#123;
+        this.form.inputDatetimeAutoSaved = this.formInput.controls.inputDatetimeAutoSaved.value;
+        this.formInput.controls.inputDatetimeAutoSaved.disable();
+        this.hideActions(actions);
+    &#125;
+    cancelDateTime(actions: HTMLDivElement) &#123;
+        this.formInput.controls.inputDatetimeAutoSaved.setValue(this.form.inputDatetimeAutoSaved);
+        this.formInput.controls.inputDatetimeAutoSaved.disable();
+        this.hideActions(actions);
+    &#125;
+
+    showActions(actions: HTMLDivElement) &#123; actions.classList.remove("hidden"); &#125;
+    hideActions(actions: HTMLDivElement) &#123; actions.classList.add("hidden"); &#125;
+&#125;</code></pre>
+                                    </mat-expansion-panel>
+                                </mat-accordion>
+                                {{getContentLoaded(2)}}
+                            </mat-tab>
+                        </mat-tab-group>
+                    </section>
+                </div>
+                <div class="col-md-6 pl-3 pr-0">
+                    <section class="forms-demo__container">
+                        <h2 class="color-first light-title">Campos de Selección</h2>
+                        <p>
+                            Controles de selección.<br> 
+                            Incluye elementos:<br> 
+                            <code>select</code> <code>dropdown</code> <code>autocomplete</code>
+                        </p>
+                        <mat-tab-group class="tab" animationDuration="0ms">
+                            <mat-tab label="Vista Previa">
+                                <div class="tab-body">
+                                    <form [formGroup]="formSelect">
+                                        <label class="bold">Select Básico</label>
+                                        <mat-select class="field-select mb-4" placeholder="Seleccione una opción" formControlName="selectBasic">
+                                            <mat-option value="1">Opción 1</mat-option>
+                                            <mat-option value="2">Opción 2</mat-option>
+                                            <mat-option value="3">Opción 3</mat-option>
+                                            <mat-option value="4">Opción 4</mat-option>
+                                            <mat-option value="5">Opción 5</mat-option>
+                                        </mat-select>
+    
+                                        <label class="bold">Select Auto Guardado</label>
+                                        <fieldset class="field-container mb-4">
+                                            <div (click)="editSelect(selectActions)">
+                                                <mat-select #selectPaises class="field-select" placeholder="Seleccione una opción" formControlName="selectAutoSaved">
+                                                    <mat-option value="1">Opción 1</mat-option>
+                                                    <mat-option value="2">Opción 2</mat-option>
+                                                    <mat-option value="3">Opción 3</mat-option>
+                                                    <mat-option value="4">Opción 4</mat-option>
+                                                    <mat-option value="5">Opción 5</mat-option>
+                                                </mat-select>
+                                                <mat-icon svgIcon="edit" class="show-edit-select" title="Editar"></mat-icon>
+                                            </div>
+                                            <div #selectActions class="field-actions hidden">
+                                                <button mat-button (click)="saveSelect(selectActions)" class="button nano color-light" title="Guardar"><mat-icon svgIcon="save"></mat-icon></button>
+                                                <button mat-button (click)="cancelSelect(selectActions)" class="button nano color-light" title="Deshacer"><mat-icon svgIcon="undo"></mat-icon></button>                        
+                                            </div>
+                                        </fieldset>
+
+                                        <label class="bold">Auto Completar Básico</label>
+                                        <input type="text"
+                                            matInput
+                                            class="field-input mb-4"
+                                            placeholder="Seleccione un color"
+                                            formControlName="autoCompleteBasic"
+                                            [matAutocomplete]="auto">
+                                        <mat-autocomplete #auto="matAutocomplete">
+                                            <mat-option *ngFor="let color of filteredColors | async" [value]="color">{{color}}</mat-option>
+                                        </mat-autocomplete>
+
+                                        <label class="bold">Auto Completar Auto Guardado</label>
+                                        <fieldset class="field-container mb-4">
+                                            <div (click)="editAutoComplete(autoCompleteActions)">
+                                                <input type="text"
+                                                    matInput
+                                                    class="field-input"
+                                                    placeholder="Seleccione una marca"
+                                                    formControlName="autoCompleteAutoSaved"
+                                                    [matAutocomplete]="autoSaved">
+                                                <mat-icon svgIcon="edit" class="show-edit-input" title="Editar"></mat-icon>
+                                                <mat-autocomplete #autoSaved="matAutocomplete">
+                                                    <mat-option *ngFor="let shoes of filteredShoes | async" [value]="shoes">{{shoes}}</mat-option>
+                                                </mat-autocomplete>
+                                            </div>
+                                            <div #autoCompleteActions class="field-actions hidden">
+                                                <button mat-button (click)="saveAutoComplete(autoCompleteActions)" class="button nano color-light" title="Guardar"><mat-icon svgIcon="save"></mat-icon></button>
+                                                <button mat-button (click)="cancelAutoComplete(autoCompleteActions)" class="button nano color-light" title="Deshacer"><mat-icon svgIcon="undo"></mat-icon></button>                        
+                                            </div>
+                                        </fieldset>
+                                        <label class="bold">Auto Completar Etiquetas</label>
+                                        <fieldset class="field-container field-tag mb-4">
+                                            <mat-chip-list #chipList aria-label="Fruit selection">
+                                                <mat-chip *ngFor="let fruit of fruits"
+                                                          [selectable]="selectable"
+                                                          [removable]="removable"
+                                                          (removed)="remove(fruit)">
+                                                    {{fruit}}
+                                                    <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                                                </mat-chip>
+                                                <input placeholder="Nueva fruta..."
+                                                       #fruitInput
+                                                       [formControl]="fruitCtrl"
+                                                       [matAutocomplete]="autoTag"
+                                                       [matChipInputFor]="chipList"
+                                                       [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                                       (matChipInputTokenEnd)="addFruit($event)">
+                                            </mat-chip-list>
+                                            <mat-autocomplete #autoTag="matAutocomplete" (optionSelected)="selectedFruit($event)">
+                                                <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+                                                  {{fruit}}
+                                                </mat-option>
+                                            </mat-autocomplete>
+                                        </fieldset>
+                                        <label class="bold">Auto Completar Etiquetas Auto Guardado</label>
+                                        <fieldset class="field-container field-tag mb-4">
+                                            <div (click)="editAutoCompleteTag(chipListAutosavedWrapper, autoCompleteTagActions)">
+                                                <div #chipListAutosavedWrapper class="mat-chip-disabled">
+                                                    <mat-chip-list #chipListAutosaved aria-label="Cars selection">
+                                                        <mat-chip *ngFor="let car of cars"
+                                                                  [selectable]="selectableCar"
+                                                                  [removable]="removableCar"
+                                                                  (removed)="removeCar(car)">
+                                                            {{car}}
+                                                            <mat-icon matChipRemove *ngIf="removableCar">cancel</mat-icon>
+                                                        </mat-chip>
+                                                        <input placeholder="Nuevo auto..."
+                                                               #carInput
+                                                               [formControl]="carCtrl"
+                                                               [matAutocomplete]="autoTagCars"
+                                                               [matChipInputFor]="chipList"
+                                                               [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                                               (matChipInputTokenEnd)="addCar($event)">
+                                                    </mat-chip-list>
+                                                </div>
+                                                <mat-icon svgIcon="edit" class="show-edit-tag" title="Editar"></mat-icon>
+                                                <mat-autocomplete #autoTagCars="matAutocomplete" (optionSelected)="selectedCar($event)">
+                                                    <mat-option *ngFor="let car of filteredCars | async" [value]="car">
+                                                      {{car}}
+                                                    </mat-option>
+                                                </mat-autocomplete>
+                                            </div>
+                                            <div #autoCompleteTagActions class="field-actions hidden">
+                                                <button mat-button (click)="saveAutoCompleteTag(chipListAutosavedWrapper, autoCompleteTagActions)" class="button nano color-light" title="Guardar"><mat-icon svgIcon="save"></mat-icon></button>
+                                                <button mat-button (click)="cancelAutoCompleteTag(chipListAutosavedWrapper, autoCompleteTagActions)" class="button nano color-light" title="Deshacer"><mat-icon svgIcon="undo"></mat-icon></button>                        
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            </mat-tab>
+                            <mat-tab label="Código">
+                                <mat-accordion>
+                                    <mat-expansion-panel 
+                                        expanded
+                                        class="expand-panel"
+                                        (opened)="panelOpenState = true"
+                                        (closed)="panelOpenState = false">
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title class="normal color-first bold">Select Básico</mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <pre class="language-html scroll scroll--dark"><code class="language-html">&lt;form [formGroup]="formSelect"&gt;
+    &lt;label class="bold"&gt;Select Básico&lt;/label&gt;
+    &lt;mat-select class="field-select mb-4" placeholder="Seleccione una opción" formControlName="selectBasic"&gt;
+        &lt;mat-option value="1"&gt;Opción 1&lt;/mat-option&gt;
+        &lt;mat-option value="2"&gt;Opción 2&lt;/mat-option&gt;
+        &lt;mat-option value="3"&gt;Opción 3&lt;/mat-option&gt;
+        &lt;mat-option value="4"&gt;Opción 4&lt;/mat-option&gt;
+        &lt;mat-option value="5"&gt;Opción 5&lt;/mat-option&gt;
+    &lt;/mat-select&gt;
+&lt;/form&gt;</code></pre>
+                                    </mat-expansion-panel>
+                                    <mat-expansion-panel class="expand-panel">
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title class="normal color-first bold">Select Auto Guardado</mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <pre class="language-html scroll scroll--dark"><code class="language-html">&lt;form [formGroup]="formSelect"&gt;
+    &lt;label class="bold"&gt;Select Auto Guardado&lt;/label&gt;
+    &lt;fieldset class="field-container mb-4"&gt;
+        &lt;div (click)="editSelect(selectActions)"&gt;
+            &lt;mat-select #selectPaises class="field-select" placeholder="Seleccione una opción" formControlName="selectAutoSaved"&gt;
+                &lt;mat-option value="1"&gt;Opción 1&lt;/mat-option&gt;
+                &lt;mat-option value="2"&gt;Opción 2&lt;/mat-option&gt;
+                &lt;mat-option value="3"&gt;Opción 3&lt;/mat-option&gt;
+                &lt;mat-option value="4"&gt;Opción 4&lt;/mat-option&gt;
+                &lt;mat-option value="5"&gt;Opción 5&lt;/mat-option&gt;
+            &lt;/mat-select&gt;
+            &lt;mat-icon svgIcon="edit" class="show-edit-select" title="Editar"&gt;&lt;/mat-icon&gt;
+        &lt;/div&gt;
+        &lt;div #selectActions class="field-actions hidden"&gt;
+            &lt;button mat-button (click)="saveSelect(selectActions)" class="button nano color-light" title="Guardar"&gt;&lt;mat-icon svgIcon="save"&gt;&lt;/mat-icon&gt;&lt;/button&gt;
+            &lt;button mat-button (click)="cancelSelect(selectActions)" class="button nano color-light" title="Deshacer"&gt;&lt;mat-icon svgIcon="undo"&gt;&lt;/mat-icon&gt;&lt;/button&gt;                        
+        &lt;/div&gt;
+    &lt;/fieldset&gt;
+&lt;/form&gt;</code></pre>
+                                    </mat-expansion-panel>
+                                    <mat-expansion-panel class="expand-panel">
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title class="normal color-first bold">Auto Completar Básico</mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <pre class="language-html scroll scroll--dark"><code class="language-html">&lt;form [formGroup]="formSelect"&gt;
+    &lt;label class="bold"&gt;Auto Completar Básico&lt;/label&gt;
+    &lt;input type="text"
+           matInput
+           class="field-input mb-4"
+           placeholder="Seleccione un color"
+           formControlName="autoCompleteBasic"
+           [matAutocomplete]="auto"&gt;
+    &lt;mat-autocomplete #auto="matAutocomplete"&gt;
+        &lt;mat-option *ngFor="let color of filteredColors | async" [value]="color"&gt;&#123; &#123; color &#125; &#125;&lt;/mat-option&gt;
+    &lt;/mat-autocomplete&gt;    
+&lt;/form&gt;</code></pre>
+                                    </mat-expansion-panel>
+                                    <mat-expansion-panel class="expand-panel">
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title class="normal color-first bold">Auto Completar Auto Guardado</mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <pre class="language-html scroll scroll--dark"><code class="language-html">&lt;form [formGroup]="formSelect"&gt;
+    &lt;label class="bold"&gt;Auto Completar Auto Guardado&lt;/label&gt;
+    &lt;fieldset class="field-container mb-4"&gt;
+        &lt;div (click)="editAutoComplete(autoCompleteActions)"&gt;
+            &lt;input type="text"
+                matInput
+                class="field-input"
+                placeholder="Seleccione una marca"
+                formControlName="autoCompleteAutoSaved"
+                [matAutocomplete]="autoSaved"&gt;
+            &lt;mat-icon svgIcon="edit" class="show-edit-input" title="Editar"&gt;&lt;/mat-icon&gt;                                            
+            &lt;mat-autocomplete #autoSaved="matAutocomplete"&gt;
+                &lt;mat-option *ngFor="let shoes of filteredShoes | async" [value]="shoes"&gt;&#123; &#123; shoes &#125; &#125;&lt;/mat-option&gt;
+            &lt;/mat-autocomplete&gt;
+        &lt;/div&gt;
+        &lt;div #autoCompleteActions class="field-actions hidden"&gt;
+            &lt;button mat-button (click)="saveAutoComplete(autoCompleteActions)" class="button nano color-light" title="Guardar"&gt;&lt;mat-icon svgIcon="save"&gt;&lt;/mat-icon&gt;&lt;/button&gt;
+            &lt;button mat-button (click)="cancelAutoComplete(autoCompleteActions)" class="button nano color-light" title="Deshacer"&gt;&lt;mat-icon svgIcon="undo"&gt;&lt;/mat-icon&gt;&lt;/button&gt;                        
+        &lt;/div&gt;
+    &lt;/fieldset&gt;
+&lt;/form&gt;</code></pre>
+                                    </mat-expansion-panel>
+                                    <mat-expansion-panel class="expand-panel scroll">
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title class="normal color-first bold">Archivo component.ts</mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <pre class="language-JavaScript scroll scroll--dark"><code class="language-JavaScript">import &#123; Component, OnInit &#125; from '@angular/core';
+import &#123; Observable &#125; from 'rxjs';
+import &#123; map, startWith &#125; from 'rxjs/operators';
+import &#123; FormGroup, FormControl &#125; from '@angular/forms';
+
+interface Form &#123;
+    selectBasic: string;
+    selectAutoSaved: string;
+    autoCompleteBasic: string;
+    autoCompleteAutoSaved: string;
+&#125;
+
+@Component(&#123;
+    selector: 'app-page-forms',
+    templateUrl: './page-forms.component.html',
+    styleUrls: ['./page-forms.component.scss']
+&#125;)
+export class PageFormsComponent implements OnInit &#123;
+    colors: string[] = ['Amarillo', 'Azul', 'rojo', 'Verde', 'Morado'];
+    shoes: string[]  = ['Nike', 'Adidas', 'Reebok', 'Puma', 'Umbro' ];
+    filteredColors: Observable&lt;string[]&gt;;
+    filteredShoes: Observable&lt;string[]&gt;;
+
+    form: Form = &#123;
+        selectBasic: "",
+        selectAutoSaved: "5",
+        autoCompleteBasic: "",
+        autoCompleteAutoSaved: "",
+    &#125;
+    formSelect: FormGroup = new FormGroup(&#123;
+        selectBasic : new FormControl(this.form.selectBasic),
+        autoCompleteBasic : new FormControl(this.form.autoCompleteBasic),
+        selectAutoSaved : new FormControl(&#123;value: this.form.selectAutoSaved, disabled: true&#125;),
+        autoCompleteAutoSaved : new FormControl(&#123;value: this.form.autoCompleteAutoSaved, disabled: true&#125;),
+    &#125;);
+
+    private _filter(arrOptions: string[], value: string): string[] &#123; 
+        return arrOptions.filter(option => option.toLowerCase().indexOf(value.toLowerCase()) === 0);
+    &#125;
+
+    constructor( ) &#123; &#125;
+
+    ngOnInit(): void &#123;
+        this.filteredColors = this.formSelect.controls.autoCompleteBasic.valueChanges.pipe(
+            startWith(''),
+            map(value => this._filter(this.colors, value))
+        );
+        this.filteredShoes = this.formSelect.controls.autoCompleteAutoSaved.valueChanges.pipe(
+            startWith(''),
+            map(value => this._filter(this.shoes, value))
+        );
+    &#125;
+    editSelect(actions: HTMLDivElement) &#123;
+        this.formSelect.controls.selectAutoSaved.enable();
+        this.showActions(actions);
+    &#125;
+    saveSelect(actions: HTMLDivElement) &#123;
+        this.form.selectAutoSaved = this.formSelect.controls.selectAutoSaved.value;
+        this.formSelect.controls.selectAutoSaved.disable();
+        this.hideActions(actions);
+    &#125;
+    cancelSelect(actions: HTMLDivElement) &#123;
+        this.formSelect.controls.selectAutoSaved.setValue(this.form.selectAutoSaved);
+        this.formSelect.controls.selectAutoSaved.disable();
+        this.hideActions(actions);
+    &#125;
+    editAutoComplete(actions: HTMLDivElement) &#123;
+        this.formSelect.controls.autoCompleteAutoSaved.enable();
+        this.showActions(actions);
+    &#125;
+    saveAutoComplete(actions: HTMLDivElement) &#123;
+        this.form.autoCompleteAutoSaved = this.formSelect.controls.autoCompleteAutoSaved.value;
+        this.formSelect.controls.autoCompleteAutoSaved.disable();
+        this.hideActions(actions);
+    &#125;
+    cancelAutoComplete(actions: HTMLDivElement) &#123;
+        this.formSelect.controls.autoCompleteAutoSaved.setValue(this.form.autoCompleteAutoSaved);
+        this.formSelect.controls.autoCompleteAutoSaved.disable();
+        this.hideActions(actions);
+    &#125;
+
+    showActions(actions: HTMLDivElement) &#123; actions.classList.remove("hidden"); &#125;
+    hideActions(actions: HTMLDivElement) &#123; actions.classList.add("hidden"); &#125;
+&#125;</code></pre>
+                                    </mat-expansion-panel>
+                                </mat-accordion>
+                            </mat-tab>
+                        </mat-tab-group>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section>
+    <app-index-document class="col-md-2 mt-4" [indexDocument]="indexDocument">
+    </app-index-document>
+</div>

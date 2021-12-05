@@ -1,0 +1,63 @@
+.app-sidebar {
+    background-color : var(--color-third);
+    margin-top  : var(--header-height);
+
+    & mat-drawer-content {
+        display         : flex;
+        flex-direction  : column;
+        align-items     : center;
+        justify-content : flex-start;
+        height          : calc(var(--main-height) - var(--header-height));
+    }    
+    & mat-selection-list { padding: 2em .5em; } 
+}
+.mat-list-base .mat-list-option.app-sidebar__item,
+.app-sidebar__toggle {
+    height        : 2.3em;
+    color         : var(--color-accent-alt);
+    border-radius : 2px;
+    user-select   : none;
+    
+    &.mat-list-single-selected-option,
+    &:hover,
+    &:focus { 
+        cursor : pointer;
+        background-color : #{lighten($color-third, 10%)};
+        outline: none;        
+        
+        //& a { font-weight: 700; }
+    }
+
+    & .mat-list-text {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0 !important;
+    }
+    & .mat-list-item-content { 
+        padding: 0 .5em !important;
+        margin: .2em 0;
+    }
+    & .app-sidebar__link { 
+        @include small;
+
+        width       : var(--sidebar-item-width); 
+        margin-left : 1em;
+    }
+    & mat-icon { width: 1.1em; }
+}
+.app-sidebar__toggle { 
+    width   : auto;
+    height  : auto;
+    margin  : auto .5em 1em;
+    padding : .2em .5em;
+}
+.app-sidebar__logo { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    transition: transform 0.2s;
+    color: var(--color-third);
+}

@@ -1,0 +1,7 @@
+.header {
+    display         : flex;
+    justify-content : space-between;
+    align-items     : center;
+    height          : var(--toolbar-height);
+}
+.header-toolbar { align-self: center; }

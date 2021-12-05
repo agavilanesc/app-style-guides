@@ -1,0 +1,36 @@
+/**
+* SINGLE MODAL
+*/
+$modal-min-width      : 25%;
+$modal-max-width      : 50%;
+$modal-width-full     : 100%;
+$modal-header-height  : 3em;
+$modal-content-height : 10vh;
+$modal-actions-height : 3em;
+
+
+/**
+* WIDGET ADD MODAL
+*/
+$modal-widget-add-min-width          : 40%;
+$modal-widget-add-placeholder-width  : 250px;
+$modal-widget-add-placeholder-height : 150px;
+
+
+/**
+* WIDGET ADD MODAL
+*/
+$modal-widget-settings-min-width : 30%;
+
+
+/**
+* ROOT
+*/
+:root {
+    --modal-min-width      : #{$modal-min-width};
+    --modal-max-width      : #{$modal-max-width};
+    --modal-width-full     : #{$modal-width-full};
+    --modal-header-height  : #{$modal-header-height};
+    --modal-content-height : #{$modal-content-height};
+    --modal-actions-height : #{$modal-actions-height};
+}

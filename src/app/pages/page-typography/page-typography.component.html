@@ -1,0 +1,189 @@
+<div class="row">
+    <section class="col-md-10">
+        <div class="typography-demo mt-4">
+            <div class="typography-demo__container">
+                <h2 class="color-first light-title">Familias Tipográficas</h2>
+                <p>
+                    Se utiliza dos familias tipográficas:
+                </p>
+                <ul>
+                    <li><b>Red Hat Display (400, 500, 700)</b> Para los títulos.</li>
+                    <li><b>Roboto (300, 400, 700)</b> Para los contenidos.</li>
+                </ul>
+                <p>
+                    Estas tipografías se encuentra definidas en las variables CSS <code>--heading-font</code> y <code>--body-font</code>. <br>
+                    Utilice las clases <code>.heading-font</code> y <code>.body-font</code> para aplicar estas fuentes a cualquier elemento.
+                </p>
+                <pre class="language-sass"><code class="language-sass">:root &#123;
+    // Font families
+    $heading-font : 'Red Hat Display', sans-serif;
+    $body-font    : 'Roboto', sans-serif;
+
+    --heading-font: #&#123;$heading-font&#125;;
+    --body-font: #&#123;$body-font&#125;;
+&#125;
+.heading-font &#123;
+    font-family: var(--heading-font);
+&#125;
+.body-font &#123;
+    font-family: var(--body-font);
+&#125;</code></pre>
+                <hr *ngIf="indexDocument" [attr.id]="indexDocument[0].element_id">
+                <h2 class="color-first light-title">Tamaños de fuentes</h2>
+                <p>
+                    Las siguientes variables se utilizan para definir el tamaño de los textos. Estos tamaños cambian a partir del breakpoint <code>lg</code>.
+                </p>
+                <pre class="language-sass"><code class="language-sass">:root &#123;
+    $base  : 16px;
+    $ratio : 1.2;
+    
+    $title3  : $base * $ratio;
+    $title2  : $title3 * $ratio;
+    $title1  : $title2 * $ratio;
+    $bigger-title : $title1 * $ratio;
+    $small   : $base / $ratio;
+    $smaller : $small / $ratio;
+    $nano    : $smaller / $ratio;
+    
+    // Font sizes
+    --bigger-font-size    :  #&#123;$title1&#125;;
+    --h1-font-size        :  #&#123;$title2&#125;;
+    --h2-font-size        :  #&#123;$title3&#125;;
+    --h3-font-size        :  #&#123;$base&#125;;
+    --normal-font-size    :  #&#123;$small&#125;;
+    --small-font-size     :  #&#123;$smaller&#125;;
+    --smaller-font-size   :  #&#123;$nano&#125;;
+    --nano-font-size      :  #&#123;$nano&#125;;
+    --heading-line-height : 1.3;
+    --body-line-height    : 1.6;
+
+    // Font sizes a partir del breakpoint lg (64em ~ 1024px)
+    @include from(lg) &#123; 
+        --bigger-font-size    :  #&#123;$bigger-title&#125;;
+        --h1-font-size        :  #&#123;$title1&#125;;
+        --h2-font-size        :  #&#123;$title2&#125;;
+        --h3-font-size        :  #&#123;$title3&#125;;
+        --normal-font-size    :  #&#123;$base&#125;;
+        --small-font-size     :  #&#123;$small&#125;;
+        --smaller-font-size   :  #&#123;$smaller&#125;;
+        --nano-font-size      :  #&#123;$nano&#125;;
+    &#125;
+&#125;</code></pre>
+                <hr *ngIf="indexDocument" [attr.id]="indexDocument[1].element_id">
+                <h2 class="color-first light-title">Clase para los títulos</h2>
+                <p>
+                    Por defecto del <code>&lt;h1&gt;</code> al <code>&lt;h6&gt;</code> conservan el estilo para los títulos, por lo que no es necesario añadir las clases de títulos.<br>
+                </p>
+                <h1>Título de primer nivel</h1>
+                <h2>Título de segundo nivel</h2>
+                <h3>Título de tercer nivel</h3>
+                <h4>Título de cuarto nivel</h4>
+                <h5>Título de quinto nivel</h5>
+                <h6>Título de sexto nivel</h6>
+                <pre class="language-html code-toolbar mt-4"><code class="language-html">&lt;h1&gt;Título de primer nivel&lt;/h1&gt;
+&lt;h2&gt;Título de segundo nivel&lt;/h2&gt;
+&lt;h3&gt;Título de tecer nivel&lt;/h3&gt;
+&lt;h4&gt;Título de cuarto nivel&lt;/h4&gt;
+&lt;h5&gt;Título de quinto nivel&lt;/h5&gt;
+&lt;h6&gt;Título de sexto nivel&lt;/h6&gt;</code></pre>
+                <p>
+                    Sin embargo si desea aplicar los estilos de títulos a otros elementos utilice las clases <code>.bigger-title</code> <code>.title1</code> <code>.title2</code> <code>.title3</code> <code>.title4</code> <code>.title5</code> <code>.title6</code>
+                </p>
+                <p class="bigger-title">Otro elemento con la clase .bigger-title</p>
+                <p class="title1">Otro elemento con la clase .title1</p>
+                <p class="title2">Otro elemento con la clase .title2</p>
+                <p class="title3">Otro elemento con la clase .title3</p>
+                <p class="title4">Otro elemento con la clase .title4</p>
+                <p class="title5">Otro elemento con la clase .title5</p>
+                <p class="title6">Otro elemento con la clase .title6</p>
+                <pre class="language-html code-toolbar mt-4"><code class="language-html">&lt;p class="bigger-title"&gt;Otro elemento con la clase .bigger-title&lt;/p&gt;
+&lt;p class="title1"&gt;Otro elemento con la clase .title1&lt;/p&gt;
+&lt;p class="title2"&gt;Otro elemento con la clase .title2&lt;/p&gt;
+&lt;p class="title3"&gt;Otro elemento con la clase .title3&lt;/p&gt;
+&lt;p class="title4"&gt;Otro elemento con la clase .title4&lt;/p&gt;
+&lt;p class="title5"&gt;Otro elemento con la clase .title5&lt;/p&gt;
+&lt;p class="title6"&gt;Otro elemento con la clase .title6&lt;/p&gt;</code></pre>
+                <hr *ngIf="indexDocument" [attr.id]="indexDocument[2].element_id">
+                <h2 class="color-first light-title">Clase para los contenidos</h2>
+                <p>
+                    Utilice las clases <code>.biggest</code> <code>.bigger</code> <code>.big</code> <code>.normal</code> <code>.small</code> <code>.smaller</code> <code>.nano</code> para cambiar de tamaño de fuente manteniendo los estilos de contenido.
+                </p>
+                <p class="biggest">Párrafo con la clase biggest<p>
+                <p class="bigger">Párrafo con la clase bigger<p>
+                <p class="big">Párrafo con la clase big<p>
+                <p class="normal">Párrafo con la clase normal<p>
+                <p class="small">Párrafo con la clase biggest<p>
+                <p class="smaller">Párrafo con la clase smaller<p>
+                <p class="nano">Párrafo con la clase nano<p>
+                <pre class="language-html code-toolbar mt-4"><code class="language-html">&lt;p class="biggest"&gt;Párrafo con la clase biggest&lt;/p&gt;
+&lt;p class="bigger"&gt;Párrafo con la clase bigger&lt;/p&gt;
+&lt;p class="big"&gt;Párrafo con la clase big&lt;/p&gt;
+&lt;p class="normal"&gt;Párrafo con la clase normal&lt;/p&gt;
+&lt;p class="small"&gt;Párrafo con la clase small&lt;/p&gt;
+&lt;p class="smaller"&gt;Párrafo con la clase smaller&lt;/p&gt;
+&lt;p class="nano"&gt;Párrafo con la clase nano&lt;/p&gt;</code></pre>
+                <p>
+                    La clase <code>.normal</code> es opcional, ya que por defecto todos los textos de contenido utilizan el estilo de fuente de dicha clase.
+                </p>
+                <hr *ngIf="indexDocument" [attr.id]="indexDocument[3].element_id">
+                <h2 class="color-first light-title">Regular, Negrita, Ligera y Cursiva</h2>
+                <p>
+                    Por defecto el peso tipográfico de las fuentes es regular, sin embargo puede usar las clases <code>.bold</code> para negrita, <code>.light-text</code> para ligera o <code>.italic</code> para cursiva.<br>
+                    Los títulos del <code>&lt;h1&gt;</code> al <code>&lt;h3&gt;</code> por defecto son negita, del <code>&lt;h4&gt;</code> al <code>&lt;h6&gt;</code> son regular, pero si quiere que el peso sea aún menor, utilice la clase <code>.light-title</code>
+                </p>
+                <p>Texto en normal</p>
+                <p class="bold">Texto en negrita</p>
+                <p class="light-text">Texto en ligera</p>
+                <p class="italic">Texto en cursiva</p>
+                <p class="bold italic">Texto en negrita y cursiva</p>
+                <p class="light-text italic">Texto en ligera y cursiva</p>
+                <h1 class="light-title">Título de primer nivel en ligera</h1>
+                <h1 class="light-title italic">Título de primer nivel en ligera y cursiva</h1>
+                <pre class="language-html code-toolbar mt-4"><code class="language-html">&lt;p&gt;Texto en normal&lt;/p&gt;
+&lt;p class="bold"&gt;Texto en negrita&lt;/p&gt;
+&lt;p class="light-text"&gt;Texto en ligera&lt;/p&gt;
+&lt;p class="italic"&gt;Texto en cursiva&lt;/p&gt;
+&lt;p class="bold italic"&gt;Texto en negrita y cursiva&lt;/p&gt;
+&lt;p class="light-text italic"&gt;Texto en ligera y cursiva&lt;/p&gt;
+&lt;h1 class="light-title"&gt;Título de primer nivel en ligera&lt;/h1&gt;
+&lt;h1 class="light-title italic"&gt;Título de primer nivel en ligera y cursiva&lt;/h1&gt;</code></pre>
+                <hr *ngIf="indexDocument" [attr.id]="indexDocument[4].element_id">
+                <h2 class="color-first light-title">Colores de fuentes</h2>
+                <p>
+                    Los textos también pueden utilizar los colores ya definidos en la paleta de colores.<br>
+                    Para ello utilizamos las clases correspondientes:
+                </p>
+                <ul>
+                    <li><code>.color-first</code></li>
+                    <li><code>.color-second</code></li>
+                    <li><code>.color-first</code></li>
+                    <li><code>.color-accent</code></li>
+                    <li><code>.color-dark</code></li>
+                    <li><code>.color-light</code></li>
+                    <li><code>.color-success</code></li>
+                    <li><code>.color-danger</code></li>
+                </ul>
+                <p>texto color por defecto </p>
+                <p class="color-first">texto color primario </p>
+                <p class="color-second">texto color secundario </p>
+                <p class="color-third">texto color alterno </p>
+                <p class="color-accent">texto color enfasis </p>
+                <p class="color-dark">texto color obscuro </p>
+                <p class="color-light">texto color claro </p>
+                <p class="color-success">texto color éxito </p>
+                <p class="color-danger">texto color peligro </p>
+                <pre class="language-html code-toolbar mt-4"><code class="language-html">&lt;p&gt;Texto color por defecto&lt;/p&gt;
+&lt;p class="color-first"&gt;Texto color primario&lt;/p&gt;
+&lt;p class="color-second"&gt;Texto color secundario&lt;/p&gt;
+&lt;p class="color-third"&gt;Texto color alterno&lt;/p&gt;
+&lt;p class="color-accent"&gt;Texto color enfasis&lt;/p&gt;
+&lt;p class="color-dark"&gt;Texto color obscuro&lt;/p&gt;
+&lt;p class="color-light"&gt;Texto color claro&lt;/p&gt;
+&lt;p class="color-success"&gt;Texto color éxito&lt;/p&gt;
+&lt;p class="color-danger"&gt;Texto color peligro&lt;/p&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+    <app-index-document class="col-md-2 mt-4" [indexDocument]="indexDocument">
+    </app-index-document>
+</div>

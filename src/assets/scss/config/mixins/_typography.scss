@@ -1,0 +1,89 @@
+// Mixins for heading styles
+@mixin heading-font($extrabold : false) {
+    --color        : var(--color-text);
+
+    line-height    : var(--heading-line-height) !important;
+    font-family    : var(--heading-font) !important;
+    font-weight    : if($extrabold, 700, 500) !important;
+    color          : var(--color);  
+    margin-bottom  : 0 !important;
+}
+  
+@mixin bigger-title {
+    @include heading-font(true);
+    font-size : var(--bigger-font-size) !important;
+}
+
+@mixin title1 {
+    @include heading-font(true);
+    font-size : var(--h1-font-size) !important;
+}
+  
+@mixin title2 {
+    @include heading-font(true);
+    font-size : var(--h2-font-size) !important;
+}
+  
+@mixin title3 {
+    @include heading-font;
+    font-size : var(--h3-font-size) !important;
+}
+  
+@mixin title4 {
+    @include heading-font;
+    font-size : var(--normal-font-size) !important;
+}
+  
+@mixin title5 {
+    @include heading-font;
+    font-size : var(--small-font-size) !important;
+}
+  
+@mixin title6 {
+    @include heading-font;
+    font-size : var(--smaller-font-size) !important;
+    margin-bottom : 0 !important;
+}
+  
+  
+// Mixins for text content styles
+@mixin body-font {
+    font-family : var(--body-font);
+    font-weight : 400;
+    line-height : var(--body-line-height);
+}
+  
+@mixin biggest {
+    @include body-font;
+    font-size : var(--h1-font-size) !important;
+}
+  
+@mixin bigger {
+    @include body-font;
+    font-size : var(--h2-font-size) !important;
+}
+  
+@mixin big {
+    @include body-font;
+    font-size : var(--h3-font-size) !important;
+}
+  
+@mixin normal {
+    @include body-font;
+    font-size : var(--normal-font-size) !important;
+}
+  
+@mixin small {
+    @include body-font;
+    font-size : var(--small-font-size) !important;
+}
+  
+@mixin smaller {
+    @include body-font;
+    font-size : var(--smaller-font-size) !important;
+}
+
+@mixin nano {
+    @include body-font;
+    font-size : var(--nano-font-size) !important;
+}

@@ -1,0 +1,415 @@
+<div class="row">
+    <section class="col-md-9">
+        <div class="menu-demo mt-4" *ngIf="indexDocument" [attr.id]="indexDocument[0].element_id">
+            <div class="menu-demo__container">
+                <h2 class="color-first light-title">Menú de la aplicación</h2>
+                <p>
+                    Este menú sirve para conectar con otras aplicaciones principales de la Compañia.
+                </p>
+                <section class="menu-demo__item">
+                    <header class="menu-demo__header">
+                        <app-app-menu></app-app-menu>
+                    </header>
+                    <p class="p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, officiis? Fugit tempora, corporis animi enim ea quisquam dolorum explicabo quibusdam labore aliquid cumque ullam odio, optio, accusamus nam! Omnis, labore!</p>
+                </section>
+                <p>
+                    Creamos el componente a traves de la terminal, con el comando <code>ng generate component</code>.
+                </p>
+                <pre class="language-shell-session code-toolbar"><code class="language-shell-session">ng generate component shared/components/app-menu --skip-tests</code></pre>
+                <p>
+                    Una vez creado el componente agregamos la siguiente estructura <code>html</code> y código <code>typescript</code>
+                </p>
+                <!-- Inicio Tab -->
+                <mat-tab-group class="tab" animationDuration="0ms">
+                    <mat-tab label="app-menu.component.html">
+                        <ng-template matTabContent>
+                            <pre class="language-html scroll scroll--dark"><code class="language-html">&lt;button [matMenuTriggerFor]="menu" class="app-menu" aria-label="button con menu"&gt;
+    &lt;mat-icon svgIcon="menu"&gt;&lt;/mat-icon&gt;
+&lt;/button&gt;
+&lt;mat-menu #menu="matMenu"&gt;
+    &lt;button *ngFor="let item of appMenu" 
+            mat-menu-item 
+            class="app-menu-item" 
+            [ngClass]="&#123; 'menu-item-settings' : item.icon == 'settings' &#125;" 
+            [routerLink]="item.url"
+            [disabled]="item.disabled"&gt;
+        &lt;mat-icon svgIcon=" &#123;&#123; item.icon &#125; &#125; "&gt;&lt;/mat-icon&gt;
+        &lt;span&gt; &#123;&#123;item.title &#125; &#125; &lt;/span&gt;
+    &lt;/button&gt;
+&lt;/mat-menu&gt;</code></pre>
+                            {{getContentLoaded(1)}}
+                        </ng-template>
+                    </mat-tab>
+                    <mat-tab label="app-menu.component.ts">
+                        <ng-template matTabContent>
+                            <pre class="language-javascript scroll scroll--dark"><code class="language-javascript">import &#123; Component, OnInit &#125; from '@angular/core';
+import &#123; MenuApiService &#125; from '../../services/menu-api.service';
+import &#123; Menu &#125; from 'src/app/shared/models/menu';
+
+@Component(&#123;
+    selector: 'app-menu',
+    templateUrl: './app-menu.component.html',
+    styleUrls: ['./app-menu.component.scss']
+&#125;)
+
+export class AppMenuComponent implements OnInit &#123;
+    appMenu: Menu[];
+
+    constructor( private menuApiService: MenuApiService ) &#123; &#125;
+
+    ngOnInit(): void &#123;
+        this.menuApiService.getData().subscribe(data => &#123;
+            this.appMenu = data["app-menu"]["data"];
+        &#125;);
+    &#125;
+&#125;</code></pre>
+                            {{getContentLoaded(2)}}
+                        </ng-template>
+                    </mat-tab>
+                    <mat-tab label="menu.ts">
+                        <ng-template matTabContent>
+                            <pre class="language-javascript scroll scroll--dark"><code class="language-javascript">export interface Menu &#123;
+    icon?     : string;
+    title     : string;
+    action?   : string;
+    url?      : string;
+    disabled  : boolean;
+    children? : Menu[];
+&#125;
+//Este archivo debe estar en el directorio 'src/app/shared/models/menu.ts'
+                            </code></pre>
+                            {{getContentLoaded(3)}}
+                        </ng-template>
+                    </mat-tab>
+                </mat-tab-group>
+                <!-- Fin Tab -->
+
+                <hr *ngIf="indexDocument" [attr.id]="indexDocument[1].element_id">
+                <h2 class="color-first light-title">Menú Principal</h2>
+                <p>
+                    Este menú es para llamar a los diferentes módulos de la aplicación.
+                </p>
+                <section class="menu-demo__item">
+                    <header class="menu-demo__header">
+                        <app-main-menu></app-main-menu>
+                    </header>
+                    <p class="p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, officiis? Fugit tempora, corporis animi enim ea quisquam dolorum explicabo quibusdam labore aliquid cumque ullam odio, optio, accusamus nam! Omnis, labore!</p>
+                </section>
+                <p>
+                    Creamos el componente a traves de la terminal, con el comando <code>ng generate component</code>.
+                </p>
+                <pre class="language-shell-session code-toolbar"><code class="language-shell-session">ng generate component shared/components/main-menu --skip-tests</code></pre>
+                <p>
+                    Una vez creado el componente agregamos la siguiente estructura <code>html</code> y código <code>typescript</code>
+                </p>
+                <!-- Inicio Tab -->
+                <mat-tab-group class="tab" animationDuration="0ms">
+                    <mat-tab label="main-menu.component.html">
+                        <ng-template matTabContent>
+                            <pre class="language-html scroll scroll--dark"><code class="language-html">&lt;button *ngIf="mainMenu" mat-button [matMenuTriggerFor]="main_menu" class="main-menu"&gt;
+    Inicio
+    &lt;mat-icon svgIcon="chevron-down"&gt;&lt;/mat-icon&gt;
+&lt;/button&gt;
+&lt;mat-menu #main_menu&gt;
+    &lt;span *ngFor="let item of mainMenu"&gt;
+        &lt;span *ngIf="item.children && item.children.length > 0"&gt;
+            &lt;button mat-menu-item 
+                    class="main-menu-item"
+                    [matMenuTriggerFor]="menu.childMenu"
+                    [disabled]="item.disabled"&gt;
+                &lt;mat-icon *ngIf="item.icon"&gt;{{ item.icon } }&lt;/mat-icon&gt;
+                {{ item.title } }
+            &lt;/button&gt;
+            &lt;app-menu-item #menu [items]="item.children"&gt;&lt;/app-menu-item&gt;
+        &lt;/span&gt;
+        &lt;span *ngIf="!item.children || item.children.length === 0"&gt;
+            &lt;button mat-menu-item
+                    class="main-menu-item"
+                    [routerLink]="item.url"
+                    [disabled]="item.disabled"&gt;
+                &lt;mat-icon *ngIf="item.icon"&gt;{{ item.icon } }&lt;/mat-icon&gt;
+                {{ item.title } }
+            &lt;/button&gt;
+        &lt;/span&gt;
+    &lt;/span&gt;
+&lt;/mat-menu&gt;</code></pre>
+                            {{getContentLoaded(1)}}
+                        </ng-template>
+                    </mat-tab>
+                    <mat-tab label="main-menu.component.ts">
+                        <ng-template matTabContent>
+                            <pre class="language-javascript scroll scroll--dark"><code class="language-javascript">import &#123; Component, OnInit &#125; from '@angular/core';
+import &#123; MenuApiService &#125; from '../../services/menu-api.service';
+import &#123; Menu &#125; from 'src/app/shared/models/menu';
+
+@Component(&#123;
+  selector: 'app-main-menu',
+  templateUrl: './main-menu.component.html',
+  styleUrls: ['./main-menu.component.scss']
+&#125;)
+export class MainMenuComponent implements OnInit &#123;
+  mainMenu: Menu[];
+
+  constructor( private menuApiService: MenuApiService ) &#123; &#125;
+
+  ngOnInit(): void &#123;
+    this.menuApiService.getData().subscribe(data => &#123;
+      this.mainMenu = data["main-menu"]["data"];
+    &#125;);
+  &#125;
+&#125;</code></pre>
+                            {{getContentLoaded(2)}}
+                        </ng-template>
+                    </mat-tab>
+                    <mat-tab label="menu.ts">
+                        <ng-template matTabContent>
+                            <pre class="language-javascript scroll scroll--dark"><code class="language-javascript">export interface Menu &#123;
+    icon?     : string;
+    title     : string;
+    action?   : string;
+    url?      : string;
+    disabled  : boolean;
+    children? : Menu[];
+&#125;
+//Este archivo debe estar en el directorio 'src/app/shared/models/menu.ts'
+                            </code></pre>
+                            {{getContentLoaded(3)}}
+                        </ng-template>
+                    </mat-tab>
+                </mat-tab-group>
+                <!-- Fin Tab -->
+                <p>
+                    Adicional debemos crear el componente <code>menu-item</code>.
+                </p>
+                <pre class="language-shell-session code-toolbar"><code class="language-shell-session">ng generate component shared/components/menu-item --skip-tests</code></pre>
+                <!-- Inicio Tab -->
+                <mat-tab-group class="tab" animationDuration="0ms">
+                    <mat-tab label="menu-item.component.html">
+                        <ng-template matTabContent>
+                            <pre class="language-html scroll scroll--dark"><code class="language-html">&lt;mat-menu #childMenu="matMenu" [overlapTrigger]="false"&gt;
+    &lt;span *ngFor="let item of items"&gt;
+        &lt;span *ngIf="item.children && item.children.length > 0"&gt;
+            &lt;button mat-menu-item 
+                    class="main-menu-item" 
+                    [matMenuTriggerFor]="menu.childMenu"
+                    [disabled]="item.disabled"&gt;
+                &lt;mat-icon *ngIf="item.icon"&gt;{{ item.icon } }&lt;/mat-icon&gt;
+                &lt;span&gt;{{ item.title } }&lt;/span&gt;
+            &lt;/button&gt;
+            &lt;app-menu-item #menu [items]="item.children"&gt;&lt;/app-menu-item&gt;
+        &lt;/span&gt;
+        &lt;span *ngIf="!item.children || item.children.length === 0"&gt;
+            &lt;button mat-menu-item 
+                    class="main-menu-item" 
+                    [routerLink]="item.url"
+                    [disabled]="item.disabled"&gt;
+                &lt;mat-icon *ngIf="item.icon"&gt;{{ item.icon } }&lt;/mat-icon&gt;
+                &lt;span&gt;{{ item.title } }&lt;/span&gt;
+            &lt;/button&gt;
+        &lt;/span&gt;
+    &lt;/span&gt;
+&lt;/mat-menu&gt;</code></pre>
+                            {{getContentLoaded(1)}}
+                        </ng-template>
+                    </mat-tab>
+                    <mat-tab label="menu-item.component.ts">
+                        <ng-template matTabContent>
+                            <pre class="language-javascript scroll scroll--dark"><code class="language-javascript">import &#123; Component, Input, OnInit, ViewChild &#125; from '@angular/core';
+import &#123; Router &#125; from '@angular/router';
+import &#123; Menu &#125; from 'src/app/shared/models/menu';
+
+@Component(&#123;
+    selector: 'app-menu-item',
+    templateUrl: './menu-item.component.html',
+    styleUrls: ['./menu-item.component.scss']
+&#125;)
+export class MenuItemComponent implements OnInit &#123;
+
+    @Input() items: Menu[];
+    @ViewChild('childMenu', &#123; static: true &#125;) public childMenu;
+
+    constructor(public router: Router) &#123; &#125;
+
+    ngOnInit(): void &#123;
+    &#125;
+
+&#125;</code></pre>
+                            {{getContentLoaded(2)}}
+                        </ng-template>
+                    </mat-tab>
+                </mat-tab-group>
+                <!-- Fin Tab -->
+                <hr *ngIf="indexDocument" [attr.id]="indexDocument[2].element_id">
+                <h2 class="color-first light-title">Menú de tres puntos</h2>
+                <p>
+                    Este menú es para acciones propias de un componente, módulo, o configuraciones. Utilicelo solo bajo ese enfoque.
+                </p>
+                <section class="menu-demo__item">
+                    <header class="menu-demo__toolbar">
+                        <app-three-dots-menu [items]="menu" (menuEventEmitter)="onClickMenu($event)"></app-three-dots-menu>
+                    </header>
+                    <p class="p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, officiis? Fugit tempora, corporis animi enim ea quisquam dolorum explicabo quibusdam labore aliquid cumque ullam odio, optio, accusamus nam! Omnis, labore!</p>
+                </section>
+                <p>
+                    Creamos el componente.
+                </p>
+                <pre class="language-shell-session code-toolbar"><code class="language-shell-session">ng generate component shared/components/three-dots-menu --skip-tests</code></pre>
+                <p>
+                    Una vez creado el componente agregamos la siguiente estructura <code>html</code> y código <code>typescript</code>
+                </p>
+                <!-- Inicio Tab -->
+                <mat-tab-group class="tab" animationDuration="0ms">
+                    <mat-tab label="three-dots-menu.component.html">
+                        <ng-template matTabContent>
+                            <pre class="language-html scroll scroll--dark"><code class="language-html">&lt;button mat-button [matMenuTriggerFor]="menu" class="three-dots-menu button nano color-light"&gt;
+    &lt;mat-icon svgIcon="three-dots"&gt;&lt;/mat-icon&gt;
+&lt;/button&gt;
+&lt;mat-menu #menu="matMenu"&gt;
+    &lt;button *ngFor="let item of items" 
+            mat-menu-item 
+            class="three-dots-menu-item"
+            [ngClass]="&#123; 'menu-item-settings' : item.icon == 'settings' &#125;"
+            (click)="onClickMenu(item)"
+            [disabled]="item.disabled"&gt;
+        &lt;mat-icon *ngIf="item.icon" svgIcon="{{ item.icon } }"&gt;&lt;/mat-icon&gt;        
+        &lt;span&gt;{{ item.title } }&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/mat-menu&gt;</code></pre>
+                            <span>Si desea el botón en modo vertical, utilice la clase <code>three-dots-menu--vertical</code></span>
+                            {{getContentLoaded(1)}}
+                        </ng-template>
+                    </mat-tab>
+                    <mat-tab label="three-dots-menu.component.ts">
+                        <ng-template matTabContent>
+                            <pre class="language-javascript scroll scroll--dark"><code class="language-javascript">import &#123; Component, Input, Output, OnInit, EventEmitter &#125; from '@angular/core';
+import &#123; Menu &#125; from 'src/app/shared/models/menu';
+
+@Component(&#123;
+  selector: 'app-three-dots-menu',
+  templateUrl: './three-dots-menu.component.html',
+  styleUrls: ['./three-dots-menu.component.scss']
+&#125;)
+export class ThreeDotsMenuComponent implements OnInit &#123;
+
+  @Input() items: Menu[];
+  @Output() menuEventEmitter: EventEmitter&lt;Menu&gt; = new EventEmitter&lt;Menu&gt;();
+  
+  constructor() &#123; &#125;
+
+  ngOnInit(): void &#123;
+  &#125;
+
+  onClickMenu(itemMenu: Menu) &#123;
+    this.menuEventEmitter.emit(itemMenu);
+  &#125;
+&#125;</code></pre>
+                            {{getContentLoaded(2)}}
+                        </ng-template>
+                    </mat-tab>
+                    <mat-tab label="menu.ts">
+                        <ng-template matTabContent>
+                            <pre class="language-javascript scroll scroll--dark"><code class="language-javascript">export interface Menu &#123;
+    icon?     : string;
+    title     : string;
+    action?   : string;
+    url?      : string;
+    disabled  : boolean;
+    children? : Menu[];
+&#125;
+//Este archivo debe estar en el directorio 'src/app/shared/models/menu.ts'
+                            </code></pre>
+                            {{getContentLoaded(3)}}
+                        </ng-template>
+                    </mat-tab>
+                    <mat-tab label="parent.component.html">
+                        <ng-template matTabContent>
+                            <pre class="language-html scroll scroll--dark"><code class="language-html">//Este código va en la plantilla del componente padre que lo invoca.
+&lt;app-three-dots-menu [items]="menu" (menuEventEmitter)="onClickMenu($event)"&gt;&lt;/app-three-dots-menu&gt;
+                            </code></pre>
+                            {{getContentLoaded(3)}}
+                        </ng-template>
+                    </mat-tab>
+                    <mat-tab label="parent.component.ts">
+                        <ng-template matTabContent>
+                            <pre class="language-javascript scroll scroll--dark"><code class="language-javascript">//Este código va en la clase del componente padre que lo invoca.                                
+
+import &#123; Component, OnInit &#125; from '@angular/core';
+import &#123; Menu &#125; from 'src/app/shared/models/menu';
+import &#123; MenuApiService &#125; from 'src/app/shared/services/menu-api.service';
+
+@Component(&#123;
+  selector: 'app-parent',
+  templateUrl: './parent.component.html',
+  styleUrls: ['./parent.component.scss']
+&#125;)
+export class ParentComponent implements OnInit &#123;
+  menu: Menu[];
+
+  constructor( private menuApiService: MenuApiService ) &#123; &#125;
+
+  ngOnInit(): void &#123;
+    this.menuApiService.getData().subscribe(data => &#123;
+      this.menu = data["settings-menu"]["data"];
+    &#125;);    
+  &#125;
+
+  onClickMenu(itemMenu: Menu) &#123;
+    switch ( itemMenu.action ) &#123;
+      case "goToFacebook":
+        alert("click en Ir a Facebook")
+        break;
+      case "goToTwitter":
+        alert("click en Ir a Twitter")
+        break;
+      case "goToInstagram":
+        alert("click en Ir a Instagram")
+        break;    
+      default:
+        break;
+    &#125;
+  &#125;
+&#125;</code></pre>
+                            {{getContentLoaded(3)}}
+                        </ng-template>
+                    </mat-tab>
+                </mat-tab-group>
+                <!-- Fin Tab -->
+                <hr *ngIf="indexDocument" [attr.id]="indexDocument[3].element_id">
+                <h2 class="light-title color-first mt-3">Crear Servicio para cargar los ítems del Menú</h2>
+                <p>
+                    Necesitamos crear un servicio para inyectarlo en el constructor del componente para poder cargar los ítems del menú dinámicamente.<br>
+                    Este servicio lo creamos desde la terminal, con el comando <code>ng generate service</code>
+                </p>
+                <pre class="language-shell-session"><code class="language-shell-session">ng generate service shared/services/MenuApi --skip-tests</code></pre>
+                <p>
+                    En el archivo <code>menu-api.service.ts</code>, agregamos el siguiente código.
+                </p>
+                <pre class="language-JavaScript"><code class="language-JavaScript">import &#123; Injectable &#125; from '@angular/core';
+import &#123; Observable &#125; from 'rxjs';
+import &#123; HttpClient &#125; from '@angular/common/http';
+import &#123; Menu &#125; from '../models/menu';
+
+const MENU_URL: string = "./assets/data/data.json";
+
+@Injectable(&#123;
+    providedIn: 'root'
+&#125;)
+export class MenuApiService &#123;
+
+    constructor(private http: HttpClient) &#123; 
+    &#125;
+
+    getData(): Observable&lt;Menu&gt; &#123;
+        return this.http.get&lt;Menu&gt;(MENU_URL); 
+    &#125;
+&#125;</code></pre>
+                <p>
+                    Aquí la llamada es hacia un archivo <code>data.json</code> pero también podría ser desde una <b>API</b> externa.
+                </p>
+            </div>
+        </div>
+    </section>
+    <app-index-document class="col-md-3 mt-4" [indexDocument]="indexDocument">
+    </app-index-document>
+</div>
+

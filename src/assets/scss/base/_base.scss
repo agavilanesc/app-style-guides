@@ -1,0 +1,12 @@
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background : var(--color-body);
+}
+
+a { color : var(--color-third); }
+
+strong { font-weight : 700; }
+
+img { max-width: 100%; }

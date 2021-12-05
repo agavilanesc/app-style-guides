@@ -1,0 +1,33 @@
+@function no-unit($number) {
+    @if no unitless($number) {
+        $unit: ($number * 0) + 1;
+        $no-unit: $number / $unit;
+
+        @return $no-unit;
+    }
+}
+
+@function px2em($unit-px, $unit-parent: 16px) {
+    $em: ( $unit-px / $unit-parent ) * 1em;
+
+    @return $em;
+}
+
+
+@for $i from 1 to 10 {
+    .item-#{$i} {
+        width: #{percentage($i / 10)};
+    }
+}
+
+
+
+
+
+
+:root {
+    --no-unit: #{px2em(500px)};
+}
+
+
+

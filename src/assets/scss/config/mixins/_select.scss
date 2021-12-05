@@ -1,0 +1,22 @@
+@mixin select { 
+    @include input;
+
+    background-color: var(--color-light);
+    border: none;
+
+    &:hover { background-color: var(--color-light-alt); }
+    & .mat-select-value { color: var(--color-text); }
+    & .mat-select-placeholder { 
+        color: #{darken($color-placeholder, 20%)};  
+        font-weight: 300;
+    }
+    &.mat-select-disabled { 
+        background-color: var(--color-body);
+        cursor: pointer;
+
+        & .mat-select-value { 
+            color: #{lighten($color-text, 10%)};
+            cursor: pointer;
+        }
+    }
+}

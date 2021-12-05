@@ -1,0 +1,20 @@
+<mat-tab-group class="tab tab-vertical" animationDuration="0ms">
+    <mat-tab label="Tab Uno">
+        <ng-template matTabContent>
+            <p>Contenido Uno</p>
+            {{getContentLoaded(1)}}
+        </ng-template>
+    </mat-tab>
+    <mat-tab label="Tab Dos">
+        <ng-template matTabContent>
+            <p>Contenido Dos</p>
+            {{getContentLoaded(2)}}
+        </ng-template>
+    </mat-tab>
+    <mat-tab label="Tab Tres">
+        <ng-template matTabContent>
+            <p>Contenido Tres</p>
+            {{getContentLoaded(3)}}
+        </ng-template>
+    </mat-tab>
+</mat-tab-group>

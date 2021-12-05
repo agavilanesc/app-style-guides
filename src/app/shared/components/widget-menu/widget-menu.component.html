@@ -1,0 +1,17 @@
+<mat-icon [matMenuTriggerFor]="menu" class="icon-settings" svgIcon="three-dots"></mat-icon>
+<mat-menu #menu="matMenu">
+    <button class="widget-menu-item widget-color-picker">
+        <span (click)="changeColor('widget-color-blue')" class="widget-color-picker__item widget-color-blue" [ngClass]="{'color-selected':widget.class.class_color === 'widget-color-blue'}"></span>
+        <span (click)="changeColor('widget-color-orange')" class="widget-color-picker__item widget-color-orange" [ngClass]="{'color-selected':widget.class.class_color === 'widget-color-orange'}"></span>
+        <span (click)="changeColor('widget-color-green')" class="widget-color-picker__item widget-color-green" [ngClass]="{'color-selected':widget.class.class_color === 'widget-color-green'}"></span>
+        <span (click)="changeColor('widget-color-skyblue')" class="widget-color-picker__item widget-color-skyblue" [ngClass]="{'color-selected':widget.class.class_color === 'widget-color-skyblue'}"></span>
+        <span (click)="changeColor('widget-color-yellow')" class="widget-color-picker__item widget-color-yellow" [ngClass]="{'color-selected':widget.class.class_color === 'widget-color-yellow'}"></span>
+        <span (click)="changeColor('widget-color-cyan')" class="widget-color-picker__item widget-color-cyan" [ngClass]="{'color-selected':widget.class.class_color === 'widget-color-cyan'}"></span>
+        <span (click)="changeColor('widget-color-purple')" class="widget-color-picker__item widget-color-purple" [ngClass]="{'color-selected':widget.class.class_color === 'widget-color-purple'}"></span>
+        <span (click)="changeColor('widget-color-pink')" class="widget-color-picker__item widget-color-pink" [ngClass]="{'color-selected':widget.class.class_color === 'widget-color-pink'}"></span>
+    </button>
+    <button mat-menu-item class="widget-menu-item" (click)="removeWidgetEvent.emit()">Quitar</button>
+    <button mat-menu-item class="widget-menu-item menu-item-settings" (click)="settingWidgetEvent.emit()">
+        <span>Configurar...</span>
+    </button>
+</mat-menu>

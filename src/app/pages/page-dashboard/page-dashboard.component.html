@@ -1,0 +1,252 @@
+<div class="container-fluid">
+    <div class="dashboard-container">
+        <div class="dashboard-menu-container">
+            <app-three-dots-menu [items]="menu" (menuEventEmitter)="onClickMenu($event)"></app-three-dots-menu>
+        </div>
+        <div class="dashboard row">
+            <section class="col-8 dashboard__dropzone">
+                <app-widget *ngFor="let widget of leftWidgets" 
+                            [attr.id]="widget.widget_id" [widget]="widget" 
+                            class="dashboard__item"
+                            (widgetEventEmitter)="removeWidget($event)">
+                </app-widget>
+            </section>
+            <section class="col-4 dashboard__dropzone">
+                <app-widget *ngFor="let widget of rightWidgets" 
+                            [attr.id]="widget.widget_id" [widget]="widget" 
+                            class="dashboard__item"
+                            (widgetEventEmitter)="removeWidget($event)">
+                </app-widget>
+            </section>
+        </div>
+    </div>
+    <div class="dashboard-demo mt-4 row">
+        <div class="dashboard-demo__container col-md-9" *ngIf="indexDocument" [attr.id]="indexDocument[0].element_id">
+            <h2 class="light-title color-first mt-3">Crear componente Dashboard</h2>
+            <p>
+                Sirve como contenedor de widgets para mostrar información resumida, visual, e interactiva de la gestión de un proceso específico.
+            </p>
+            <p>
+                Creamos el componente a traves de la terminal, con el comando <code>ng generate component</code>.
+            </p>
+            <pre class="language-shell-session"><code class="language-shell-session">ng generate component shared/components/dashboard --skip-tests</code></pre>
+            <mat-tab-group class="tab" animationDuration="0ms">
+                <mat-tab label="dashboard.component.html">
+                    <ng-template matTabContent>
+                        <p class="mt-3">
+                            En el archivo <code>dashboard.component.html</code>, agregamos la siguiente estructura <b>html.</b>
+                        </p>
+                        <pre class="language-html"><code class="language-html">&lt;div class="container-fluid"&gt;
+    &lt;div class="dashboard-container"&gt;
+        &lt;div class="dashboard-menu"&gt;
+            &lt;three-dots-menu [items]="menu" (menuEventEmitter)="onClickMenu($event)"&gt;&lt;/three-dots-menu&gt;
+        &lt;/div&gt;
+        &lt;div class="dashboard row"&gt;
+            &lt;section class="col-8 dashboard__dropzone"&gt;
+                &lt;widget *ngFor="let widget of leftWidgets" 
+                            [attr.id]="widget.widget_id" [widget]="widget" 
+                            class="dashboard__item"
+                            (widgetEventEmitter)="removeWidget($event)"&gt;
+                &lt;/widget&gt;
+            &lt;/section&gt;
+            &lt;section class="col-4 dashboard__dropzone"&gt;
+                &lt;widget *ngFor="let widget of rightWidgets" 
+                            [attr.id]="widget.widget_id" [widget]="widget" 
+                            class="dashboard__item"
+                            (widgetEventEmitter)="removeWidget($event)"&gt;
+                &lt;/widget&gt;
+            &lt;/section&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div #widgetOverlay class="add-widget-overlay hidden"&gt;
+        &lt;section class="add-widget-dialog"&gt;
+            &lt;header class="add-widget-dialog__header"&gt;
+                &lt;h1 class="title3 color-first"&gt;Agregar widget&lt;/h1&gt;
+            &lt;/header&gt;
+            &lt;div class="add-widget-dialog__body"&gt;
+                &lt;h2 class="title4"&gt;Seleccione ubicación&lt;/h2&gt;
+                &lt;div&gt;
+                    &lt;mat-icon svgIcon="dashboard-left-panel"&gt;
+                        &lt;label for="add-widget-left-radio" class="add-widget-dialog__check" [ngClass]="&#123; 'add-widget-dialog__check--checked' : addWidgetLeftPanel &#125;"&gt;
+                            &lt;input type="radio" id="add-widget-left-radio" name="add-widget-radio" (change)="addWidgetLeftPanel = !addWidgetLeftPanel"&gt;
+                        &lt;/label&gt;
+                    &lt;/mat-icon&gt;
+                    &lt;mat-icon svgIcon="dashboard-right-panel"&gt;
+                        &lt;label for="add-widget-right-radio" class="add-widget-dialog__check" [ngClass]="&#123; 'add-widget-dialog__check--checked' : !addWidgetLeftPanel &#125;"&gt;
+                            &lt;input type="radio" id="add-widget-right-radio" name="add-widget-radio" (change)="addWidgetLeftPanel = !addWidgetLeftPanel"&gt;
+                        &lt;/label&gt;
+                    &lt;/mat-icon&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="add-widget-dialog__actions"&gt;
+                &lt;button mat-button class="button color-first smaller" (click)="addNewWidget()"&gt;Aceptar&lt;/button&gt;
+                &lt;button mat-button class="button color-cancel smaller" (click)="closeNewWidgetDialog()"&gt;Cancelar&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        {{getContentLoaded(1)}}
+                    </ng-template>
+                </mat-tab>
+                <mat-tab label="dashboard.component.ts">
+                    <ng-template matTabContent>
+                        <p class="mt-3">
+                            En el archivo <code>dashboard.component.ts</code> agregamos el siguiente código.
+                        </p>
+                        <pre class="language-JavaScript"><code class="language-JavaScript">import &#123; Component, OnInit, ViewChild, ViewContainerRef &#125; from '@angular/core';
+import &#123; WidgetApiService &#125; from '../../shared/services/widget-api.service';
+import &#123; Widget &#125; from 'src/app/shared/models/widget';
+import &#123; WidgetClass &#125; from 'src/app/shared/models/widget';
+import &#123; Menu &#125; from 'src/app/shared/models/menu';
+import &#123; Sortable &#125; from '@shopify/draggable';
+
+@Component(&#123;
+  selector: 'dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.scss']
+&#125;)
+export class PageDashboardComponent implements OnInit &#123;
+  widgets: Widget[];
+  leftWidgets: Widget[];
+  rightWidgets: Widget[];
+  menu: Menu[];
+  sortable: Sortable;
+  addWidgetLeftPanel: boolean = true;
+
+  @ViewChild("widgetOverlay", &#123; read: ViewContainerRef &#125;) widgetOverlay: ViewContainerRef;
+  
+  constructor( private widgetService: WidgetApiService ) &#123; &#125;
+
+  ngOnInit(): void &#123;
+    this.widgetService.getWidgets().subscribe(data => &#123;
+      this.widgets = data["widgets"]["data"];
+      this.leftWidgets = this.widgets.filter( widget => widget.section == "left" ).sort( (widgetA, widgetB ) => widgetA.order - widgetB.order );
+      this.rightWidgets = this.widgets.filter( widget => widget.section == "right" ).sort( (widgetA, widgetB) => widgetA.order - widgetB.order );
+    &#125;);
+
+    const body = document.querySelector("body");
+    const dashboardDropzone = document.querySelectorAll(".dashboard__dropzone");
+
+    this.sortable = new Sortable(dashboardDropzone, &#123; 
+      draggable: ".dashboard__item",
+      handle: ".dashboard__item .widget-header .icon-move"
+    &#125;);
+    this.sortable.on("drag:start", (e) => this.sortable.options.classes.mirror = [e.sourceContainer.classList.item(0)]);
+    this.sortable.on("drag:out:container", () => &#123; body.style.setProperty('cursor', 'no-drop'); &#125;);
+    this.sortable.on("drag:stop", () => body.style.setProperty('cursor', 'default'));
+
+    //Menú del Dashboard
+    this.menu = [
+      &#123;
+        "icon"   : "addchart",
+        "title"  : "Agregar Widget",
+        "action" : "showNewWidgetDialog",
+        "url"    : ""
+      &#125;,
+      &#123;
+        "icon"   : "settings",
+        "title"  : "Configurar...",
+        "action" : "",
+        "url"    : ""
+      &#125;
+    ];
+
+  &#125;
+
+  addNewWidget() &#123;
+    const widgetColors: string[] = [ "blue", "orange", "green", "skyblue", "yellow", "cyan", "purple", "pink" ];
+    const newWidget: Widget = new Widget();
+
+    newWidget.widget_id = `widget-$&#123;this.widgets.length + 1&#125;`;
+    newWidget.title = `Título del $&#123;newWidget.widget_id&#125;`;
+    newWidget.section = this.addWidgetLeftPanel ? "left": "right";
+    newWidget.order = ( this.addWidgetLeftPanel ? this.leftWidgets.length : this.rightWidgets.length ) + 1;
+    newWidget.class = new WidgetClass();
+    newWidget.class.class_header = "widget-header";
+    newWidget.class.class_body = "widget-content";
+    newWidget.class.class_color = `widget-color-$&#123;widgetColors[Math.floor(Math.random() * widgetColors.length)]&#125;`;
+
+    this.widgets.push(newWidget);
+    
+    if ( this.addWidgetLeftPanel ) &#123; 
+      this.leftWidgets.push(newWidget); 
+
+    &#125; else &#123; 
+      this.rightWidgets.push(newWidget); 
+    &#125;
+
+    this.closeNewWidgetDialog();
+  &#125;
+
+  removeWidget(widget: Widget) &#123;
+    if ( widget.section === "left" ) &#123;
+      this.leftWidgets.splice(this.leftWidgets.indexOf(widget), 1);
+
+    &#125; else &#123;
+      this.rightWidgets.splice(this.rightWidgets.indexOf(widget), 1);
+    &#125;
+  &#125;
+
+  showNewWidgetDialog() &#123;
+    this.widgetOverlay.element.nativeElement.classList.remove("hidden");
+  &#125;
+
+  closeNewWidgetDialog() &#123; 
+    this.widgetOverlay.element.nativeElement.classList.add("hidden"); 
+  &#125;
+
+  onClickMenu(itemMenu: Menu) &#123;
+    switch ( itemMenu.action ) &#123;
+      case "showNewWidgetDialog":
+        this.showNewWidgetDialog();
+        break;
+    
+      default:
+        break;
+    &#125;
+  &#125;
+&#125;</code></pre>
+                        {{getContentLoaded(2)}}
+                    </ng-template>
+                </mat-tab>
+            </mat-tab-group>
+            <hr *ngIf="indexDocument" [attr.id]="indexDocument[1].element_id">
+            <h2 class="light-title color-first mt-3">Crear Servicio para cargar los widgets</h2>
+            <p>
+                Como se puede apreciar en el archivo <code>dashboard.component.ts</code> necesitamos inyectar un servicio en el constructor del componente para poder cargar los widgets.<br>
+                Este servicio lo creamos desde la terminal, con el comando <code>ng generate service</code>
+            </p>
+            <pre class="language-shell-session"><code class="language-shell-session">ng generate service shared/services/WidgetApi --skip-tests</code></pre>
+            <p>
+                En el archivo <code>widget-api.service.ts</code>, agregamos el siguiente código.
+            </p>
+            <pre class="language-JavaScript"><code class="language-JavaScript">import &#123; Injectable &#125; from '@angular/core';
+import &#123; Observable &#125; from 'rxjs';
+import &#123; HttpClient &#125; from '@angular/common/http';
+import &#123; Widget &#125; from '../models/widget';
+
+const WIDGETS_URL: string = "./assets/data/data.json";
+
+@Injectable(&#123;
+    providedIn: 'root'
+&#125;)
+export class WidgetApiService &#123;
+
+    constructor(private http: HttpClient) &#123; 
+    &#125;
+
+    getWidgets(): Observable&lt;Widget&gt; &#123;
+      return this.http.get&lt;Widget&gt;(WIDGETS_URL); 
+    &#125;
+&#125;</code></pre>
+            <p>
+                Aquí la llamada es hacia un archivo <code>data.json</code> pero también podría ser desde una <b>API</b> externa.
+            </p>
+            <p class="alert-note mt-5 italic">
+                <mat-icon svgIcon="exclamation-fill"></mat-icon><span>Importante:</span> Antes de crear este componente ya debemos tener creados los componentes <code>widget</code> y <code>three-dots-menu</code>
+            </p>
+        </div>
+        <app-index-document class="col-md-3" [indexDocument]="indexDocument">
+        </app-index-document>
+    </div>
+</div>

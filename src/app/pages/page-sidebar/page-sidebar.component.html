@@ -1,0 +1,55 @@
+<div class="row">
+    <section class="col-md-10">
+        <div class="mt-4">
+            <p>
+                Creamos el componente a traves de la terminal, con el comando <code>ng generate component</code>.
+            </p>
+            <pre class="language-shell-session code-toolbar"><code class="language-shell-session">ng generate component shared/components/sidebar --skip-tests</code></pre>
+            <section class="row sidebar-demo">
+                <mat-drawer-container class="app-sidebar mt-0" autosize>
+                    <div class="app-sidebar__logo" 
+                        [ngStyle]="{ 
+                            'transform': toggleSideBar ? 'scale(2)' : 'none',
+                            'margin': toggleSideBar ? '2rem auto 1rem' : '0 auto'
+                        }">
+                        <mat-icon svgIcon="globe"></mat-icon>
+                    </div>
+                    <mat-selection-list [multiple]="false">
+                        <mat-list-option class="app-sidebar__item">
+                            <mat-icon svgIcon="color_lens"></mat-icon>
+                            <a class="app-sidebar__link" *ngIf="toggleSideBar">Colores</a>
+                        </mat-list-option>
+                        <mat-list-option class="app-sidebar__item">
+                            <mat-icon svgIcon="fonts"></mat-icon>
+                            <a class="app-sidebar__link" *ngIf="toggleSideBar">Tipografia</a>
+                        </mat-list-option>
+                        <mat-list-option class="app-sidebar__item">
+                            <mat-icon svgIcon="collection-fill"></mat-icon>
+                            <a class="app-sidebar__link" *ngIf="toggleSideBar">Botones</a>
+                        </mat-list-option>
+                        <mat-list-option class="app-sidebar__item">
+                            <mat-icon svgIcon="table"></mat-icon>
+                            <a class="app-sidebar__link" *ngIf="toggleSideBar">Tablas</a>
+                        </mat-list-option>
+                    </mat-selection-list>
+                    <div class="app-sidebar__toggle" (click)="toggleSideBar = !toggleSideBar" [ngStyle]="{ 'align-self': toggleSideBar ? 'flex-end' : 'flex-start' }">
+                        <mat-icon svgIcon="chevron-double-right" [ngStyle]="{ 'transform': toggleSideBar ? 'rotate(180deg)' : 'rotate(0deg)' }">
+                        </mat-icon>
+                    </div>
+                </mat-drawer-container>
+                <div class="col">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, officiis? Fugit tempora, corporis animi enim ea quisquam dolorum explicabo quibusdam labore aliquid cumque ullam odio, optio, accusamus nam! Omnis, labore!</p>
+                </div>
+
+
+                
+            </section>
+        </div>
+    </section>
+    <nav class="col-md-2">
+        <ul>
+            <li></li>
+            <li></li>
+        </ul>
+    </nav>
+</div>

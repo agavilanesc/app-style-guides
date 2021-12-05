@@ -1,0 +1,32 @@
+.menu-demo {
+    &__item {
+        --main-height   : 45vh;
+        
+        background-color : var(--color-second);
+        width            : 100%;
+        height           : var(--main-height);
+    }
+
+    &__container { 
+        padding: 1em;
+        background-color : var(--color-body-alt); 
+    }
+}
+.menu-demo__header {
+    --color : var(--color-first);
+
+    background-color : var(--color);
+    width            : 100%;
+    height           : var(--header-height);
+}
+.menu-demo__toolbar {
+    --color : var(--color-light);
+    
+    background-color : var(--color);
+    width            : 100%;
+    height           : var(--header-height);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 1em;
+}

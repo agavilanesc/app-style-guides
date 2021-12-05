@@ -1,0 +1,12 @@
+.mat-button.main-menu {
+    @include menu;
+
+    border-radius : 0;
+    height        : var(--header-height);
+    line-height   : var(--header-height);
+    padding       : 0 5px 0 15px;
+}
+.mat-menu-item.main-menu-item {
+    @include small;
+    @include menu-item;
+}

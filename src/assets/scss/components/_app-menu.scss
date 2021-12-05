@@ -1,0 +1,23 @@
+.mat-menu-trigger.app-menu {
+    @include menu;
+    
+    width       : var(--header-height);
+    height      : var(--header-height);
+    line-height : 1em;
+
+    & .mat-icon  {
+        width  : var(--h2-font-size);
+        height : var(--h2-font-size);
+        
+        & svg {
+            width  : inherit;
+            height : inherit;
+            margin : 0;
+        }
+    }    
+}
+
+.mat-menu-item.app-menu-item {
+    @include small;
+    @include menu-item;
+}

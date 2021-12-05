@@ -1,0 +1,57 @@
+$color-first           : hsl(204, 100, 35); 
+$color-first-alt       : hsl(204, 100, 30);
+$color-second          : hsl(195, 100, 35); 
+$color-second-alt      : hsl(197, 77, 50);
+$color-third           : hsl(216, 49, 15); 
+$color-third-alt       : hsl(216, 49, 10);
+$color-fourth          : hsl(150, 66, 50); 
+$color-fourth-alt      : hsl(150, 61, 46);
+$color-accent          : hsl(38, 100, 60);
+$color-accent-alt      : hsl(38, 100, 55);
+$color-light           : hsl(218, 14, 89);
+$color-light-alt       : hsl(203, 21, 88);
+$color-dark            : hsl(218, 25, 35);
+$color-dark-alt        : hsl(218, 24, 25);
+$color-cancel          : hsl(220, 10, 89);
+$color-cancel-alt      : hsl(220, 10, 80);
+$color-success         : hsl(144, 75, 35);
+$color-success-alt     : hsl(145, 100, 90);
+$color-danger          : hsl(356, 86, 50);
+$color-danger-alt      : hsl(355, 100, 95);
+$color-border          : rgba(122,134,154,.40);
+$color-border-disabled : hsl(218, 14, 89);
+$color-input           : hsl(240, 60, 99);
+$color-input-disabled  : hsl(220, 16, 96);
+$color-text            : hsl(218, 25, 35);
+$color-text-light      : #7A869A;
+$color-text-selected   : #DEEBFF;
+$color-item-hover      : hsl(218, 25, 35);
+$color-placeholder     : hsl(219, 14, 80);
+$color-body            : hsl(220, 16, 96);
+$color-body-alt        : hsl(240, 60, 99);
+$color-disabled        : rgba(0,0,0,.38);
+$color-code            : #e83e8c;
+
+$black                 : #000000;
+$white                 : #FFFFFF;
+$white-transparent     : rgba(255,255,255,.70);
+$grey                  : #999999;
+
+:root {
+  --color-input           : #{$color-input};
+  --color-input-disabled  : #{$color-input-disabled};
+  --color-border          : #{$color-border};
+  --color-border-disabled : #{$color-border-disabled};
+  --color-text            : #{$color-text};
+  --color-text-light      : #{$color-text-light};
+  --color-text-selected   : #{$color-text-selected};
+  --color-item-hover      : #{$color-item-hover};
+  --color-placeholder     : #{$color-placeholder};
+  --color-body            : #{$color-body};
+  --color-body-alt        : #{$color-body-alt};
+  --color-disabled        : #{$color-disabled};
+  --color-code            : #{$color-code};
+}
+
+.black { --color : #{lighten($black, 13.5%)} !important; }
+.white { --color : #{darken($white, 8.5%)} !important;   }

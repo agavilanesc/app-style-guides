@@ -1,0 +1,41 @@
+.colors-demo {
+    --main-height   : auto;
+    --header-height : 2px;
+
+    background-color : var(--color-body);
+    width            : 100%;
+    height           : var(--main-height);
+    padding          : 0 1em;
+
+    & span { color: var(--color); }
+    &__container { 
+        padding: 0 1em;
+        background-color : var(--color-body-alt); 
+    }
+}
+.card-color {
+    background-color: var(--color);
+    height: 150px;
+    border-radius: 6px 6px 0 0;
+    box-shadow: 0 0 4px 0 var(--color-alt);
+}
+.color-border {
+    --color     : var(--color-border);
+    --color-alt : var(--color-border);
+}
+.color-text {
+    --color     : var(--color-text);
+    --color-alt : var(--color-text-light);
+}
+.color-body {
+    --color     : var(--color-body);
+    --color-alt : var(--color-body);
+}
+.color-body-alt {
+    --color     : var(--color-body-alt);
+    --color-alt : var(--color-body-alt);
+}
+.color-disabled {
+    --color     : var(--color-disabled);
+    --color-alt : var(--color-disabled);
+}

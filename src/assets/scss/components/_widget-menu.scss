@@ -1,0 +1,28 @@
+.mat-menu-item.widget-menu-item {
+    @include menu-item;
+    @include small;
+
+    line-height : $widget-menu-item-height;
+}
+.widget-color-picker {
+    padding          : 0 1em;
+    background-color : inherit;
+    border-style     : none; 
+    outline          : none !important;
+    cursor           : default !important;
+
+    &__item {
+        display          : inline-block;
+        width            : $widget-color-picker-option;
+        height           : $widget-color-picker-option;
+        background-color : var(--widget-header-color);
+        margin-right     : .25rem;
+    
+        &:hover,
+        &.color-selected {
+            cursor  : pointer;
+            border  : 1px solid white;
+            outline : 2px solid var(--color-third);
+        }
+    }
+}

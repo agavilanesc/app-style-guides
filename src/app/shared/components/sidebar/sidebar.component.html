@@ -1,0 +1,67 @@
+<mat-drawer-container class="app-sidebar" autosize>
+    <div class="app-sidebar__logo" 
+        [ngStyle]="{ 
+            'transform': toggleSideBar ? 'scale(2)' : 'none',
+            'margin': toggleSideBar ? '2rem auto 1rem' : '0 auto'
+        }">
+        <mat-icon svgIcon="webpack"></mat-icon>
+    </div>
+    <mat-selection-list [multiple]="false">
+        <mat-list-option [routerLink]="['/pages/colors']" [routerLinkActive]="'mat-list-single-selected-option'" class="app-sidebar__item">
+            <mat-icon svgIcon="color_lens" [title]="!toggleSideBar ? 'Colores' : ''"></mat-icon>
+            <a class="app-sidebar__link" *ngIf="toggleSideBar">Colores</a>
+        </mat-list-option>
+        <mat-list-option [routerLink]="['/pages/typography']" [routerLinkActive]="'mat-list-single-selected-option'" class="app-sidebar__item">
+            <mat-icon svgIcon="fonts" [title]="!toggleSideBar ? 'Tipografia' : ''"></mat-icon>
+            <a class="app-sidebar__link" *ngIf="toggleSideBar">Tipografia</a>
+        </mat-list-option>
+        <mat-list-option [routerLink]="['/pages/widgets']" [routerLinkActive]="'mat-list-single-selected-option'" class="app-sidebar__item">
+            <mat-icon svgIcon="widget" [title]="!toggleSideBar ? 'Widgets' : ''"></mat-icon>
+            <a class="app-sidebar__link" *ngIf="toggleSideBar">Widgets</a>
+        </mat-list-option>
+        <mat-list-option [routerLink]="['/pages/dashboard']" [routerLinkActive]="'mat-list-single-selected-option'" class="app-sidebar__item">
+            <mat-icon svgIcon="dashboard" [title]="!toggleSideBar ? 'Dashboard' : ''"></mat-icon>
+            <a class="app-sidebar__link" *ngIf="toggleSideBar">Dashboard</a>
+        </mat-list-option>
+        <mat-list-option [routerLink]="['/pages/buttons']" [routerLinkActive]="'mat-list-single-selected-option'" class="app-sidebar__item">
+            <mat-icon svgIcon="collection-fill" [title]="!toggleSideBar ? 'Botones' : ''"></mat-icon>
+            <a class="app-sidebar__link" *ngIf="toggleSideBar">Botones</a>
+        </mat-list-option>
+        <!-- <mat-list-option [routerLinkActive]="'mat-list-single-selected-option'" class="app-sidebar__item">
+            <mat-icon svgIcon="table" [title]="!toggleSideBar ? 'Tablas' : ''"></mat-icon>
+            <a class="app-sidebar__link" *ngIf="toggleSideBar">Tablas</a>
+        </mat-list-option> -->
+        <mat-list-option [routerLink]="['/pages/forms']" [routerLinkActive]="'mat-list-single-selected-option'" class="app-sidebar__item">
+            <mat-icon svgIcon="newspaper" [title]="!toggleSideBar ? 'Formularios' : ''"></mat-icon>
+            <a class="app-sidebar__link" *ngIf="toggleSideBar">Formularios</a>
+        </mat-list-option>
+        <mat-list-option [routerLink]="['/pages/expansion-panel']" [routerLinkActive]="'mat-list-single-selected-option'" class="app-sidebar__item">
+            <mat-icon svgIcon="expand" [title]="!toggleSideBar ? 'Panel de Expansión' : ''"></mat-icon>
+            <a class="app-sidebar__link" *ngIf="toggleSideBar">Panel de Expansión</a>
+        </mat-list-option>
+        <mat-list-option [routerLink]="['/pages/tabs']" [routerLinkActive]="'mat-list-single-selected-option'" class="app-sidebar__item">
+            <mat-icon svgIcon="tab" [title]="!toggleSideBar ? 'Tabs' : ''"></mat-icon>
+            <a class="app-sidebar__link" *ngIf="toggleSideBar">Tabs</a>
+        </mat-list-option>
+        <mat-list-option [routerLink]="['/pages/cards']" [routerLinkActive]="'mat-list-single-selected-option'" class="app-sidebar__item">
+            <mat-icon svgIcon="card-front" [title]="!toggleSideBar ? 'Cards' : ''"></mat-icon>
+            <a class="app-sidebar__link" *ngIf="toggleSideBar">Cards</a>
+        </mat-list-option>
+        <mat-list-option [routerLink]="['/pages/modals']" [routerLinkActive]="'mat-list-single-selected-option'" class="app-sidebar__item">
+            <mat-icon svgIcon="pip" [title]="!toggleSideBar ? 'Modals' : ''"></mat-icon>
+            <a class="app-sidebar__link" *ngIf="toggleSideBar">Modals</a>
+        </mat-list-option>
+        <mat-list-option [routerLink]="['/pages/menu']" [routerLinkActive]="'mat-list-single-selected-option'" class="app-sidebar__item">
+            <mat-icon svgIcon="list-nested" [title]="!toggleSideBar ? 'Menus' : ''"></mat-icon>
+            <a class="app-sidebar__link" *ngIf="toggleSideBar">Menus</a>
+        </mat-list-option>
+        <mat-list-option [routerLink]="['/pages/sidebar']" [routerLinkActive]="'mat-list-single-selected-option'" class="app-sidebar__item">
+            <mat-icon svgIcon="sidebar" [title]="!toggleSideBar ? 'Sidebar' : ''"></mat-icon>
+            <a class="app-sidebar__link" *ngIf="toggleSideBar">Sidebar</a>
+        </mat-list-option>
+    </mat-selection-list>
+    <div class="app-sidebar__toggle" (click)="toggleSideBar = !toggleSideBar" [ngStyle]="{ 'align-self': toggleSideBar ? 'flex-end' : 'flex-start' }">
+        <mat-icon svgIcon="chevron-double-right" [ngStyle]="{ 'transform': toggleSideBar ? 'rotate(180deg)' : 'rotate(0deg)' }">
+        </mat-icon>
+    </div>
+</mat-drawer-container>

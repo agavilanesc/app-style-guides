@@ -1,0 +1,6 @@
+.modal-single,
+.modal-confirm { @include modal; }
+
+.modal-widget-add { @include modal-widget-add; }
+
+.modal-widget-settings { @include modal-widget-settings; }

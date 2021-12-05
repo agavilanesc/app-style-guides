@@ -1,0 +1,289 @@
+<div class="row">
+    <section class="col-md-10">
+        <div class="cards-demo mt-4">
+            <div class="cards-demo__container">
+                <p>
+                    Son componentes para mostrar información resumida de un trámite o requerimiento.
+                </p>
+                <div class="row">
+                    <div class="col-md-5">
+                        <app-card [card]="cards[0]" *ngIf="cards"></app-card>
+                    </div>
+                </div>
+                <p>
+                    Creamos el componente a traves de la terminal, con el comando <code>ng generate component</code>
+                </p>
+                <pre class="language-shell-session code-toolbar"><code class="language-shell-session">ng generate component shared/components/card --skip-tests</code></pre>
+                <p>
+                    Una vez creado el componente, agregamos la siguiente estructura <code>html</code>
+                </p>
+                <pre class="language-html code-toolbar"><code class="language-html">&lt;div class="card card-chart card-raised"&gt;
+    &lt;div class="card-header card-header-primary" data-header-animation="true"&gt;
+        &lt;div class="ct-chart" id="dailySalesChart"&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="card-body"&gt;
+        &lt;h4 class="card-title"&gt;Título del card&lt;/h4&gt;
+        &lt;p class="card-notify-container card-category small"&gt;
+            &lt;span class="text-success"&gt;&lt;mat-icon svgIcon="arrow_upward"&gt;&lt;/mat-icon&gt; 55% &lt;/span&gt; párrafo del card.
+            &lt;span class="card-notify"&gt;&lt;mat-icon svgIcon="chat-square-text"&gt;&lt;/mat-icon&gt;&lt;/span&gt;
+        &lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="card-footer"&gt;
+        &lt;div class="stats"&gt;
+            &lt;mat-icon svgIcon="access_time" class="mat-icon-smaller"&gt;&lt;/mat-icon&gt;actualizado hace 5 minutos.
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                <p>
+                    Hay que tener en cuenta que este componente debe ir dentro de las estructuras de filas y columnnas de <b>Bootstrap.</b>
+                </p>
+                <pre class="language-html code-toolbar"><code class="language-html">&lt;div class="row" &gt;
+    &lt;div class="col-md-5"&gt;
+        &lt;card&gt;&lt;/card&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                <hr *ngIf="indexDocument" [attr.id]="indexDocument[0].element_id">
+                <h2 class="color-first light-title">Colores de los cards</h2>
+                <p>
+                    Podemos agregar colores para dar una mejor personalización a los cards.
+                </p>
+                <p>
+                    Tendremos que añadir las siguientes clases dependiendo de su contexto: <code>card-header-primary</code>, <code>card-header-info</code>, <code>card-header-warning</code>, <code>card-header-rose</code>,<br>
+                    <code>card-header-success</code> o <code>card-header-danger</code>
+                </p>
+                <pre class="language-html code-toolbar"><code class="language-html">&lt;div class="card card-chart"&gt;
+    &lt;div class="card-header card-header-primary"&gt;
+        &lt;div class="ct-chart d-flex justify-content-between"&gt;
+            &lt;h1 class="title3 white"&gt;CARD-CODE&lt;/h1&gt;
+            &lt;h2 class="title3 white"&gt;CARD-CODE&lt;/h2&gt;
+        &lt;/div&gt;
+        &lt;h2 class="normal white"&gt;Título de la cabecera&lt;/h2&gt;
+        &lt;p class="small white"&gt;Subtitulo de la cabecera&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="card-body"&gt;
+        &lt;h4 class="card-title"&gt;Título del card&lt;/h4&gt;
+        &lt;p class="card-notify-container card-category small"&gt;
+            &lt;span class="text-success"&gt;&lt;mat-icon svgIcon="arrow_upward"&gt;&lt;/mat-icon&gt; 55% &lt;/span&gt; párrafo del card.
+            &lt;span class="card-notify"&gt;&lt;mat-icon svgIcon="chat-square-text"&gt;&lt;/mat-icon&gt;&lt;/span&gt;
+        &lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="card-footer"&gt;
+        &lt;div class="stats"&gt;
+            &lt;mat-icon svgIcon="access_time" class="mat-icon-smaller"&gt;&lt;/mat-icon&gt;actualizado hace 5 minutos.
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                <div class="row">
+                    <div class="col-md-4">
+                        <app-card [card]="cards[1]" *ngIf="cards"></app-card>
+                    </div>
+                    <div class="col-md-4">
+                        <app-card [card]="cards[2]" *ngIf="cards"></app-card>
+                    </div>
+                    <div class="col-md-4">
+                        <app-card [card]="cards[3]" *ngIf="cards"></app-card>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <app-card [card]="cards[4]" *ngIf="cards"></app-card>
+                    </div>
+                    <div class="col-md-4">
+                        <app-card [card]="cards[5]" *ngIf="cards"></app-card>
+                    </div>
+                    <div class="col-md-4">
+                        <app-card [card]="cards[6]" *ngIf="cards"></app-card>
+                    </div>
+                </div>
+                <hr *ngIf="indexDocument" [attr.id]="indexDocument[1].element_id">
+                <h2 class="color-first light-title">Elevación</h2>
+                <p>
+                    Podemos agregar una pequeña elevación al card añadiendo la clase <code>card-raised</code>
+                </p>
+                <pre class="language-html code-toolbar"><code class="language-html">&lt;div class="card card-chart card-raised"&gt;
+    &lt;div class="card-header card-header-info"&gt;
+        &lt;div class="ct-chart d-flex justify-content-between"&gt;
+            &lt;h1 class="title3 white"&gt;CARD-CODE&lt;/h1&gt;
+            &lt;h2 class="title3 white"&gt;CARD-CODE&lt;/h2&gt;
+        &lt;/div&gt;
+        &lt;h2 class="normal white"&gt;Título de la cabecera&lt;/h2&gt;
+        &lt;p class="small white"&gt;Subtitulo de la cabecera&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="card-body"&gt;
+        &lt;h4 class="card-title"&gt;Título del card&lt;/h4&gt;
+        &lt;p class="card-notify-container card-category small"&gt;
+            &lt;span class="text-success"&gt;&lt;mat-icon svgIcon="arrow_upward"&gt;&lt;/mat-icon&gt; 55% &lt;/span&gt; párrafo del card.
+            &lt;span class="card-notify"&gt;&lt;mat-icon svgIcon="chat-square-text"&gt;&lt;/mat-icon&gt;&lt;/span&gt;
+        &lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="card-footer"&gt;
+        &lt;div class="stats"&gt;
+            &lt;mat-icon svgIcon="access_time" class="mat-icon-smaller"&gt;&lt;/mat-icon&gt;actualizado hace 5 minutos.
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                <div class="row">
+                    <div class="col-md-5">
+                        <app-card [card]="cards[7]" *ngIf="cards"></app-card>
+                    </div>
+                    <div class="col-md-5">
+                        <app-card [card]="cards[8]" *ngIf="cards"></app-card>
+                    </div>
+                </div>
+                <hr *ngIf="indexDocument" [attr.id]="indexDocument[2].element_id">
+                <h2 class="color-first light-title">Cards Estadisticos</h2>
+                <p>
+                    Para incluir un gráfico estadistico en el card, tendremos que añadir un atributo <code>id</code> e incluir la programación del grafico en el archivo <code>card.component.ts</code>
+                </p>
+
+                <!-- Inicio Tab -->
+                <mat-tab-group class="tab" animationDuration="0ms">
+                    <mat-tab label="card.component.html">
+                        <ng-template matTabContent>
+                            <pre class="language-html code-toolbar"><code class="language-html">&lt;div class="card card-chart card-raised"&gt;
+    &lt;div class="card-header card-header-warning"&gt;
+        &lt;div class="ct-chart" id="completedTasksChart"&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="card-body"&gt;
+        &lt;h4 class="card-title"&gt;Título del card&lt;/h4&gt;
+        &lt;p class="card-notify-container card-category small"&gt;
+            &lt;span class="text-success"&gt;&lt;mat-icon svgIcon="arrow_upward"&gt;&lt;/mat-icon&gt; 55% &lt;/span&gt; párrafo del card.
+            &lt;span class="card-notify"&gt;&lt;mat-icon svgIcon="chat-square-text"&gt;&lt;/mat-icon&gt;&lt;/span&gt;
+        &lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="card-footer"&gt;
+        &lt;div class="stats"&gt;
+            &lt;mat-icon svgIcon="access_time" class="mat-icon-smaller"&gt;&lt;/mat-icon&gt;actualizado hace 5 minutos.
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                            {{getContentLoaded(1)}}
+                        </ng-template>
+                    </mat-tab>
+                    <mat-tab label="card.component.ts">
+                        <ng-template matTabContent>
+                            <pre class="language-JavaScript scroll scroll--dark"><code class="language-JavaScript">import &#123; Component, OnInit &#125; from '@angular/core';
+import * as Chartist from '../../../../assets/js/chartist.js';
+
+@Component(&#123;
+    selector: 'card',
+    templateUrl: './card.component.html',
+    styleUrls: ['./card.component.scss']
+&#125;)
+
+export class CardComponent implements OnInit &#123;
+
+    constructor() &#123; &#125;
+
+    startAnimationForLineChart(chart) &#123;
+        let seq: any, delays: any, durations: any;
+        seq = 0;
+        delays = 80;
+        durations = 500;
+
+        chart.on('draw', function(data) &#123;
+            if ( data.type === 'line' || data.type === 'area' ) &#123;
+                data.element.animate(&#123;
+                    d: &#123;
+                        begin: 600,
+                        dur: 700,
+                        from: data.path.clone().scale(1, 0).translate(0, data.chartRect.height()).stringify(),
+                        to: data.path.clone().stringify(),
+                        easing: Chartist.Svg.Easing.easeOutQuint
+                    &#125;
+                &#125;);
+            &#125; else if ( data.type === 'point' ) &#123;
+                seq++;
+                data.element.animate(&#123;
+                    opacity: &#123;
+                        begin: seq * delays,
+                        dur: durations,
+                        from: 0,
+                        to: 1,
+                        easing: 'ease'
+                    &#125;
+                &#125;);
+            &#125;
+        &#125;);
+        seq = 0;
+    &#125;;
+
+    ngOnInit(): void &#123;
+        const dataCompletedTasksChart: any = &#123;
+            labels: ['12p', '3p', '6p', '9p', '12p', '3a', '6a', '9a'],
+            series: [
+                [230, 750, 450, 300, 280, 240, 200, 190]
+            ]
+        &#125;;
+        const optionsCompletedTasksChart: any = &#123;
+            lineSmooth: Chartist.Interpolation.cardinal(&#123;
+                tension: 0
+            &#125;),
+            low: 0,
+            high: 1000,
+            chartPadding: &#123; top: 0, right: 0, bottom: 0, left: 0&#125;
+        &#125;;
+
+        if ( document.querySelectorAll('#completedTasksChart').length > 0 ) &#123;
+            const completedTasksChart = new Chartist.Line('#completedTasksChart', dataCompletedTasksChart, optionsCompletedTasksChart);
+
+            this.startAnimationForLineChart(completedTasksChart);
+        &#125;
+    &#125;
+&#125;</code></pre>
+                            {{getContentLoaded(2)}}
+                        </ng-template>
+                    </mat-tab>
+                </mat-tab-group>
+                <!-- Fin Tab -->
+                <div class="row">
+                    <div class="col-md-5">
+                        <app-card [card]="cards[9]" *ngIf="cards"></app-card>
+                    </div>
+                    <div class="col-md-5">
+                        <app-card [card]="cards[10]" *ngIf="cards"></app-card>
+                    </div>
+                </div>
+                <hr *ngIf="indexDocument" [attr.id]="indexDocument[3].element_id">
+                <h2 class="color-first light-title">Cards Animados</h2>
+                <p>
+                    Para agregar una animación añadimos el atributo <code>data-header-animation="true"</code>
+                </p>
+                <pre class="language-html code-toolbar"><code class="language-html">&lt;div class="card card-chart card-raised"&gt;
+    &lt;div class="card-header card-header-primary" data-header-animation="true"&gt;
+        &lt;div class="ct-chart d-flex justify-content-between"&gt;
+            &lt;h1 class="title3 white"&gt;CARD-CODE&lt;/h1&gt;
+            &lt;h2 class="title3 white"&gt;CARD-CODE&lt;/h2&gt;
+        &lt;/div&gt;
+        &lt;h2 class="normal white"&gt;Título de la cabecera&lt;/h2&gt;
+        &lt;p class="small white"&gt;Subtitulo de la cabecera&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="card-body"&gt;
+        &lt;h4 class="card-title"&gt;Título del card&lt;/h4&gt;
+        &lt;p class="card-notify-container card-category small"&gt;
+            &lt;span class="text-success"&gt;&lt;mat-icon svgIcon="arrow_upward"&gt;&lt;/mat-icon&gt; 55% &lt;/span&gt; párrafo del card.
+            &lt;span class="card-notify"&gt;&lt;mat-icon svgIcon="chat-square-text"&gt;&lt;/mat-icon&gt;&lt;/span&gt;
+        &lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="card-footer"&gt;
+        &lt;div class="stats"&gt;
+            &lt;mat-icon svgIcon="access_time" class="mat-icon-smaller"&gt;&lt;/mat-icon&gt;actualizado hace 5 minutos.
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                <div class="row">
+                    <div class="col-md-5">
+                        <app-card [card]="cards[11]" *ngIf="cards"></app-card>
+                    </div>
+                    <div class="col-md-5">
+                        <app-card [card]="cards[12]" *ngIf="cards"></app-card>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <app-index-document class="col-md-2 mt-4" [indexDocument]="indexDocument">
+    </app-index-document>
+</div>

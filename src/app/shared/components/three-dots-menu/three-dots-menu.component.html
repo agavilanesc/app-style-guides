@@ -1,0 +1,14 @@
+<button mat-button [matMenuTriggerFor]="menu" class="three-dots-menu button nano color-light">
+    <mat-icon svgIcon="three-dots"></mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+    <button *ngFor="let item of items" 
+            mat-menu-item 
+            class="three-dots-menu-item" 
+            [ngClass]="{ 'menu-item-settings' : item.icon == 'settings' }" 
+            (click)="onClickMenu(item)"
+            [disabled]="item.disabled">
+        <mat-icon *ngIf="item.icon" svgIcon="{{item.icon}}"></mat-icon>        
+        <span>{{item.title}}</span>
+    </button>
+</mat-menu>

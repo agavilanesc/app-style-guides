@@ -1,0 +1,30 @@
+//layout
+$max-width : 1200px;
+$gutter    : 1rem;
+
+:root {
+    --header-height          : #{rem(40px)};
+    --toolbar-height         : #{rem(100px)};
+    --main-height            : 100vh;
+    --footer-height          : 10vh;
+    --sidebar-item-width     : #{rem(200px)};
+    --vertical-content-space : 1rem; 
+}
+  
+// z-index
+$z-back    : -10;
+$z-normal  : 1;
+$z-tooltip : 10;
+$z-fixed   : 100;
+$z-modal   : 1000;
+
+:root {
+    --z-back    : #{$z-back};
+    --z-normal  : #{$z-normal};
+    --z-tooltip : #{$z-tooltip};
+    --z-fixed   : #{$z-fixed};
+    --z-modal   : #{$z-modal};
+}
+
+// Images path
+$images-path: 'ruta-logo';

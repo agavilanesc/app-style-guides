@@ -1,0 +1,23 @@
+/**
+* ENVIAR AL CSS DEL MENU INDEX
+*/
+.navigation-index { 
+    position: sticky;
+    top: 0;
+    padding-left: 0;
+    background-color: var(--color-body);
+    border-radius: 4px;
+}
+.navigation-index__menu {
+    background-color: white;
+    padding: 1em 1.5em;
+
+    & ul { 
+        list-style: none; 
+        padding: 0 1rem;
+    }
+    & a { 
+        text-decoration: none; 
+        color: var(--color-first-alt);
+    }
+}

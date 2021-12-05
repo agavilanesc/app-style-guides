@@ -1,0 +1,24 @@
+$input-width  : 100%;
+$input-height : 2em;
+
+$input-border-radius-none   : 0 !default;
+$input-border-radius        : 4px !default;
+$input-border-radius-left   : 4px !default;
+$input-border-radius-right  : 4px !default;
+$input-border-radius-top    : 4px !default;
+$input-border-radius-bottom : 4px !default;
+$input-border-radius-x      : 4px !default;
+$input-border-radius-y      : 4px !default;
+
+$input-padding-none   : 0 !default;
+$input-padding-left   : .8em !default;
+$input-padding-right  : .8em !default;
+$input-padding-top    : .5em !default;
+$input-padding-bottom : .5em !default;
+$input-padding-x      : .8em !default;
+$input-padding-y      : .5em !default;
+
+:root {
+    --input-width  : #{$input-width};
+    --input-height : #{$input-height};
+}

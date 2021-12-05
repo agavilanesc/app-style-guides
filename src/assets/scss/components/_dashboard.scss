@@ -1,0 +1,44 @@
+.dashboard-container { min-height : $dashboard-height; }
+.dashboard-menu-container { 
+    display         : flex;
+    justify-content : flex-end;
+    align-items     : center;
+    height          : var(--header-height);
+}
+.dashboard__item { 
+    margin-bottom : $dashboard-item-margin-bottom;
+    z-index       : var(--z-tooltip);
+
+    &:focus { outline : none }
+}
+
+.draggable-source--is-dragging { 
+    //display          : inline-block;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width            : $dashboard-item-dropzone-width;
+    height           : $dashboard-item-dropzone-height;
+    border           : 3px dashed var(--color-border);
+    background-color : var(--color-light);
+    padding-top      : $dashboard-item-dropzone-padding-top !important;
+    cursor           : grabbing;
+    
+    &::before {
+        content         : "Arrastre el widget aquí";
+        display         : flex;
+        justify-content : center;
+        font-size       : var(--h2-font-size);
+        font-family     : var(--body-font);
+        color           : var(--color-border);
+    }
+
+    & .widget-container { display: none; }
+}
+.dashboard__dropzone { 
+    margin-bottom : 0 !important; 
+
+    &:focus { outline : none }
+}

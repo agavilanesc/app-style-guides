@@ -1,0 +1,187 @@
+<div class="row">
+    <section class="col-md-10">
+        <div class="widget-demo mt-4">
+            <div class="widget-demo__container">
+                <p>
+                    Son pequeños componentes UI que proveen funcionalidades usadas frecuentemente o información visual.<br>
+                    Se debe colocar dentro de un componente <code>Dashboard</code>
+                </p>
+                <div class="row">
+                    <section class="col-7 dashboard__dropzone">
+                        <app-widget *ngFor="let widget of widgets" 
+                            [attr.id]="widget.widget_id" [widget]="widget" 
+                            class="dashboard__item widget-normal"
+                            (widgetEventEmitter)="removeWidget()">
+                        </app-widget>
+                    </section>
+                </div>
+                <hr *ngIf="indexDocument" [attr.id]="indexDocument[0].element_id">
+                <h2 class="light-title color-first">Crear clase Widget</h2>
+                <p>
+                    Debemos crear una clase <b>Widget</b> para utilizarla como modelo de datos.
+                </p>
+                <p>
+                    Creamos la clase a traves de la terminal, con el comando <code>ng generate class</code>.
+                </p>
+                <pre class="language-shell-session"><code class="language-shell-session">ng generate class shared/models/Widget --skip-tests</code></pre>
+                <p>
+                    En el archivo <code>widget.ts</code>, definimos los atributos que utilizará este componente.
+                </p>
+                <pre class="language-JavaScript"><code class="language-JavaScript">export class Widget &#123;
+    widget_id: string;
+    title: string;
+    section: string;
+    order: number;
+    class: WidgetClass;
+&#125;
+
+export class WidgetClass &#123;
+    class_header: string;
+    class_body: string;
+    class_color: string;
+&#125;
+                </code></pre>
+                <hr *ngIf="indexDocument" [attr.id]="indexDocument[1].element_id">
+                <h2 class="light-title color-first">Crear componente Menú Widget</h2>
+                <p>
+                    Debemos crear el componente <b>widgetMenu</b> que contiene el menú de acciones del <b>Widget</b>.
+                </p>
+                <pre class="language-shell-session"><code class="language-shell-session">ng generate component shared/components/widgetMenu --skip-tests</code></pre>
+                <p>
+                    En el archivo <code>widget-menu.component.html</code>, agregamos la siguiente estructura <b>html.</b>
+                </p>
+                <pre class="language-html"><code class="language-html">&lt;mat-icon [matMenuTriggerFor]="menu" class="icon-settings" svgIcon="three-dots">&lt;/mat-icon&gt;
+&lt;mat-menu #menu="matMenu"&gt;
+    &lt;button class="widget-menu-item widget-color-picker"&gt;
+        &lt;span (click)="changeColor('widget-color-blue')" class="widget-color-picker__item widget-color-blue" [ngClass]="&#123;'color-selected':widget.class.class_color === 'widget-color-blue'&#125;"&gt;&lt;/span&gt;
+        &lt;span (click)="changeColor('widget-color-orange')" class="widget-color-picker__item widget-color-orange" [ngClass]="&#123;'color-selected':widget.class.class_color === 'widget-color-orange'&#125;"&gt;&lt;/span&gt;
+        &lt;span (click)="changeColor('widget-color-green')" class="widget-color-picker__item widget-color-green" [ngClass]="&#123;'color-selected':widget.class.class_color === 'widget-color-green'&#125;"&gt;&lt;/span&gt;
+        &lt;span (click)="changeColor('widget-color-skyblue')" class="widget-color-picker__item widget-color-skyblue" [ngClass]="&#123;'color-selected':widget.class.class_color === 'widget-color-skyblue'&#125;"&gt;&lt;/span&gt;
+        &lt;span (click)="changeColor('widget-color-yellow')" class="widget-color-picker__item widget-color-yellow" [ngClass]="&#123;'color-selected':widget.class.class_color === 'widget-color-yellow'&#125;"&gt;&lt;/span&gt;
+        &lt;span (click)="changeColor('widget-color-cyan')" class="widget-color-picker__item widget-color-cyan" [ngClass]="&#123;'color-selected':widget.class.class_color === 'widget-color-cyan'&#125;"&gt;&lt;/span&gt;
+        &lt;span (click)="changeColor('widget-color-purple')" class="widget-color-picker__item widget-color-purple" [ngClass]="&#123;'color-selected':widget.class.class_color === 'widget-color-purple'&#125;"&gt;&lt;/span&gt;
+        &lt;span (click)="changeColor('widget-color-pink')" class="widget-color-picker__item widget-color-pink" [ngClass]="&#123;'color-selected':widget.class.class_color === 'widget-color-pink'&#125;"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button mat-menu-item class="widget-menu-item" (click)="eventTrigger()"&gt;Quitar&lt;/button&gt;
+    &lt;button mat-menu-item class="widget-menu-item menu-item-settings"&gt;
+        &lt;span&gt;Configurar...&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/mat-menu&gt;
+                </code></pre>
+                <p>
+                    En el archivo <code>widget-menu.component.ts</code>, agregamos el siguiente código.
+                </p>
+                <pre class="language-JavaScript"><code class="language-JavaScript">import &#123; Component, OnInit, Input, Output, EventEmitter &#125; from '@angular/core';
+import &#123; Widget &#125; from 'src/app/shared/models/widget';
+
+@Component(&#123;
+    selector: 'widget-menu',
+    templateUrl: './widget-menu.component.html',
+    styleUrls: ['./widget-menu.component.scss']
+&#125;)
+export class WidgetMenuComponent implements OnInit &#123;
+
+    constructor() &#123; &#125;
+    
+    @Input() widget: Widget;
+    @Output() removeWidgetEvent: EventEmitter&lt;any&gt; = new EventEmitter&lt;any&gt;();
+
+    ngOnInit(): void &#123; &#125;
+
+    changeColor(color: string): void &#123; this.widget.class.class_color = color; &#125;
+
+    eventTrigger() &#123; this.removeWidgetEvent.emit(); &#125;
+&#125;
+                </code></pre>
+                <hr *ngIf="indexDocument" [attr.id]="indexDocument[2].element_id">
+                <h2 class="light-title color-first">Crear componente Widget</h2>
+                <p>
+                    Finalmente creamos el componente <b>widget</b> con el comando <code>ng generate component</code>.
+                </p>
+                <pre class="language-shell-session"><code class="language-shell-session">ng generate component shared/components/widget --skip-tests</code></pre>
+                <p>
+                    En el archivo <code>widget.component.html</code>, agregamos la siguiente estructura <b>html.</b>
+                </p>
+                <pre class="language-html"><code class="language-html">&lt;article [class]="widget.class.class_color" class="widget-container"&gt;
+    &lt;header [class]="widget.class.class_header"&gt;
+        &lt;h6 class="heading-font smaller white"&gt; &#123; &#123; widget.title &#125; &#125; &lt;/h6&gt;
+        &lt;fieldset class="widget-header__actions"&gt;
+            &lt;mat-icon class="icon-move" svgIcon="arrows-move"&gt;&lt;/mat-icon&gt;
+            &lt;mat-icon class="icon-maximize" (click)="maximize()" svgIcon="box-arrow-up-right"&gt;&lt;/mat-icon&gt;
+            &lt;mat-icon class="icon-restore hidden" (click)="restore()" svgIcon="box-arrow-in-down-left"&gt;&lt;/mat-icon&gt;
+            &lt;widget-menu *ngIf="widget" [widget]="widget" (removeWidgetEvent)="remove()"&gt;&lt;/widget-menu&gt;
+        &lt;/fieldset&gt;
+    &lt;/header&gt;
+    &lt;div [class]="widget.class.class_body"&gt;
+        Contenido del widget
+    &lt;/div&gt;
+&lt;/article&gt;
+                </code></pre>
+                <p>
+                    En el archivo <code>widget.component.ts</code>, agregamos el siguiente código.
+                </p>
+                <pre class="language-JavaScript"><code class="language-JavaScript">import &#123; Component, OnInit, Input, Output, EventEmitter &#125; from '@angular/core';
+import &#123; Widget &#125; from '../../models/widget';
+
+@Component(&#123;
+    selector: 'widget',
+    templateUrl: './widget.component.html',
+    styleUrls: ['./widget.component.scss']
+&#125;)
+export class WidgetComponent implements OnInit &#123;
+    isMaximized: boolean = false;
+
+    @Input() widget: Widget;
+    @Output() widgetEventEmitter: EventEmitter&lt;Widget&gt; = new EventEmitter&lt;Widget&gt;();
+    
+    ngOnInit(): void &#123;
+    &#125;
+
+    constructor() &#123; &#125;
+
+    maximize() &#123;
+        const dashboardItem = document.querySelectorAll(".dashboard__item");
+        const currentItem = document.getElementById(this.widget.widget_id);
+        const iconMove = document.querySelector(`#$&#123;this.widget.widget_id&#125; .widget-header__actions .icon-move`);
+        const iconMaximize = document.querySelector(`#$&#123;this.widget.widget_id&#125; .widget-header__actions .icon-maximize`);
+        const iconRestore = document.querySelector(`#$&#123;this.widget.widget_id&#125; .widget-header__actions .icon-restore`);
+
+        dashboardItem.forEach( $item => $item.classList.add("hidden"));
+        currentItem.parentElement.classList.add("col-12");
+        currentItem.classList.add("widget-maximized");
+        currentItem.classList.remove("hidden");
+        iconMove.classList.add("hidden");
+        iconMaximize.classList.add("hidden");
+        iconRestore.classList.remove("hidden");
+
+        this.isMaximized = !this.isMaximized;
+    &#125;
+
+    restore() &#123;
+        const dashboardItem = document.querySelectorAll(".dashboard__item");
+        const currentItem = document.getElementById(this.widget.widget_id);
+        const iconMove = document.querySelector(`#$&#123;this.widget.widget_id&#125; .widget-header__actions .icon-move`);
+        const iconMaximize = document.querySelector(`#$&#123;this.widget.widget_id&#125; .widget-header__actions .icon-maximize`);
+        const iconRestore = document.querySelector(`#$&#123;this.widget.widget_id&#125; .widget-header__actions .icon-restore`);
+
+        dashboardItem.forEach( $item => $item.classList.remove("hidden"));
+        currentItem.parentElement.classList.remove("col-12");
+        currentItem.classList.remove("widget-maximized");
+        iconMove.classList.remove("hidden");
+        iconMaximize.classList.remove("hidden");
+        iconRestore.classList.add("hidden");
+        
+        this.isMaximized = !this.isMaximized;
+    &#125;
+
+    remove() &#123;
+        this.widgetEventEmitter.emit(this.widget);
+    &#125;
+&#125;
+                </code></pre>
+            </div>
+        </div>
+    </section>
+    <app-index-document class="col-md-2 mt-4" [indexDocument]="indexDocument">
+    </app-index-document>
+</div>

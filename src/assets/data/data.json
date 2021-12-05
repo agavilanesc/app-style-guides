@@ -1,0 +1,862 @@
+{
+    "menu" : {
+        "index" : [
+            {
+                "label"      : "Menú de la aplicación",
+                "element_id" : "app_menu",
+                "url"        : "pages/menu#app_menu"
+            },
+            {
+                "label"      : "Menú Principal",
+                "element_id" : "main_menu",
+                "url"        : "pages/menu#main_menu"
+            },
+            {
+                "label"      : "Menú de tres puntos",
+                "element_id" : "three_dots_menu",
+                "url"        : "pages/menu#three_dots_menu"
+            },
+            {
+                "label"      : "Crear servicio para cargar los ítems del Menú",
+                "element_id" : "menu_service",
+                "url"        : "pages/menu#menu_service"
+            }
+        ],
+        "data" : []
+    },
+    "app-menu" : {
+        "index" : [],
+        "data" : [
+            {
+                "icon"     : "local_shipping",
+                "title"    : "Aplicación de Transporte",
+                "action"   : "",
+                "url"      : "#",
+                "disabled" : false,
+                "children" : []
+            },
+            {
+                "icon"     : "local_airport",
+                "title"    : "Aplicación de Tolepu",
+                "action"   : "",
+                "url"      : "#",
+                "disabled" : false,
+                "children" : []
+            },
+            {
+                "icon"     : "sap",
+                "title"    : "Informes de SAP",
+                "action"   : "",
+                "url"      : "#",
+                "disabled" : false,
+                "children" : []
+            },
+            {
+              "icon"     : "settings",
+              "title"    : "Configurar...",
+              "action"   : "",
+              "url"      : "#",
+              "disabled" : false,
+              "children" : []
+            }
+        ]
+    },
+    "main-menu" : {
+        "index" : [],
+        "data" : [
+            {
+                "icon"      : "",
+                "title"     : "Vertebrates",
+                "action"    : "",
+                "url"       : "",
+                "disabled"  : false,
+                "children"  : [
+                    {
+                        "icon"     : "",
+                        "title"    : "Fishes",
+                        "action"   : "",
+                        "url"      : "",
+                        "disabled" : false,
+                        "children" : [
+                            {
+                                "icon"     : "",
+                                "title"    : "Baikal oilfish",
+                                "action"   : "",
+                                "url"      : "",
+                                "disabled" : true,
+                                "children" : []
+                            },
+                            {
+                                "icon"     : "",
+                                "title"    : "Bala shark",
+                                "action"   : "",
+                                "url"      : "",
+                                "disabled" : false,
+                                "children" : []
+                            },
+                            {
+                                "icon"     : "",
+                                "title"    : "Ballan wrasse",
+                                "action"   : "",
+                                "url"      : "",
+                                "disabled" : true,
+                                "children" : []
+                            },
+                            {
+                                "icon"     : "",
+                                "title"    : "Bamboo shark",
+                                "action"   : "",
+                                "url"      : "",
+                                "disabled" : false,
+                                "children" : []
+                            },
+                            {
+                                "icon"     : "",
+                                "title"    : "Banded killifish",
+                                "action"   : "",
+                                "url"      : "",
+                                "disabled" : false,
+                                "children" : []
+                            }
+                        ]
+                    },
+                    {
+                        "icon"     : "",
+                        "title"    : "Amphibians",
+                        "action"   : "",
+                        "url"      : "",
+                        "disabled" : false,
+                        "children" : [
+                            {
+                                "icon"     : "",
+                                "title"    : "Sonoran desert toad",
+                                "action"   : "",
+                                "url"      : "",
+                                "disabled" : false,
+                                "children" : []
+                            },
+                            {
+                                "icon"     : "",
+                                "title"    : "Western toad",
+                                "action"   : "",
+                                "url"      : "",
+                                "disabled" : false,
+                                "children" : []
+                            },
+                            {
+                                "icon"     : "",
+                                "title"    : "Arroyo toad",
+                                "action"   : "",
+                                "url"      : "",
+                                "disabled" : false,
+                                "children" : []
+                            },
+                            {
+                                "icon"     : "",
+                                "title"    : "Yosemite toad",
+                                "action"   : "",
+                                "url"      : "",
+                                "disabled" : false,
+                                "children" : []
+                            }
+                        ]
+                    },
+                    {
+                        "icon"     : "",
+                        "title"    : "Reptiles",
+                        "action"   : "",
+                        "url"      : "",
+                        "disabled" : false,
+                        "children" : [
+                            {
+                                "icon"     : "",
+                                "title"    : "Banded Day Gecko",
+                                "action"   : "",
+                                "url"      : "",
+                                "disabled" : false,
+                                "children" : []
+                            },
+                            {
+                                "icon"     : "",
+                                "title"    : "Banded Gila Monster",
+                                "action"   : "",
+                                "url"      : "",
+                                "disabled" : false,
+                                "children" : []
+                            },
+                            {
+                                "icon"     : "",
+                                "title"    : "Black Tree Monitor",
+                                "action"   : "",
+                                "url"      : "",
+                                "disabled" : false,
+                                "children" : []
+                            },
+                            {
+                                "icon"     : "",
+                                "title"    : "Blue Spiny Lizard",
+                                "action"   : "",
+                                "url"      : "",
+                                "disabled" : false,
+                                "children" : []
+                            },
+                            {
+                                "icon"     : "",
+                                "title"    : "Velociraptor",
+                                "action"   : "",
+                                "url"      : "",
+                                "disabled" : false,
+                                "children" : []
+                            }
+                        ]
+                    },
+                    {
+                        "icon"     : "",
+                        "title"    : "Birds",
+                        "action"   : "",
+                        "url"      : "",
+                        "disabled" : false,
+                        "children" : []
+                    },
+                    {
+                        "icon"     : "",
+                        "title"    : "Mammals",
+                        "action"   : "",
+                        "url"      : "",
+                        "disabled" : false,
+                        "children" : []
+                    }
+                ]
+            },
+            {
+                "icon"     : "",
+                "title"    : "Invertebrates",
+                "action"   : "",
+                "url"      : "",
+                "disabled" : false,
+                "children" : [
+                    {
+                        "icon"     : "",
+                        "title"    : "Insects",
+                        "action"   : "",
+                        "url"      : "",
+                        "disabled" : false,
+                        "children" : []
+                    },
+                    {
+                        "icon"     : "",
+                        "title"    : "Molluscs",
+                        "action"   : "",
+                        "url"      : "",
+                        "disabled" : false,
+                        "children" : []
+                    },
+                    {
+                        "icon"     : "",
+                        "title"    : "Crustaceans",
+                        "action"   : "",
+                        "url"      : "",
+                        "disabled" : false,
+                        "children" : []
+                    },
+                    {
+                        "icon"     : "",
+                        "title"    : "Corals",
+                        "action"   : "",
+                        "url"      : "",
+                        "disabled" : false,
+                        "children" : []
+                    },
+                    {
+                        "icon"     : "",
+                        "title"    : "Arachnids",
+                        "action"   : "",
+                        "url"      : "",
+                        "disabled" : false,
+                        "children" : []
+                    },
+                    {
+                        "icon"     : "",
+                        "title"    : "Velvet worms",
+                        "action"   : "",
+                        "url"      : "",
+                        "disabled" : false,
+                        "children" : []
+                    },
+                    {
+                        "icon"     : "",
+                        "title"    : "Horseshoe crabs",
+                        "action"   : "",
+                        "url"      : "",
+                        "disabled" : false,
+                        "children" : []
+                    }
+                ]
+            }
+        ]
+    },
+    "settings-menu" : {
+        "index" : [],
+        "data" : [
+            {
+                "icon"   : "facebook",
+                "title"  : "Ir a Facebook",
+                "action" : "goToFacebook",
+                "url"    : ""
+            },
+            {
+                "icon"   : "twitter",
+                "title"  : "Ir a Twitter",
+                "action" : "goToTwitter",
+                "url"    : ""
+            },
+            {
+                "icon"   : "instagram",
+                "title"  : "Ir a Instagram",
+                "action" : "goToInstagram",
+                "url"    : ""
+            }
+        ]
+    },
+    "buttons" : {
+        "index" : [
+            {
+                "label"      : "Alineado y espaciado",
+                "element_id" : "margin_padding",
+                "url"        : "pages/buttons#margin_padding"
+            },
+            {
+                "label"      : "Botones de colores",
+                "element_id" : "button_colors",
+                "url"        : "pages/buttons#button_colors"
+            },
+            {
+                "label"      : "Botones transparentes",
+                "element_id" : "button_ghost",
+                "url"        : "pages/buttons#button_ghost"
+            },
+            {
+                "label"      : "Tamaños",
+                "element_id" : "button_sizes",
+                "url"        : "pages/buttons#button_sizes"
+            },
+            {
+                "label"      : "Botón desactivado",
+                "element_id" : "button_disabled",
+                "url"        : "pages/buttons#button_disabled"
+            }
+        ]
+    },
+    "colors" : { 
+        "index" : [],
+        "data"  : [
+            {
+                "name"    : "Primario",
+                "class"   : "card-color color-first",
+                "value"   : "hsl(216, 49, 15)",
+                "css_var" : "--color-first"
+            },
+            {
+                "name"    : "Primario Alt",
+                "class"   : "card-color color-first-alt",
+                "value"   : "hsl(216, 49, 10)",
+                "css_var" : "--color-first-alt"
+            },
+            {
+                "name"    : "Secundario",
+                "class"   : "card-color color-second",
+                "value"   : "hsl(195, 100, 35)",
+                "css_var" : "--color-second"
+            },
+            {
+                "name"    : "Secundario Alt",
+                "class"   : "card-color color-second-alt",
+                "value"   : "hsl(197, 77, 50)",
+                "css_var" : "--color-second-alt"
+            },
+            {
+                "name"    : "Alterno",
+                "class"   : "card-color color-third",
+                "value"   : "hsl(204, 100, 35)",
+                "css_var" : "--color-third"
+            },
+            {
+                "name"    : "Alterno Alt",
+                "class"   : "card-color color-third-alt",
+                "value"   : "hsl(204, 100, 30)",
+                "css_var" : "--color-third-alt"
+            },
+            {
+                "name"    : "Enfasis",
+                "class"   : "card-color color-accent",
+                "value"   : "hsl(38, 100, 60)",
+                "css_var" : "--color-accent"
+            },
+            {
+                "name"    : "Enfasis Alt",
+                "class"   : "card-color color-accent-alt",
+                "value"   : "hsl(38, 100, 55)",
+                "css_var" : "--color-accent-alt"
+            },
+            {
+                "name"    : "Claro",
+                "class"   : "card-color color-light",
+                "value"   : "hsl(218, 14, 89)",
+                "css_var" : "--color-light"
+            },
+            {
+                "name"    : "Claro Alt",
+                "class"   : "card-color color-light-alt",
+                "value"   : "hsl(199, 24, 80)",
+                "css_var" : "--color-light-alt"
+            },
+            {
+                "name"    : "Oscuro",
+                "class"   : "card-color color-dark",
+                "value"   : "hsl(218, 25, 35)",
+                "css_var" : "--color-dark"
+            },
+            {
+                "name"    : "Oscuro Alt",
+                "class"   : "card-color color-dark-alt",
+                "value"   : "hsl(218, 24, 25)",
+                "css_var" : "--color-dark-alt"
+            },
+            {
+                "name"    : "Cancelar",
+                "class"   : "card-color color-cancel",
+                "value"   : "hsl(220, 10, 90)",
+                "css_var" : "--color-cancel"
+            },
+            {
+                "name"    : "Cancelar Alt",
+                "class"   : "card-color color-cancel-alt",
+                "value"   : "hsl(220, 10, 80)",
+                "css_var" : "--color-cancel-alt"
+            },
+            {
+                "name"    : "Éxito",
+                "class"   : "card-color color-success",
+                "value"   : "hsl(144, 75, 35)",
+                "css_var" : "--color-success"
+            },
+            {
+                "name"    : "Éxito Alt",
+                "class"   : "card-color color-success-alt",
+                "value"   : "hsl(145, 100, 90)",
+                "css_var" : "--color-success-alt"
+            },
+            {
+                "name"    : "Peligro",
+                "class"   : "card-color color-danger",
+                "value"   : "hsl(356, 86, 50)",
+                "css_var" : "--color-danger"
+            },
+            {
+                "name"    : "Peligro Alt",
+                "class"   : "card-color color-danger-alt",
+                "value"   : "hsl(355, 100, 95)",
+                "css_var" : "--color-danger-alt"
+            },
+            {
+                "name"    : "Borde",
+                "class"   : "card-color color-border",
+                "value"   : "hsl(0, 3, 85)",
+                "css_var" : "--color-border"
+            },
+            {
+                "name"    : "Texto",
+                "class"   : "card-color color-text",
+                "value"   : "hsl(218, 25, 35)",
+                "css_var" : "--color-text"
+            },
+            {
+                "name"    : "Body",
+                "class"   : "card-color color-body",
+                "value"   : "hsl(220, 16, 96)",
+                "css_var" : "--color-body"
+            },
+            {
+                "name"    : "Body Alt",
+                "class"   : "card-color color-body-alt",
+                "value"   : "hsl(240, 60, 99)",
+                "css_var" : "--color-body-alt"
+            },
+            {
+                "name"    : "Inactivo",
+                "class"   : "card-color color-disabled",
+                "value"   : "rgba(0,0,0,.38)",
+                "css_var" : "--color-disabled"
+            }
+        ]
+    },
+    "typography" : {
+        "index" : [
+            {
+                "label"      : "Tamaño de fuentes",
+                "element_id" : "font_size",
+                "url"        : "pages/typography#font_size"
+            },
+            {
+                "label"      : "Clases para los títulos",
+                "element_id" : "class_title",
+                "url"        : "pages/typography#class_title"
+            },
+            {
+                "label"      : "Clases para los contenidos",
+                "element_id" : "class_content",
+                "url"        : "pages/typography#class_content"
+            },
+            {
+                "label"      : "Regular, Negrita, Ligera y Cursiva",
+                "element_id" : "class_style_font",
+                "url"        : "pages/typography#class_style_font"
+            },
+            {
+                "label"      : "Colores de fuentes",
+                "element_id" : "class_color",
+                "url"        : "pages/typography#class_color"
+            }
+        ],
+        "data" : []
+    },
+    "forms" : {
+        "index" : [
+            {
+                "label"      : "Campos de Entrada",
+                "element_id" : "inputs",
+                "url"        : "pages/forms#inputs"
+            },
+            {
+                "label"      : "Campos de Selección",
+                "element_id" : "select",
+                "url"        : "pages/forms#select"
+            }
+        ],
+        "data" : []
+    },
+    "expand" : {
+        "index" : [
+            {
+                "label"      : "Panel de Expansión Agrupado",
+                "element_id" : "expand_group",
+                "url"        : "pages/expansion-panel#expand_group"
+            }
+        ],
+        "data" : []
+    },
+    "cards" : { 
+        "index" : [
+            {
+                "label"      : "Colores de los cards",
+                "element_id" : "card_colors",
+                "url"        : "pages/cards#card_colors"
+            },
+            {
+                "label"      : "Elevación",
+                "element_id" : "card_raised",
+                "url"        : "pages/cards#card_raised"
+            },
+            {
+                "label"      : "Cards Estadisticos",
+                "element_id" : "card_statistical",
+                "url"        : "pages/cards#card_statistical"
+            },
+            {
+                "label"      : "Cards Animados",
+                "element_id" : "card_animated",
+                "url"        : "pages/cards#card_animated"
+            }
+        ],
+        "data"  : [
+            {
+                "code_left"       : "",
+                "code_right"      : "",
+                "header_title"    : "",
+                "header_subtitle" : "",
+                "body_title"      : "Título del card",
+                "body_paragraph"  : "Párrafo del card",
+                "chart_id"        : "dailySalesChart",
+                "last_updated"    : "actualizado hace 5 minutos.",
+                "class"           : {
+                    "class_type"     : "card card-chart card-raised",
+                    "class_color"    : "card-header card-header-primary",
+                    "class_animated" : "true"
+                }
+            },
+            {
+                "code_left"       : "COD-CARD",
+                "code_right"      : "COD-CARD",
+                "header_title"    : "Título de la cabecera",
+                "header_subtitle" : "Subtitulo de la cabecera",
+                "body_title"      : "Título del card",
+                "body_paragraph"  : "Párrafo del card",
+                "chart_id"        : "",
+                "last_updated"    : "actualizado hace 4 minutes",
+                "class"           : {
+                    "class_type"     : "card card-chart",
+                    "class_color"    : "card-header card-header-primary",
+                    "class_animated" : "false"
+                }
+            },
+            {
+                "code_left"       : "COD-CARD",
+                "code_right"      : "COD-CARD",
+                "header_title"    : "Título de la cabecera",
+                "header_subtitle" : "Subtitulo de la cabecera",
+                "body_title"      : "Título del card",
+                "body_paragraph"  : "Párrafo del card",
+                "chart_id"        : "",
+                "last_updated"    : "actualizado hace 4 minutes",
+                "class"           : {
+                    "class_type"     : "card card-chart",
+                    "class_color"    : "card-header card-header-info",
+                    "class_animated" : "false"
+                }
+            },
+            {
+                "code_left"       : "COD-CARD",
+                "code_right"      : "COD-CARD",
+                "header_title"    : "Título de la cabecera",
+                "header_subtitle" : "Subtitulo de la cabecera",
+                "body_title"      : "Título del card",
+                "body_paragraph"  : "Párrafo del card",
+                "chart_id"        : "",
+                "last_updated"    : "actualizado hace 4 minutes",
+                "class"           : {
+                    "class_type"     : "card card-chart",
+                    "class_color"    : "card-header card-header-warning",
+                    "class_animated" : "false"
+                }
+            },
+            {
+                "code_left"       : "COD-CARD",
+                "code_right"      : "COD-CARD",
+                "header_title"    : "Título de la cabecera",
+                "header_subtitle" : "Subtitulo de la cabecera",
+                "body_title"      : "Título del card",
+                "body_paragraph"  : "Párrafo del card",
+                "chart_id"        : "",
+                "last_updated"    : "actualizado hace 4 minutes",
+                "class"           : {
+                    "class_type"     : "card card-chart",
+                    "class_color"    : "card-header card-header-rose",
+                    "class_animated" : "false"
+                }
+            },
+            {
+                "code_left"       : "COD-CARD",
+                "code_right"      : "COD-CARD",
+                "header_title"    : "Título de la cabecera",
+                "header_subtitle" : "Subtitulo de la cabecera",
+                "body_title"      : "Título del card",
+                "body_paragraph"  : "Párrafo del card",
+                "chart_id"        : "",
+                "last_updated"    : "actualizado hace 4 minutes",
+                "class"           : {
+                    "class_type"     : "card card-chart",
+                    "class_color"    : "card-header card-header-success",
+                    "class_animated" : "false"
+                }
+            },
+            {
+                "code_left"       : "COD-CARD",
+                "code_right"      : "COD-CARD",
+                "header_title"    : "Título de la cabecera",
+                "header_subtitle" : "Subtitulo de la cabecera",
+                "body_title"      : "Título del card",
+                "body_paragraph"  : "Párrafo del card",
+                "chart_id"        : "",
+                "last_updated"    : "actualizado hace 4 minutes",
+                "class"           : {
+                    "class_type"     : "card card-chart",
+                    "class_color"    : "card-header card-header-danger",
+                    "class_animated" : "false"
+                }
+            },
+            {
+                "code_left"       : "COD-CARD",
+                "code_right"      : "COD-CARD",
+                "header_title"    : "Título de la cabecera",
+                "header_subtitle" : "Subtitulo de la cabecera",
+                "body_title"      : "Título del card",
+                "body_paragraph"  : "Párrafo del card",
+                "chart_id"        : "",
+                "last_updated"    : "actualizado hace 4 minutes",
+                "class"           : {
+                    "class_type"     : "card card-chart card-raised",
+                    "class_color"    : "card-header card-header-info",
+                    "class_animated" : "false"
+                }
+            },
+            {
+                "code_left"       : "COD-CARD",
+                "code_right"      : "COD-CARD",
+                "header_title"    : "Título de la cabecera",
+                "header_subtitle" : "Subtitulo de la cabecera",
+                "body_title"      : "Título del card",
+                "body_paragraph"  : "Párrafo del card",
+                "chart_id"        : "",
+                "last_updated"    : "actualizado hace 4 minutes",
+                "class"           : {
+                    "class_type"     : "card card-chart card-raised",
+                    "class_color"    : "card-header card-header-primary",
+                    "class_animated" : "false"
+                }
+            },
+            {
+                "code_left"       : "",
+                "code_right"      : "",
+                "header_title"    : "",
+                "header_subtitle" : "",
+                "body_title"      : "Título del card",
+                "body_paragraph"  : "Párrafo del card",
+                "chart_id"        : "completedTasksChart",
+                "last_updated"    : "actualizado hace 4 minutes",
+                "class"           : {
+                    "class_type"     : "card card-chart card-raised",
+                    "class_color"    : "card-header card-header-warning",
+                    "class_animated" : "false"
+                }
+            },
+            {
+                "code_left"       : "",
+                "code_right"      : "",
+                "header_title"    : "",
+                "header_subtitle" : "",
+                "body_title"      : "Título del card",
+                "body_paragraph"  : "Párrafo del card",
+                "chart_id"        : "websiteViewsChart",
+                "last_updated"    : "actualizado hace 4 minutes",
+                "class"           : {
+                    "class_type"     : "card card-chart card-raised",
+                    "class_color"    : "card-header card-header-rose",
+                    "class_animated" : "false"
+                }
+            },
+            {
+                "code_left"       : "COD-CARD",
+                "code_right"      : "COD-CARD",
+                "header_title"    : "Título de la cabecera",
+                "header_subtitle" : "Subtitulo de la cabecera",
+                "body_title"      : "Título del card",
+                "body_paragraph"  : "Párrafo del card",
+                "chart_id"        : "",
+                "last_updated"    : "actualizado hace 4 minutes",
+                "class"           : {
+                    "class_type"     : "card card-chart card-raised",
+                    "class_color"    : "card-header card-header-primary",
+                    "class_animated" : "true"
+                }
+            },
+            {
+                "code_left"       : "COD-CARD",
+                "code_right"      : "COD-CARD",
+                "header_title"    : "Título de la cabecera",
+                "header_subtitle" : "Subtitulo de la cabecera",
+                "body_title"      : "Título del card",
+                "body_paragraph"  : "Párrafo del card",
+                "chart_id"        : "",
+                "last_updated"    : "actualizado hace 4 minutes",
+                "class"           : {
+                    "class_type"     : "card card-chart card-raised",
+                    "class_color"    : "card-header card-header-success",
+                    "class_animated" : "true"
+                }
+            }
+        ] 
+    },
+    "tabs" : {
+        "index" : [
+            {
+                "label"      : "Tabs verticales",
+                "element_id" : "tab_vertical",
+                "url"        : "pages/tabs#tab_vertical"
+            }
+        ],
+        "data" : []
+    },
+    "sidebar" : {
+        "index" : [],
+        "data"  : ""
+    },
+    "widgets" : {
+        "index" : [
+            {
+                "label"      : "Crear clase Widget",
+                "element_id" : "class_widget",
+                "url"        : "pages/widgets#class_widget"
+            },
+            {
+                "label"      : "Crear componente Menú Widget",
+                "element_id" : "component_menu_widget",
+                "url"        : "pages/widgets#component_menu_widget"
+            },
+            {
+                "label"      : "Crear componente Widget",
+                "element_id" : "component_widget",
+                "url"        : "pages/widgets#component_widget"
+            }
+        ],
+        "data"  : [
+            {
+                "widget_id" : "widget-1",
+                "title" : "Título del widget 1",
+                "section" : "left",
+                "class" : {
+                    "class_header": "widget-header",
+                    "class_body" : "widget-content",
+                    "class_color" : "widget-color-green"
+                },
+                "order" : 1
+            },
+            {
+                "widget_id" : "widget-2",
+                "title" : "Título del widget 2",
+                "section" : "right",
+                "class" : {
+                    "class_header": "widget-header",
+                    "class_body" : "widget-content",
+                    "class_color" : "widget-color-blue"
+                },
+                "order" : 1
+            },
+            {
+                "widget_id" : "widget-3",
+                "title" : "Título del widget 3",
+                "section" : "left",
+                "class" : {
+                    "class_header": "widget-header",
+                    "class_body" : "widget-content",
+                    "class_color" : "widget-color-orange"
+                },
+                "order" : 2
+            },
+            {
+                "widget_id" : "widget-4",
+                "title" : "Título del widget 4",
+                "section" : "right",
+                "class" : {
+                    "class_header": "widget-header",
+                    "class_body" : "widget-content",
+                    "class_color" : "widget-color-pink"
+                },
+                "order" : 2
+            }
+        ]
+    },
+    "dashboard" : {
+        "index" : [
+            {
+                "label"      : "Crear componente Dashboard",
+                "element_id" : "component_dashboard",
+                "url"        : "pages/dashboard#component_dashboard"
+            },
+            {
+                "label"      : "Crear Servicio para cargar los widgets",
+                "element_id" : "dashboard_load_widgets",
+                "url"        : "pages/dashboard#dashboard_load_widgets"
+            }
+        ]
+    }
+}

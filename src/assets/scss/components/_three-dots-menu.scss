@@ -1,0 +1,22 @@
+.mat-button.three-dots-menu {
+    & .mat-icon svg { 
+        width  : 1.3em;
+        margin : 0 .3em;
+    }
+
+    &--vertical,
+    &--vertical:active {
+        transform: rotate(90deg) !important; 
+
+        & svg {
+            width  : 1.2em;
+        }
+    }
+}
+.mat-menu-item.three-dots-menu-item {
+    @include menu-item;
+    @include small;
+
+    & .mat-icon { margin-right: .5em; }
+    line-height: 2.2em;
+}

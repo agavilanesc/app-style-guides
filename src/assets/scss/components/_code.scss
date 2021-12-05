@@ -1,0 +1,12 @@
+//Estilos para la etiqueta code
+
+:not(pre) code {
+    @include small;
+    
+    font-family : Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
+    background  : var(--color-light);
+    color       : var(--color-code);
+    padding     : 0 .25em;
+    margin      : 0 .1em;
+    word-break  : break-all;
+}

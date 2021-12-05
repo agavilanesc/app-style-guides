@@ -1,0 +1,14 @@
+<div class="modal-single">
+    <header class="modal-single__header">
+        <h2 class="modal-single__title">{{messageDialog.title}}</h2>
+        <mat-icon svgIcon="close" class="modal-single__close color-text" (click)="cancel()"></mat-icon>
+    </header>
+    <section class="modal-single__content">
+        <mat-icon svgIcon="question" class="modal-single__icon color-first"></mat-icon>
+        <label>{{messageDialog.message}}</label>
+    </section>
+    <footer class="modal-single__actions">
+        <button mat-button class="button color-first smaller mr-2" (click)="ok()">Aceptar</button>
+        <button mat-button class="button color-cancel smaller" (click)="ok()">Cancelar</button>
+    </footer>
+</div>

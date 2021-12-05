@@ -1,0 +1,68 @@
+body {
+  display        : flex;
+  flex-direction : column;
+  min-height     : 100vh;
+}
+
+// Encabezados
+h1, h2, h3, h4, h5, h6 {
+  margin-top    : 0;
+  margin-bottom : var(--vertical-content-space);
+}
+
+h1 {
+  //margin-bottom : calc(var(--vertical-content-space) * 1.5) !important;
+}
+
+// Separación entre secciones de contenido
+p,
+video,
+blockquote,
+article,
+section,
+form,
+figure,
+iframe,
+ul,
+ol,
+pre,
+hr,
+dl,
+address,
+table,
+nav {
+  margin-top    : 0;
+  margin-bottom : calc(var(--vertical-content-space) * 1.5) !important;
+}
+
+// Eliminar separaciones
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+  margin-bottom : 0;
+}
+
+.main { 
+  scroll-behavior  : smooth;
+  background-color : var(--color-body);
+  margin-top       : var(--header-height);
+  max-height       : calc(var(--main-height) - var(--header-height));
+  overflow         : auto;
+}
+.main-footer {
+  display         : flex;
+  justify-content : flex-end;
+  align-items     : center;
+  height          : var(--footer-height);
+  border-top      : 1.2px solid var(--color-border);
+  padding         : 2em;
+}
+.separator { border-bottom : 2px solid var(--color-border); }
+//.separator { border-bottom : 2px solid rgba(122,134,154,.40); }
+.mat-icon-smaller { 
+  width        : 16px !important;
+  height       : 16px !important;
+  margin-right : .3em;
+ }
+ .hidden { display : none !important; }

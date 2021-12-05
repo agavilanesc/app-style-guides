@@ -1,0 +1,12 @@
+.tab-demo {
+    --main-height   : auto;
+
+    background-color : var(--color-body);
+    width            : 100%;
+    height           : var(--main-height);
+
+    &__container { 
+        padding: 1em;
+        background-color : var(--color-body-alt); 
+    }
+}

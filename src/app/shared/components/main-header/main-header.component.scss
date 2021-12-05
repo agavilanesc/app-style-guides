@@ -1,0 +1,19 @@
+.main-header { 
+    color            : white;
+    background-color : var(--color-first-alt); 
+    height           : var(--header-height);
+    display          : flex;
+    align-items      : center;
+    position         : fixed;
+    z-index          : var(--z-fixed);
+}
+.logo {
+    width            : 200px;
+    height           : var(--header-height);
+    line-height      : var(--header-height);
+    background-color : var(--color-first-alt);
+    color            : white;
+    text-align       : center;
+    margin           : 0 !important;
+    cursor           : pointer;
+}

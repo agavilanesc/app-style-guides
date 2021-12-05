@@ -1,0 +1,52 @@
+@mixin menu {
+    background-color : inherit;
+    color   : white;
+    border  : none;
+    cursor  : pointer;
+    outline : none;
+
+    & .mat-icon {
+        width  : auto;
+        height : auto;
+
+        & svg { 
+            width       : var(--smaller-font-size);
+            height      : var(--smaller-font-size);
+            margin-left : .5em;
+        }
+    }
+    
+    &:hover { 
+        background-color : var(--color-third); 
+        color : white;
+    }
+}
+@mixin menu-item {
+    --menu-line-height : #{$menu-line-height};
+
+    color       : var(--color-text);
+    height      : var(--menu-line-height);
+    line-height : var(--menu-line-height);
+    outline     : none;
+
+    & .mat-icon { 
+        width  : var(--normal-font-size);
+        height : var(--normal-font-size);
+        color  : var(--color-text);
+    } 
+
+    &:hover,
+    &:hover .mat-icon {
+        --color : var(--color-first);
+
+        background-color : var(--color);
+        color : white !important;
+    }
+
+    &[disabled],
+    &[disabled] .mat-icon { color : var(--color-disabled) }
+    &.menu-item-settings  { 
+        border-top: 1px solid var(--color-border);
+        color : var(--color-third);   
+    }
+}

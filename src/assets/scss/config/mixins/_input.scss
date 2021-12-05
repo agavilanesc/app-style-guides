@@ -1,0 +1,45 @@
+@mixin input {
+    width            : var(--input-width);
+    height           : var(--input-height);
+    color            : var(--color-text);
+    border           : 1px solid var(--color-border);
+    padding          : #{$input-padding-y} #{$input-padding-x};
+    border-radius    : #{$input-border-radius};
+    background-color : var(--color-input);
+
+    &:disabled { 
+        color            : #{lighten($color-text, 10%)};
+        background-color : var(--color-input-disabled);
+        border-color     : var(--color-border-disabled);
+
+        & ~ .show-datepicker { 
+            color            : var(--color-border);
+            background-color : var(--color-input-disabled);
+            border-color     : var(--color-border-disabled); 
+            border-left      : none;
+        }
+    }    
+    &::placeholder { 
+        font-weight: 300;
+        color: var(--color-placeholder); 
+    }
+    &:hover,
+    &:focus { outline: none; }
+    &:hover:disabled { cursor: pointer; }
+}
+
+@mixin show-icon {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2em;
+    height: 100%;
+    padding: .3em;
+    border: 1px solid var(--color-light);
+    background-color: #E9ECEF;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;    
+}

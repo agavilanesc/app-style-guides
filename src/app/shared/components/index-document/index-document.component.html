@@ -1,0 +1,10 @@
+<nav class="navigation-index small">
+    <section class="navigation-index__menu">
+        <h3 class="title3 color-first">En esta página</h3>
+        <hr>
+        <ul *ngIf="indexDocument">
+            <li><a href="#" (click)="goHome($event)">Inicio</a></li>
+            <li *ngFor="let index of indexDocument"><a [href]="index.url">{{index.label}}</a></li>
+        </ul>
+    </section>
+</nav>

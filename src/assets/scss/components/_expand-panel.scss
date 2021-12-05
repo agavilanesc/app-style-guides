@@ -1,0 +1,25 @@
+.mat-expansion-panel.expand-panel {
+    background-color: var(--color-body-alt);
+    box-shadow: none;
+
+    & .mat-expansion-panel-header {
+        height: 2.3em;
+        
+        &.mat-expanded { 
+            height: 2.3em;
+            
+            & .mat-expansion-indicator { transform: rotate(360deg) !important; }
+        }
+        & .mat-content { order: 1; }
+        & .mat-expansion-indicator { 
+            margin-right: .5em; 
+            color: var(--color-first);
+            transform: rotate(270deg) !important;
+            transition: all .2s linear;
+
+            &::after { color: var(--color-first); }
+        }
+    }
+
+    &:not(.mat-expanded) .mat-expansion-panel-header:hover:not([aria-disabled=true]) { background: none; }
+}

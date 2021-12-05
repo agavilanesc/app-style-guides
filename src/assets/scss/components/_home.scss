@@ -1,0 +1,7 @@
+.home {
+    display         : flex;
+    flex-direction  : column;
+    justify-content : center;
+    align-items     : center;
+    height          : calc(var(--main-height) - var(--header-height) - var(--footer-height) - var(--toolbar-height) - 2em);
+}

@@ -1,0 +1,18 @@
+$widget-colors: (
+    color         : (hsl(161, 100, 26), hsl(240, 60, 99)),
+    color-green   : (hsl(161, 100, 26), lighten(hsl(161, 100, 26), 72%)),
+    color-blue    : (hsl(214, 100, 32), lighten(hsl(214, 100, 32), 65%)),
+    color-orange  : (hsl(29, 97, 55),   lighten(hsl(29, 97, 55), 43%)),
+    color-skyblue : (hsl(220, 78, 63),  lighten(hsl(220, 78, 63), 34%)),
+    color-yellow  : (hsl(38, 100, 68),  lighten(hsl(38, 100, 68), 30%)),
+    color-cyan    : (hsl(189, 100, 37), lighten(hsl(189, 100, 37), 60%)),
+    color-purple  : (hsl(293, 59, 42),  lighten(hsl(293, 59, 42), 55%)),
+    color-pink    : (hsl(339, 78, 53),  lighten(hsl(339, 78, 53), 45%))
+);
+
+@each $color, $value in $widget-colors {
+  :root { 
+    --widget-header-#{$color} : #{nth($value, 1)}; 
+    --widget-body-#{$color}   : #{nth($value, 2)}; 
+  }
+}

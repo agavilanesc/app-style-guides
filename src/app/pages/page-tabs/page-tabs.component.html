@@ -1,0 +1,105 @@
+<div class="row">
+    <section class="col-md-10">
+        <div class="tab-demo mt-4">
+            <div class="tab-demo__container">
+                <p>
+                    Use los tabs para segmentar y organizar el contenido utilizando un mismo bloque de espacio visible.
+                </p>
+                <div class="row">
+                    <div class="col-md-12">
+                        <app-tab></app-tab>
+                    </div>
+                </div>
+                <p>
+                    Creamos el componente a traves de la terminal, con el comando <code>ng generate component</code>.
+                </p>
+                <pre class="language-shell-session code-toolbar"><code class="language-shell-session">ng generate component shared/components/tab --skip-tests</code></pre>
+                <p>
+                    Una vez creado el componente, agregamos la siguiente estructura <code>html</code>
+                </p>
+                <pre class="language-html code-toolbar"><code class="language-html">&lt;mat-tab-group class="tab" animationDuration="0ms"&gt;
+    &lt;mat-tab label="Tab Uno"&gt;
+        &lt;ng-template matTabContent&gt;
+            &lt;p&gt;Contenido Uno&lt;/p&gt;
+            &#123; &#123; getContentLoaded(1) &#125; &#125;
+        &lt;/ng-template&gt;
+    &lt;/mat-tab&gt;
+    &lt;mat-tab label="Tab Dos"&gt;
+        &lt;ng-template matTabContent&gt;
+            &lt;p&gt;Contenido Dos&lt;/p&gt;
+            &#123; &#123; getContentLoaded(2) &#125; &#125;
+        &lt;/ng-template&gt;
+    &lt;/mat-tab&gt;
+&lt;/mat-tab-group&gt;</code></pre>
+                <p>
+                    Hay que tener en cuenta que este componente debe ir dentro de las estructuras de filas y columnnas de <b>Bootstrap.</b>
+                </p>
+                <pre class="language-html code-toolbar"><code class="language-html">&lt;div class="row" &gt;
+    &lt;div class="col-md-5"&gt;
+        &lt;tab&gt;&lt;/tab&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                <p>
+                    En el archivo <code>tab.component.ts</code> añadir la siguiente programación.
+                </p>
+                <pre class="language-JavaScript code-toolbar"><code class="language-JavaScript">import &#123; Component, OnInit &#125; from '@angular/core';
+                    
+@Component(&#123;
+    selector: 'tab',
+    templateUrl: './tab.component.html',
+    styleUrls: ['./tab.component.scss']
+&#125;)
+
+export class TabComponent implements OnInit &#123;
+
+    tabLoadContent: string[] = [];
+
+    constructor() &#123; &#125;
+
+    ngOnInit(): void &#123;
+    &#125;;
+
+    getContentLoaded(index: number) &#123;
+        if ( !this.tabLoadContent[index] ) &#123;
+            this.tabLoadContent[index] = '';
+        &#125;
+
+        return this.tabLoadContent[index];
+    &#125;
+&#125;</code></pre>
+                <hr *ngIf="indexDocument" [attr.id]="indexDocument[0].element_id">
+                <h2 class="color-first light-title">Tab Verticales</h2>
+                <div class="row">
+                    <div class="col-md-12">
+                        <app-tab-vertical></app-tab-vertical>
+                    </div>
+                </div>
+                <p>
+                    Podemos usar tabs en modo vertical solamente con agregar la clase <code>tab-vertical</code>
+                </p>
+                <pre class="language-html code-toolbar"><code class="language-html">&lt;mat-tab-group class="tab tab-vertical" animationDuration="0ms"&gt;
+    &lt;mat-tab label="Tab Uno"&gt;
+        &lt;ng-template matTabContent&gt;
+            &lt;p&gt;Contenido Uno&lt;/p&gt;
+            &#123; &#123; getContentLoaded(1) &#125; &#125;
+        &lt;/ng-template&gt;
+    &lt;/mat-tab&gt;
+    &lt;mat-tab label="Tab Dos"&gt;
+        &lt;ng-template matTabContent&gt;
+            &lt;p&gt;Contenido Dos&lt;/p&gt;
+            &#123; &#123; getContentLoaded(2) &#125; &#125;
+        &lt;/ng-template&gt;
+    &lt;/mat-tab&gt;
+    &lt;mat-tab label="Tab Tres"&gt;
+        &lt;ng-template matTabContent&gt;
+            &lt;p&gt;Contenido Tres&lt;/p&gt;
+            &#123; &#123; getContentLoaded(3) &#125; &#125;
+        &lt;/ng-template&gt;
+    &lt;/mat-tab&gt;
+&lt;/mat-tab-group&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+    <app-index-document class="col-md-2 mt-4" [indexDocument]="indexDocument">
+    </app-index-document>
+</div>

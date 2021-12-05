@@ -1,0 +1,25 @@
+<div class="row">
+    <section class="col-md-10 mx-auto">
+        <div class="colors-demo mt-4">
+            <div class="row colors-demo__container">
+                <span class="color-text mt-3 ml-3">Esta es la paleta de colores:</span>
+            </div>
+            <div class="row colors-demo__container">
+                <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let color of colors">
+                    <div class="card card-raised">
+                        <div [class]="color.class">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title title3 text-center">{{color.name}}</h3>
+                            <p class="card-category">
+                                <span class="color-text"><b>Valor:</b></span> {{color.value}}<br>
+                                <span class="color-text"><b>CSS var:</b></span> <code>{{color.css_var}}</code>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
